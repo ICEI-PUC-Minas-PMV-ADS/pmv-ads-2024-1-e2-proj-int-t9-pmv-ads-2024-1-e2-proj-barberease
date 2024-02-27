@@ -1,11 +1,11 @@
 # BarberEase
 
-`CURSO`
-Análise e Desenvolvimento de Sistemas  
-`DISCIPLINA`
-Projeto
-`SEMESTRE`
-Segundo Semestre
+`Análise e Desenvolvimento de Sistemas`
+  
+`Projeto`
+
+`Segundo Semestre`
+
 
 Desenvolver um sistema de reservas online projetado para uma barbearia 
 moderna que deseja oferecer aos seus clientes a conveniência de agendar 
