@@ -8,19 +8,12 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+João Silva, 32 anos, consultor de marketing ocupado e profissional. Valoriza eficiência e qualidade em seus compromissos. Busca uma barbearia com sistema de agendamento online para evitar esperas, serviços de alta qualidade e conveniência. Prefere tratamento personalizado e está disposto a pagar por isso. 
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Ana é uma advogada bem-sucedida e determinada, que se destaca em seu campo profissional. Ela se preocupa com sua aparência e gosta de manter um visual elegante e bem cuidado.Ana é uma cliente fiel quando encontra uma barbearia que atenda às suas necessidades e expectativas. Ela está disposta a pagar mais por um serviço de alta qualidade e valoriza a conveniência e a personalização.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+Carlos é um barbeiro talentoso e dedicado, apaixonado por seu ofício desde sempre. Ele trabalha em uma barbearia tradicional, onde ele é reconhecido por sua habilidade excepcional e atendimento amigável. Carlos está sempre em busca de maneiras de melhorar a experiência de seus clientes e tornar seu trabalho mais eficiente. Carlos é um profissional dedicado que se preocupa com a satisfação de seus clientes e está sempre em busca de maneiras de melhorar seu serviço. Ele está aberto a adotar novas tecnologias, como um sistema de agendamento online, desde que isso o ajude a aprimorar sua prática e oferecer um serviço de alta qualidade.
+
 
 ## Histórias de Usuários
 
