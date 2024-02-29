@@ -12,10 +12,15 @@ O contexto abrange a dinâmica operacional de barbearias modernas, destacando a 
 
 - Objetivo Geral:
   - Desenvolver um software de reserva online para solucionar os desafios identificados no agendamento de serviços em barbearias.
+  - Otimizar a comunicação entre os clientes e a barbearia, promovendo uma interação mais eficiente e transparente.
+  - Aumentar as vendas e ampliar o alcance das barbearias, atraindo novos clientes e aumentando a visibilidade por meio da aplicação.
 
 - Objetivos Específicos:
   - Implementar uma interface amigável e intuitiva para facilitar o agendamento pelos clientes.
   - Integrar funcionalidades que permitam à barbearia gerenciar eficientemente as reservas e otimizar sua operação.
+  - Aumentar a satisfação do cliente ao proporcionar a conveniência de selecionar horários de acordo com sua própria disponibilidade.
+  - Oferecer personalização ao cliente, permitindo que escolha seu barbeiro favorito, horários de preferência e serviços específicos, garantindo uma melhor experiência.
+  - Maximizar a eficiência dos barbeiros por meio do controle de suas agendas e disponibilidade de tempo.
 
 ## Justificativa
 
