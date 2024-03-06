@@ -51,6 +51,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-007 | A aplicação deve permitir ao estabelecimento fazer login na sua conta. | ALTA |
 | RF-008 | A aplicação deve permitir ao estabelecimento visualizar informações de agendamentos dos clientes. | ALTA |
 | RF-009 | A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. | MÉDIA |
+| RF-010 | A aplicação deve permitir ao administrador do sistema adicionar, remover e editar estabelecimentos parceiros. | ALTA |
+| RF-011 | A aplicação deve permitir ao administrador do sistema adicionar, remover e editar os serviços oferecidos pelos estabelecimentos. | ALTA |
+
 
 > **Prioridade: Alta / Média / Baixa.
 
@@ -64,7 +67,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-003 | A aplicação deve ter um alto tempo de atividade para que os usuários possam acessá-la sempre que precisarem. | MÉDIA |
 | RNF-004 | A aplicação deve ser projetada de forma a permitir o uso por pessoas com deficiências visuais, motoras ou auditivas, e para todos os tipos de dispositivos, computador desktop, notebook, celular, tablet. | ALTA| 
 | RNF-005 | A aplicação deve ser desenvolvida visando uma fácil manutenção e escalabilidade, para possibilitar uma fácil expansão da mesma. | MÉDIA |
-| RNF-006 | As requisições dos usuários devem ter um tempo de resposta aceitável (de no máximo 5 segundos) | MÉDIA |
+| RNF-006 | As requisições dos usuários devem ter um tempo de resposta aceitável (de no máximo 5 segundos). | BAIXA |
 
 > **Prioridade: Alta / Média / Baixa.
 
@@ -84,6 +87,7 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 > **Links Úteis**:
 > - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
 > - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+
 
 ## Diagrama de Casos de Uso
 
