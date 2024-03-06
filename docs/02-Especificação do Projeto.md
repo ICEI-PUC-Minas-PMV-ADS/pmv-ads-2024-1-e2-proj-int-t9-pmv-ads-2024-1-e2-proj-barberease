@@ -51,8 +51,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-007 | A aplicação deve permitir ao estabelecimento fazer login na sua conta. | ALTA |
 | RF-008 | A aplicação deve permitir ao estabelecimento visualizar informações de agendamentos dos clientes. | ALTA |
 | RF-009 | A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. | MÉDIA |
-| RF-010 | A aplicação deve permitir ao administrador do sistema adicionar, remover e editar estabelecimentos parceiros. | ALTA |
-| RF-011 | A aplicação deve permitir ao administrador do sistema adicionar, remover e editar os serviços oferecidos pelos estabelecimentos. | ALTA |
+| RF-010 | A aplicação deve permitir ao administrador do sistema gerenciar estabelecimentos parceiros. | ALTA |
+| RF-011 | A aplicação deve permitir ao administrador do sistema gerenciar os serviços oferecidos pelos estabelecimentos. | ALTA |
+| RF-012 | A aplicação deve permitir ao administrador do sistema gerenciar os dias e horários de atendimento do estabelecimento. | ALTA |
 
 
 > **Prioridade: Alta / Média / Baixa.
