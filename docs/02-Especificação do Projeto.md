@@ -29,9 +29,9 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 | Cliente | visualizar meus agendamentos | confirmar meus horários e serviços marcados |
 | Estabelecimento | logar no site | utilizar os serviços do mesmo |
 | Estabelecimento | desmarcar o horário de um cliente | o caso de não conseguir atender o cliente em determinado horário |
-| Estabelecimento | visualizar os horários e os serviços marcados pelos clientes | ter acesso a seus compromissos |
-| Administrador | adicionar/remover/editar os estabelecimentos parceiros | disponibilizar os estabelecimentos no site |
-| Administrador | adicionar/remover/editar os serviços oferecidos | disponibilizar os serviços para o cliente |
+| Estabelecimento | visualizar os meus agendamentos | ter acesso a seus compromissos |
+| Administrador do sistema | gerenciar os estabelecimentos parceiros | disponibilizar os estabelecimentos no site |
+| Administrador do sistema | gerenciar os serviços oferecidos | disponibilizar os serviços para o cliente |
 
 
 ## Requisitos
@@ -92,13 +92,8 @@ Enumere as restrições à sua solução. Lembre-se de que as restrições geral
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+O diagrama de casos de uso foi feito utilizando o [**Diagrams**](https://app.diagrams.net/) e pode ser visualizado logo abaixo, juntamente com o link para visualização em tempo real do diagrama com suas futuras modificações:
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
+![Diagrama do Caso de Uso para o projeto BarberEase](./img/barberease-usecase-diagram.png)
 
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+> [`Link para o diagrama do caso de uso do projeto`](https://drive.google.com/file/d/1OFFpumQvdSRksNF-r7dSySezViTzgaEa/view?usp=sharing)
