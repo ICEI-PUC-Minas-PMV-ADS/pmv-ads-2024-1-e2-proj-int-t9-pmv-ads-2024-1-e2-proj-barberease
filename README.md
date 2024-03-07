@@ -21,6 +21,7 @@ serviços oferecidos pela barbearia.
 * Sergio Golçalves da Silva Junior
 * Douglas Takemi Kimura
 * William da Silva Rodrigues
+* Moisés Santos
 
 ## Orientador
 
