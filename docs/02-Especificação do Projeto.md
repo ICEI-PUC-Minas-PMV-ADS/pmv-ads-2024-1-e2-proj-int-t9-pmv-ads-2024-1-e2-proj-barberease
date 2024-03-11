@@ -73,15 +73,11 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 | ID | Restrição |
 | -- | --------- |
-| 01 | O projeto deverá ser entregue até o final do semestre |
-| 02 | Não pode ser desenvolvido um módulo de backend |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+| 01 | O projeto deverá ser entregue até o final do semestre, não podendo extrapolar a data de 30/06/2024; |
+| 02 | O projeto deve conter API; |
+| 03 | O sistema deverá se conectar com o banco de dados MySQL; |
+| 04 | O aplicativo deve ser construído no back-end através do CSharp; |
+| 05 | O aplicativo deve ser construído no front-end através de tecnologias como HTML, CSS, JS, Bootstrap (opcional); |
 
 
 ## Diagrama de Casos de Uso
