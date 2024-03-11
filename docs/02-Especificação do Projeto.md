@@ -30,8 +30,6 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 | Estabelecimento | logar no site | utilizar os serviços do mesmo |
 | Estabelecimento | desmarcar o horário de um cliente | o caso de não conseguir atender o cliente em determinado horário |
 | Estabelecimento | visualizar os meus agendamentos | ter acesso a seus compromissos |
-| Administrador do sistema | gerenciar os estabelecimentos parceiros | disponibilizar os estabelecimentos no site |
-| Administrador do sistema | gerenciar os serviços oferecidos | disponibilizar os serviços para o cliente |
 
 
 ## Requisitos
@@ -51,13 +49,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-007 | A aplicação deve permitir ao estabelecimento fazer login na sua conta. | ALTA |
 | RF-008 | A aplicação deve permitir ao estabelecimento visualizar informações de agendamentos dos clientes. | ALTA |
 | RF-009 | A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. | MÉDIA |
-| RF-010 | A aplicação deve permitir ao administrador do sistema gerenciar estabelecimentos parceiros. | ALTA |
-| RF-011 | A aplicação deve permitir ao administrador do sistema gerenciar os serviços oferecidos pelos estabelecimentos. | ALTA |
-| RF-012 | A aplicação deve permitir ao administrador do sistema gerenciar os dias e horários de atendimento do estabelecimento. | ALTA |
-
 
 > **Prioridade: Alta / Média / Baixa.
-
 
 ### Requisitos não Funcionais
 
@@ -65,10 +58,11 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | -- | ---------------------- | ---------- |
 | RNF-001 | Os usuários, devem poder navegar e interagir com a aplicação sem dificuldades. | ALTA | 
 | RNF-002 | As páginas e funcionalidades devem ser carregadas de forma eficiente, proporcionando uma experiência sem atrasos. | ALTA | 
-| RNF-003 | A aplicação deve ter um alto tempo de atividade para que os usuários possam acessá-la sempre que precisarem. | MÉDIA |
-| RNF-004 | A aplicação deve ser projetada de forma a permitir o uso por pessoas com deficiências visuais, motoras ou auditivas, e para todos os tipos de dispositivos, computador desktop, notebook, celular, tablet. | ALTA| 
-| RNF-005 | A aplicação deve ser desenvolvida visando uma fácil manutenção e escalabilidade, para possibilitar uma fácil expansão da mesma. | MÉDIA |
-| RNF-006 | As requisições dos usuários devem ter um tempo de resposta aceitável (de no máximo 5 segundos). | BAIXA |
+| RNF-003 | A aplicação deve estar sempre online, inclusive em finais de semana pois muitos estabelecimentos possuem seu pico de acesso no final de semana. | MÉDIA |
+| RNF-004 | A aplicação deve ser projetada de forma a permitir o uso por pessoas com deficiências visuais, motoras ou auditivas, através de HTML semântico. | ALTA |
+| RNF-005 | A aplicação deve ser projetada para todos os tipos de dispositivos, computador desktop, notebook, celular, tablet através da responsividade. | ALTA | 
+| RNF-006 | A aplicação deve ser desenvolvida visando uma fácil manutenção e escalabilidade, para possibilitar uma fácil expansão da mesma. | MÉDIA |
+| RNF-007 | As requisições dos usuários devem ter um tempo de resposta aceitável (de no máximo 5 segundos). | BAIXA |
 
 > **Prioridade: Alta / Média / Baixa.
 
