@@ -1,3 +1,5 @@
 # Apresentação da Solução
 
-Faça uma apresentação de um resumo de todos o processo de desenvolvimento e no final apresente a solução desenvolvida, usando um pequeno vídeo.
+## Vídeo de 2 minutos sobre o problema e a solução proposta
+
+[Apresentação em Vídeo (2 minutos) - BarberEase](../docs/img/barberease-solution-video.mp4)
