@@ -27,6 +27,7 @@ Com base na análise das personas foram identificadas as seguintes histórias de
 | Cliente | visualizar os serviços oferecidos | selecionar o serviço desejado |
 | Cliente | marcar/desmarcar horário no estabelecimento | encaixar no meu horário do dia a dia |
 | Cliente | visualizar meus agendamentos | confirmar meus horários e serviços marcados |
+| Estabelecimento | cadastrar no site | ter uma conta com as minhas informações |
 | Estabelecimento | logar no site | utilizar os serviços do mesmo |
 | Estabelecimento | desmarcar o horário de um cliente | o caso de não conseguir atender o cliente em determinado horário |
 | Estabelecimento | visualizar os meus agendamentos | ter acesso a seus compromissos |
@@ -46,9 +47,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-004 | A aplicação deve permitir ao cliente escolher os serviços do estabelecimento. | ALTA |
 | RF-005 | A aplicação deve permitir ao cliente visualizar os dias e horários disponíveis para atendimento. | ALTA |
 | RF-006 | A aplicação deve permitir ao cliente agendar seu atendimento com o estabelecimento. | ALTA |
-| RF-007 | A aplicação deve permitir ao estabelecimento fazer login na sua conta. | ALTA |
-| RF-008 | A aplicação deve permitir ao estabelecimento visualizar informações de agendamentos dos clientes. | ALTA |
-| RF-009 | A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. | MÉDIA |
+| RF-007 | A aplicação deve permitir ao estabelecimento cadastrar uma conta. | ALTA |
+| RF-008 | A aplicação deve permitir ao estabelecimento fazer login na sua conta. | ALTA |
+| RF-009 | A aplicação deve permitir ao estabelecimento visualizar informações de agendamentos dos clientes. | ALTA |
+| RF-010 | A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. | MÉDIA |
 
 > **Prioridade: Alta / Média / Baixa.
 
