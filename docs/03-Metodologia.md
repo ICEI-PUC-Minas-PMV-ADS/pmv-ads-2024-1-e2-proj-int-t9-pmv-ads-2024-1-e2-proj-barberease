@@ -51,7 +51,7 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 - In review: lista das tarefas que foram desenvolvidas e estão em análise (code review e testes).
 - Done: nesta lista são colocadas as tarefas finalizadas e as que passaram pelos testes e controle de qualidade, prontas para serem entregues aos usuários.
 
-> O quadro do GitHub no formato **Kanban** está diponível [aqui](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/619) e é apresentado, no estado atual, na figura abaixo:
+> O quadro do GitHub no formato **Kanban** está diponível [aqui](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/825) e é apresentado, no estado atual, na figura abaixo:
 
 ![GitHub Projects BarberEase](./img/gh-kanban-barberease.png)
 
