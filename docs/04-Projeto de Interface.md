@@ -15,15 +15,21 @@ O Fluxo de Usuário (User Flow) abaixo mostra o mapeamento do fluxo de navegaç�
 
 ## Wireframes
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+Home Page
+![Home Page](./img/Wireframes/Home.png)
+Crie sua Conta
+![Home Page](./img/Wireframes/Crie%20sua%20Conta.png)
+Entrar
+![Entrar](./img/Wireframes/Entrar.png)
+Barbearias
+![Barbearias](./img/Wireframes/Barbearias.png)
+Barbearia
+![Barbearia](./img/Wireframes/Barbearia.png)
+Carrinho
+![Carrinho](./img/Wireframes/Carrinho.png)
+Assinatura
+![Assinatura](./img/Wireframes/Assinatura.png)
+Anuncie Conosco
+![Anuncie Conosco](./img/Wireframes/Anuncie%20conosco.png)
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+Os quadrados cinza escuro com bordas arrendondadas serão imagens, já os retangulos cinza claro serão formulários.
