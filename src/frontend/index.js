@@ -54,21 +54,21 @@ function getSecondPage() {
 function changeRoute(initialPage, secondPage) {
   if (secondPage) {
     window.location.replace(
-      `/src/project/index.html?page=${initialPage}&second-page=${secondPage}`
+      `/src/frontend/index.html?page=${initialPage}&second-page=${secondPage}`
     );
     return;
   }
 
-  window.location.replace(`/src/project/index.html?page=${initialPage}`);
+  window.location.replace(`/src/frontend/index.html?page=${initialPage}`);
 }
 
 validateInitialPages();
 validateHomePages();
 
 if (
-  window.location.pathname == "/src/project/index.html" &&
+  window.location.pathname == "/src/frontend/index.html" &&
   window.location.search == ""
 )
   window.location.replace(
-    `/src/project/index.html?page=home&second-page=pagina-inicial`
+    `/src/frontend/index.html?page=home&second-page=pagina-inicial`
   );
