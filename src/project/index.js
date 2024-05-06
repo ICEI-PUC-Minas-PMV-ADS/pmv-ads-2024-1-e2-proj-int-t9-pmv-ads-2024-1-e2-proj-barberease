@@ -64,3 +64,11 @@ function changeRoute(initialPage, secondPage) {
 
 validateInitialPages();
 validateHomePages();
+
+if (
+  window.location.pathname == "/src/project/index.html" &&
+  window.location.search == ""
+)
+  window.location.replace(
+    `/src/project/index.html?page=home&second-page=pagina-inicial`
+  );
