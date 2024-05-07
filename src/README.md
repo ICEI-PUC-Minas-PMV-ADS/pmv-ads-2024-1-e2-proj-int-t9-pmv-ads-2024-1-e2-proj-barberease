@@ -2,9 +2,19 @@
 
 ## Instalação do Site
 
-O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em servidores...
+O site em HTML/CSS/JS é um projeto estático, logo pode ser utilizado tanto em servidores quanto localmente.
+
+A api é feita em C#, em .NET 8, necessário ambos instalados no computador para rodar localmente.
 
 ## Histórico de versões
+
+### [0.1.1] - 07/05/2024
+
+#### Adição de estrutura backend
+
+- Implementada estrutura inicial do backend usando C# com .NET 8
+- Adiciona páginas de login e cadastro
+
 
 ### [0.1.0] - 06/05/2024
 
