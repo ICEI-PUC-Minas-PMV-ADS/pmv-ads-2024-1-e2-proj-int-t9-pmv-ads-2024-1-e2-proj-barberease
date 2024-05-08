@@ -1,3 +1,8 @@
+using BarberEaseApi.Database;
+using BarberEaseApi.Interfaces.Repositories;
+using BarberEaseApi.Interfaces.Services;
+using BarberEaseApi.Repositories;
+using BarberEaseApi.Services;
 using Microsoft.OpenApi.Models;
 
 namespace BarberEaseApi
@@ -6,7 +11,15 @@ namespace BarberEaseApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            // Dependency injection.
             services.AddScoped<AppDbContext>();
+
+            // Repositories
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IClientRepository, ClientRepository>();
+
+            // Services
+            services.AddTransient<IClientService, ClientService>();
 
             services.AddSwaggerGen((options) =>
             {

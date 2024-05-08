@@ -1,9 +1,13 @@
+using BarberEaseApi.Entities;
+using BarberEaseApi.Mappings;
 using Microsoft.EntityFrameworkCore;
 
-namespace BarberEaseApi
+namespace BarberEaseApi.Database
 {
     public class AppDbContext : DbContext
     {
+        public DbSet<ClientEntity> Clients { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "Data Source=db.sqlite3;Pooling=False";
@@ -17,6 +21,8 @@ namespace BarberEaseApi
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ClientEntity>(new ClientMap().Configure);
         }
     }
 }
