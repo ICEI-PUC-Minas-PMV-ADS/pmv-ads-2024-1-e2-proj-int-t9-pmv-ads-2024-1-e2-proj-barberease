@@ -59,6 +59,14 @@
   margin-right: 18px;
 }
 
+.form-fieldset input[type="checkbox"] {
+  accent-color: var(--background-color-02);
+}
+
+.form-fieldset input[type="checkbox"]+label {
+  cursor: pointer;
+}
+
 .submit-btn {
   background: var(--background-color-02);
   border-radius: 10px;
@@ -118,8 +126,8 @@
   color: var(--background-color-03);
 }
 
-.animation-container>a svg {
-  margin-right: 16px;
+.animation-container>a .bi {
+  margin-right: 5px;
 }
 
 @keyframes appear-from-left {

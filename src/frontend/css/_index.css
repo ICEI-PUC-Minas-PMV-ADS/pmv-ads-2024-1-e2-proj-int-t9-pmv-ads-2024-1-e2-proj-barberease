@@ -62,7 +62,8 @@ div[page-name="home"]>#page {
   margin-top: 50px;
 }
 
-button {
+button,
+input[type="checkbox"] {
   cursor: pointer;
 }
 
