@@ -43,6 +43,18 @@ namespace BarberEaseApi
                 });
             });
 
+            // Cors
+            services.AddCors((options) =>
+            {
+                options.AddPolicy("CorsPolicy", (policy) =>
+                {
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             // Api
             services.AddEndpointsApiExplorer();
             services.AddControllers();
@@ -61,7 +73,10 @@ namespace BarberEaseApi
                 });
             }
 
+            app.UseCors("CorsPolicy");
+
             app.UseRouting();
+
             app.UseEndpoints((endpoints) => endpoints.MapControllers());
         }
     }
