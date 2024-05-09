@@ -1,6 +1,8 @@
+using AutoMapper;
 using BarberEaseApi.Database;
 using BarberEaseApi.Interfaces.Repositories;
 using BarberEaseApi.Interfaces.Services;
+using BarberEaseApi.Mappers;
 using BarberEaseApi.Repositories;
 using BarberEaseApi.Services;
 using Microsoft.OpenApi.Models;
@@ -21,6 +23,15 @@ namespace BarberEaseApi
             // Services
             services.AddTransient<IClientService, ClientService>();
 
+            // Mapper
+            var mapperConfig = new MapperConfiguration((cfg) =>
+            {
+                cfg.AddProfile(new DtoToEntityProfile());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // Swagger
             services.AddSwaggerGen((options) =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
@@ -31,6 +42,7 @@ namespace BarberEaseApi
                 });
             });
 
+            // Api
             services.AddEndpointsApiExplorer();
             services.AddControllers();
         }

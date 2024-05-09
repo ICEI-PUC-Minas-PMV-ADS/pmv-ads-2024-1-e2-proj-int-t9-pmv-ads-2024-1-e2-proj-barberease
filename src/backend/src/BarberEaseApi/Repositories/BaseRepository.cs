@@ -62,16 +62,18 @@ namespace BarberEaseApi.Repositories
             }
         }
 
-        public async Task<T?> UpdateAsync(T item)
+        public async Task<T?> UpdateAsync(T item, Guid id)
         {
             try
             {
-                var result = await _dataset.SingleOrDefaultAsync((entity) => entity.Id == item.Id);
+                var result = await _dataset.SingleOrDefaultAsync((entity) => entity.Id == id);
                 if (result == null)
                 {
                     return null;
                 }
 
+                item.Id = result.Id;
+                item.CreatedAt = result.CreatedAt;
                 item.UpdatedAt = DateTime.UtcNow;
 
                 _context.Entry(result).CurrentValues.SetValues(item);

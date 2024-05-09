@@ -15,7 +15,7 @@ namespace BarberEaseApi.Migrations
                 name: "clients",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    id = table.Column<Guid>(type: "TEXT", nullable: false),
                     email = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     hashed_password = table.Column<string>(type: "TEXT", maxLength: 255, nullable: false),
                     first_name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
@@ -28,7 +28,7 @@ namespace BarberEaseApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_clients", x => x.Id);
+                    table.PrimaryKey("PK_clients", x => x.id);
                 });
 
             migrationBuilder.CreateIndex(

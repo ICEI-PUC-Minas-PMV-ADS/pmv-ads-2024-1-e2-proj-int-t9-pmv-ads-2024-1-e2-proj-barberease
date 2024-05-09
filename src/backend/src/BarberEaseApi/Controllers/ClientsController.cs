@@ -1,4 +1,5 @@
 using System.Net;
+using BarberEaseApi.Dtos.Client;
 using BarberEaseApi.Entities;
 using BarberEaseApi.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] ClientEntity client)
+        public async Task<ActionResult> Create([FromBody] ClientDtoCreate client)
         {
             if (!ModelState.IsValid)
             {
@@ -27,6 +28,10 @@ namespace BarberEaseApi.Controllers
             try
             {
                 var result = await _service.Create(client);
+                if (result == null)
+                {
+                    return Conflict();
+                }
                 var link = Url.Link("GetById", new { id = result.Id });
                 var createdUri = link != null ? new Uri(link) : null;
                 return Created(createdUri, result);
@@ -82,8 +87,8 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put([FromBody] ClientEntity client)
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult> Put([FromBody] ClientDtoUpdate client, Guid id)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +97,7 @@ namespace BarberEaseApi.Controllers
 
             try
             {
-                var result = await _service.Update(client);
+                var result = await _service.Update(client, id);
                 if (result == null)
                 {
                     return NotFound();

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarberEaseApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240507234353_InitialClientMigration")]
+    [Migration("20240508221526_InitialClientMigration")]
     partial class InitialClientMigration
     {
         /// <inheritdoc />
@@ -24,7 +24,8 @@ namespace BarberEaseApi.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("id");
 
                     b.Property<string>("City")
                         .IsRequired()

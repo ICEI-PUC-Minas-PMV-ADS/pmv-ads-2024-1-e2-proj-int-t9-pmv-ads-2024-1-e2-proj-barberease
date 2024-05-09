@@ -7,7 +7,7 @@ namespace BarberEaseApi.Interfaces.Repositories
         Task<T> CreateAsync(T item);
         Task<IEnumerable<T>> FindAllAsync();
         Task<T?> FindByIdAsync(Guid id);
-        Task<T?> UpdateAsync(T item);
+        Task<T?> UpdateAsync(T item, Guid id);
         Task<bool> DeleteAsync(Guid id);
         Task<bool> ExistsAsync(Guid id);
     }

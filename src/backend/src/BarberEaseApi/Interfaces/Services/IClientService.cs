@@ -1,13 +1,13 @@
-using BarberEaseApi.Entities;
+using BarberEaseApi.Dtos.Client;
 
 namespace BarberEaseApi.Interfaces.Services
 {
     public interface IClientService
     {
-        Task<ClientEntity> Create(ClientEntity client);
-        Task<IEnumerable<ClientEntity>> GetAll();
-        Task<ClientEntity?> GetById(Guid id);
-        Task<ClientEntity?> Update(ClientEntity client);
+        Task<ClientDto?> Create(ClientDtoCreate client);
+        Task<IEnumerable<ClientDto>> GetAll();
+        Task<ClientDto?> GetById(Guid id);
+        Task<ClientDto?> Update(ClientDtoUpdate client, Guid id);
         Task<bool> Delete(Guid id);
     }
 }

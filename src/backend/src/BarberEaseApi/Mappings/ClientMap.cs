@@ -9,10 +9,13 @@ namespace BarberEaseApi.Mappings
         public void Configure(EntityTypeBuilder<ClientEntity> builder)
         {
             builder.ToTable("clients");
+
             builder.HasKey((client) => client.Id);
             builder.HasIndex((client) => client.Email)
                 .IsUnique();
 
+            builder.Property((client) => client.Id)
+                .HasColumnName("id");
             builder.Property((client) => client.Email)
                 .HasMaxLength(100)
                 .HasColumnName("email");
