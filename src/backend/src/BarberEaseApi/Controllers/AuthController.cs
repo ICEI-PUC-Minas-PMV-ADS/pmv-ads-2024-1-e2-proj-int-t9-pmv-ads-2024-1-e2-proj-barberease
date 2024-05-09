@@ -27,6 +27,10 @@ namespace BarberEaseApi.Controllers
             try
             {
                 var result = await _service.Login(login);
+                if (!result.Authenticated)
+                {
+                    return Unauthorized(result);
+                }
                 return Ok(result);
             }
             catch (ArgumentException exc)
