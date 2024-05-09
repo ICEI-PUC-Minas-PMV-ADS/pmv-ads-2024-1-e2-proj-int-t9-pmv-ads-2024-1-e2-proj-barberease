@@ -19,6 +19,7 @@ namespace BarberEaseApi
             // Repositories
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IEstablishmentRepository, EstablishmentRepository>();
 
             // Services
             services.AddTransient<IClientService, ClientService>();
