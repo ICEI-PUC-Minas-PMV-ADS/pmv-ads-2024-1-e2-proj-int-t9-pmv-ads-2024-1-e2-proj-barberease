@@ -46,6 +46,10 @@ namespace BarberEaseApi.Services
         public async Task<ClientDto?> Update(ClientDtoUpdate client, Guid id)
         {
             var entity = _mapper.Map<ClientEntity>(client);
+            if (client.Password != null)
+            {
+                entity.SetPassword(client.Password);
+            }
             var result = await _repository.UpdateAsync(entity, id);
             return _mapper.Map<ClientDto>(result);
         }

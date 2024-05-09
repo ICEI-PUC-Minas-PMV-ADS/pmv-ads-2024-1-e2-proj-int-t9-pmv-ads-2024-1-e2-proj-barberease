@@ -22,5 +22,13 @@ namespace BarberEaseApi.Entities
             HashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
         }
 
+        public bool VerifyPassword(string password)
+        {
+            using var sha256 = SHA256.Create();
+            var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+            var newHashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+
+            return newHashedPassword == HashedPassword;
+        }
     }
 }
