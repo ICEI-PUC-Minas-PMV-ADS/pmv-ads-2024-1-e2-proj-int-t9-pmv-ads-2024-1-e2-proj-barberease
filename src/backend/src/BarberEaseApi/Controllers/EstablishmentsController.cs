@@ -1,5 +1,6 @@
 using System.Net;
 using BarberEaseApi.Dtos.Client;
+using BarberEaseApi.Dtos.Establishment;
 using BarberEaseApi.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,17 +8,17 @@ namespace BarberEaseApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientsController : ControllerBase
+    public class EstablishmentsController : ControllerBase
     {
-        private readonly IClientService _service;
+        private readonly IEstablishmentService _service;
 
-        public ClientsController(IClientService service)
+        public EstablishmentsController(IEstablishmentService service)
         {
             _service = service;
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] ClientDtoCreate client)
+        public async Task<ActionResult> Create([FromBody] EstablishmentDtoCreate establishment)
         {
             if (!ModelState.IsValid)
             {
@@ -26,12 +27,12 @@ namespace BarberEaseApi.Controllers
 
             try
             {
-                var result = await _service.Create(client);
+                var result = await _service.Create(establishment);
                 if (result == null)
                 {
                     return Conflict();
                 }
-                var link = Url.Link("GetClientById", new { id = result.Id });
+                var link = Url.Link("GetEstablishmentById", new { id = result.Id });
                 var createdUri = link != null ? new Uri(link) : null;
                 return Created(createdUri, result);
             }
@@ -42,7 +43,7 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet("{id:guid}", Name = "GetClientById")]
+        [HttpGet("{id:guid}", Name = "GetEstablishmentById")]
         public async Task<ActionResult> GetById(Guid id)
         {
             if (!ModelState.IsValid)
@@ -87,7 +88,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put([FromBody] ClientDtoUpdate client, Guid id)
+        public async Task<ActionResult> Put([FromBody] EstablishmentDtoUpdate establishment, Guid id)
         {
             if (!ModelState.IsValid)
             {
@@ -96,7 +97,7 @@ namespace BarberEaseApi.Controllers
 
             try
             {
-                var result = await _service.Update(client, id);
+                var result = await _service.Update(establishment, id);
                 if (result == null)
                 {
                     return NotFound();

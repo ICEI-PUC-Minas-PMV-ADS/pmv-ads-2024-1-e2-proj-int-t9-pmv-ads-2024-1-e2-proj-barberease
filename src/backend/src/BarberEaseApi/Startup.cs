@@ -24,6 +24,7 @@ namespace BarberEaseApi
             // Services
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IEstablishmentService, EstablishmentService>();
 
             // Mapper
             var mapperConfig = new MapperConfiguration((cfg) =>

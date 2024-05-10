@@ -26,5 +26,18 @@ namespace BarberEaseApi.Repositories
                 throw;
             }
         }
+
+        public async Task<EstablishmentEntity?> FindByCnpj(string cnpj)
+        {
+            try
+            {
+                return await _dataset.FirstOrDefaultAsync((establishment) => establishment.Cnpj == cnpj);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
