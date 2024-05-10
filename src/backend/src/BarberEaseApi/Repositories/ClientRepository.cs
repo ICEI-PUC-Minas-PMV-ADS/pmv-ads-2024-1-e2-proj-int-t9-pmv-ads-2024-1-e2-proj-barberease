@@ -8,6 +8,7 @@ namespace BarberEaseApi.Repositories
     public class ClientRepository : BaseRepository<ClientEntity>, IClientRepository
     {
         private readonly DbSet<ClientEntity> _dataset;
+
         public ClientRepository(AppDbContext context) : base(context)
         {
             _dataset = context.Set<ClientEntity>();

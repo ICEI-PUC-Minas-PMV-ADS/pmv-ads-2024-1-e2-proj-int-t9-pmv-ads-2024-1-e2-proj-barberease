@@ -24,7 +24,6 @@ namespace BarberEaseApi.Dtos.Client
         [StringLength(50, ErrorMessage = "City must have {1} chars")]
         public string City { get; set; }
 
-
         [Required(ErrorMessage = "State is require")]
         [StringLength(50, ErrorMessage = "State must have {1} chars")]
         public string State { get; set; }

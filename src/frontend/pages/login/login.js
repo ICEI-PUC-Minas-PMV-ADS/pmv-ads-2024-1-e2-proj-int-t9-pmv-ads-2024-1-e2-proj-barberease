@@ -32,13 +32,13 @@ async function submitLoginForm(event) {
 
       if (response.userType === 'Client') {
         setTimeout(() => {
-          window.location.replace('../pagina-inicial/pagina-inicial.html'); // Change this later to client dashboard
+          window.location.href = '../pagina-inicial/pagina-inicial.html'; // Change this later to client dashboard
         }, 2000);
         return;
       }
 
       setTimeout(() => {
-        window.location.replace('../pagina-inicial/pagina-inicial.html'); // Change this later to establishment dashboard
+        window.location.href = '../pagina-inicial/pagina-inicial.html'; // Change this later to establishment dashboard
       }, 2000);
       return;
     }

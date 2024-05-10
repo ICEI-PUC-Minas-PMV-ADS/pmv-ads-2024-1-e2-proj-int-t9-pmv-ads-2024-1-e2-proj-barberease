@@ -7,6 +7,7 @@ namespace BarberEaseApi.Database
     public class AppDbContext : DbContext
     {
         public DbSet<ClientEntity> Clients { get; set; }
+        public DbSet<EstablishmentEntity> Establishments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,6 +24,7 @@ namespace BarberEaseApi.Database
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ClientEntity>(new ClientMap().Configure);
+            modelBuilder.Entity<EstablishmentEntity>(new EstablishmentMap().Configure);
         }
     }
 }

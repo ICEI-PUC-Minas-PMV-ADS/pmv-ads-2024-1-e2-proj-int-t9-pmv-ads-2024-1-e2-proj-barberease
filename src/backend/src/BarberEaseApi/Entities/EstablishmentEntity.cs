@@ -3,14 +3,18 @@ using System.Text;
 
 namespace BarberEaseApi.Entities
 {
-    public class ClientEntity : BaseEntity
+    public class EstablishmentEntity : BaseEntity
     {
         public string Email { get; set; }
         public string HashedPassword { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string CompanyName { get; set; }
+        public string Cnpj { get; set; }
+        public string OwnerFirstName { get; set; }
+        public string OwnerLastName { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public string Cep { get; set; }
+        public string Address { get; set; }
         public string? Phone { get; set; }
 
         public void SetPassword(string password)
