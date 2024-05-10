@@ -8,7 +8,7 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
-### [0.2.3] - 08/05/2024
+### [0.2.3] - 09/05/2024
 
 #### Adição da entidade de estabelecimento
 
