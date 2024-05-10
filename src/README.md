@@ -8,6 +8,25 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
+### [0.2.3] - 08/05/2024
+
+#### Adição da entidade de estabelecimento
+
+- Criação da entidade para o estabelecimento no backend
+- Criação de migração para a entidade de estabelecimento no backend
+- Refatoração na lógica de login para incluir estabelecimento
+- Implementada Establishment CRUD e rotas no backend
+
+
+### [0.1.2] - 08/05/2024
+
+#### Integração com frontend (página de login)
+
+- Implementada Client CRUD e rotas no backend
+- Implementa rota de login no backend
+- Faz integração com rota de login no frontend ao logar como cliente
+
+
 ### [0.1.1] - 07/05/2024
 
 #### Adição de estrutura backend
