@@ -5,6 +5,7 @@ using BarberEaseApi.Interfaces.Services;
 using BarberEaseApi.Mappers;
 using BarberEaseApi.Repositories;
 using BarberEaseApi.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 namespace BarberEaseApi
@@ -20,6 +21,7 @@ namespace BarberEaseApi
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IEstablishmentRepository, EstablishmentRepository>();
+
 
             // Services
             services.AddTransient<IClientService, ClientService>();
@@ -80,6 +82,13 @@ namespace BarberEaseApi
             app.UseRouting();
 
             app.UseEndpoints((endpoints) => endpoints.MapControllers());
+
+            if (Environment.GetEnvironmentVariable("DB_APPLY_AUTO_MIGRATION")?.ToLower() == "true")
+            {
+                using var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+                using var context = service.ServiceProvider.GetService<AppDbContext>();
+                context?.Database.Migrate();
+            }
         }
     }
 }

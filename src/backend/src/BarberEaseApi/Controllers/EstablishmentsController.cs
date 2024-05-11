@@ -1,5 +1,4 @@
 using System.Net;
-using BarberEaseApi.Dtos.Client;
 using BarberEaseApi.Dtos.Establishment;
 using BarberEaseApi.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
