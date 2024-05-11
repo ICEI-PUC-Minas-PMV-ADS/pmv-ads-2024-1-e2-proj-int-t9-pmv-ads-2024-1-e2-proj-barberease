@@ -28,7 +28,6 @@ function changeRoute(initialPage) {
 }
 
 validateInitialPages();
-validateHomePages();
 
 if (
   window.location.pathname == "/src/frontend/index.html" &&
