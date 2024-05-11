@@ -10,7 +10,7 @@ Os testes de usabilidade permitem avaliar a qualidade da interface com o usuári
 | Critério de seleção dos candidatos | 1. Os participantes deverão preferêncialmente ser homens com idade entre 18 e 60 anos |
 | Procedimento de avaliação | 1. O teste será realizado utilizando o método Card Sorting <br> 2. Realização do teste na modalidade presencial ou online.<br> 3. Cumprimento da LGPD|
 
-| **Caso de Teste de Usabilidade** | **CTU-02 – Cadastro de cliente** |
+| **Caso de Teste de Usabilidade** | **CTU-02 – Cadastro de Cliente** |
 | --- | --- |
 | Requisito Associado | RF-001 - A aplicação deve permitir ao cliente cadastrar uma conta. |
 | Objetivo do Teste | Observar e avaliar o nível de compreensão do usuário diante dos itens, signos e arquitetura da informação.|
