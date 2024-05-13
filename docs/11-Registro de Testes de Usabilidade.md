@@ -11,6 +11,11 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 | Duração do teste | 15 min|
 | Descrição do teste | Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, especificamente da tela de cadastro de estabelecimento, foram disponibilizados para o participante para avaliar e classificá-las de acordo o grau de entendimento.| 
 
+<h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Card%20Sorting%20AF%20EST1.png">
+    <figcaption>Figura 1 - Início do teste </figure>
+</figure>
 
 
 
