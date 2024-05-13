@@ -30,32 +30,32 @@
         <form id="client-form">
           <fieldset class="form-fieldset">
             <i class="bi bi-arrow-return-right"></i>
-            <input id="name" placeholder="Nome" required>
+            <input id="clientName" name ="name" placeholder="Nome" required>
           </fieldset>
 
           <fieldset class="form-fieldset">
             <i class="bi bi-telephone"></i>
-            <input type="text" id="telephone" placeholder="Telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" required>
+            <input type="text" name ="telephone" maxlength="16" id="telephone" placeholder="Telefone" required>
           </fieldset>
 
           <fieldset class="form-fieldset">
             <i class="bi bi-envelope"></i>
-            <input type="email" id="email" placeholder="Email" required>
+            <input type="email" id="clientEmail" name="email" placeholder="Email" required>
           </fieldset>
 
           <fieldset class="form-fieldset">
             <i class="bi bi-lock"></i>
-            <input type="password" id="password" placeholder="Senha" required>
+            <input type="password" id="clientPassword" name ="password" placeholder="Senha" required>
           </fieldset>
 
           <fieldset class="form-fieldset">
             <i class="bi bi-geo-alt"></i>
-            <input id="cep" placeholder="CEP" required>
+            <input id="clientCep" name="cep" placeholder="CEP" required>
           </fieldset>
 
           <fieldset class="form-fieldset" style="margin-bottom: 10px;">
             <i class="bi bi-geo-alt"></i>
-            <input id="number" placeholder="Número" required>
+            <input id="clientNumber" placeholder="Número" name="number" required>
           </fieldset>
 
           <button type="submit" class="submit-btn">
