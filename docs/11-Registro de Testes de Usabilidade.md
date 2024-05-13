@@ -18,6 +18,13 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 </figure>
 
 
+<h3><b>Disposição final do teste com os cards e classificações</b></h3>
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Card%20sorting%20AF%20EST.png">
+    <figcaption>Figura 2 - Término do teste </figure>
+</figure>
+
+
 
 
 
