@@ -13,7 +13,13 @@ Layout padrão da aplicação que será utilizado em todas as páginas com a def
 
 <figure>
     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Screenshot_12-5-2024_211345_127.0.0.1.jpeg">
-    <figcaption>Figura 1 - Home page </figure>
+    <figcaption>Figura 2 - Home page </figure>
+</figure>
+
+
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Screenshot_12-5-2024_214431_127.0.0.1.jpeg">
+    <figcaption>Figura 3 - Cadastro Estabelecimento </figure>
 </figure>
 
 > **Links Úteis**:
