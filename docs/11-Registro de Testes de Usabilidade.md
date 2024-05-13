@@ -8,8 +8,9 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 | Requisito Associado | RF-007 - A aplicação deve permitir ao estabelecimento cadastrar uma conta. |
 | Participante | Alessandra Ferreira.|
 | Modalidade do teste | Card sorting |
-| Duração do teste | 15 min|
-| Descrição do teste | Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, especificamente da tela de cadastro de estabelecimento, foram disponibilizados para o participante para avaliar e classificá-las de acordo o grau de entendimento.| 
+| Duração do teste | 5 min|
+| Descrição do teste | Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, especificamente da tela de cadastro de estabelecimento, foram disponibilizados para o participante para avaliar e classificá-las de acordo com seu entendimento.| 
+| Conclusão | O resultado do teste foi satisfatório. Não houve dúvidas com relação aos cards, todos foram  categorizados corretamente pela participante|
 
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
