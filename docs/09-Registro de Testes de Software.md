@@ -13,6 +13,13 @@ Para cada caso de teste definido no Plano de Testes de Software, realize o regis
 |Resultados obtidos | Não foi possível cadastrar o cliente. O campo destinado a inserir o telefone não aceitou nenhum dos formatos (com DDD, sem DDD, com parênteses e hifen ou código internacional) inseridos|
 | Conclusão | Resultado insatisfatório |
 
+
+<h3><b>Falha</b></h3>
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/IMG_20240512_234252_535.jpg">
+    <figcaption>Figura 1 - Nenhum formato de telefone aceito</figure>
+</figure>
+
 | **Caso de Teste** 	| **CT-02 – Realizar login** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RF-00Y - A aplicação deve permitir que um usuário previamente cadastrado faça login |
