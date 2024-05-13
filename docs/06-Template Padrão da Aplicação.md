@@ -1,8 +1,14 @@
 # Template Padrão da Aplicação
+O layout padrão do site foi construído com as linguagens de marcação HTML e CSS, e a linguagem de programação JavaScript foi utilizada para a construção do menu responsivo.
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+As páginas terão como elementos padrões o menu de navegação e header, além dos elementos de identidade visual citados abaixo:
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+<ul>
+<li>Cores: #312E38, #ffffff, #ff9000, #d17c00;</li>
+<li>Font-family: Roboto Slab.</li>
+<li>Font-size: 20px. </li>
+</ul>
+
 
 <h3><b>Tela de login</b></h3>
 <p>Apresenta formulário e instruções para realizar login do cliente ou estabelecimento</p>
