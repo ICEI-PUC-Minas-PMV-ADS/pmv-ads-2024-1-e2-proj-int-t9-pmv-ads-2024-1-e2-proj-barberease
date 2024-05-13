@@ -4,10 +4,14 @@
 
 Para cada caso de teste definido no Plano de Testes de Software, realize o registro das evidências dos testes feitos na aplicação pela equipe, que comprovem que o critério de êxito foi alcançado (ou não!!!). Para isso, utilize uma ferramenta de captura de tela que mostre cada um dos casos de teste definidos (obs.: cada caso de teste deverá possuir um vídeo do tipo _screencast_ para caracterizar uma evidência do referido caso).
 
-| **Caso de Teste** 	| **CT-01 – Cadastrar perfil** 	|
-|:---:	|:---:	|
-|	Requisito Associado 	| RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que esses consigam criar e gerenciar seu perfil. |
-|Registro de evidência | www.teste.com.br/drive/ct-01 |
+| **Caso de Teste** | **CT-01 – Cadastro de Cliente** |
+| --- | --- |
+| Requisito Associado | RF-001 - A aplicação deve permitir ao cliente cadastrar uma conta. |
+| Objetivo do Teste | Verificar se um cliente consegue se cadastrar na aplicação. |
+| Passos | 1. Acessar a página de registro.<br> 2. Preencher os campos obrigatórios.<br> 3. Aceitar os termos de uso.<br> 4. Clicar em "Registrar". |
+| Critério de Êxito | O cliente é registrado com sucesso. |
+|Resultados obtidos | Não foi possível cadastrar o cliente. O campo destinado a inserir o telefone não aceitou nenhum dos formatos (com DDD, sem DDD, com parênteses e hifen ou código internacional) inseridos|
+| Conclusão | Resultado insatisfatório |
 
 | **Caso de Teste** 	| **CT-02 – Realizar login** 	|
 |:---:	|:---:	|
