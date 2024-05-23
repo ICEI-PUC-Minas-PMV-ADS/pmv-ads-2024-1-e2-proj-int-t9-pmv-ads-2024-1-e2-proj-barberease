@@ -21,6 +21,7 @@ img {
   }
   
   .header a {
+    margin-top: 10px;
     color: var(--text-color-02);
     font-family: sans-serif;
     font-weight: bold;
@@ -45,3 +46,4 @@ img {
     justify-content: end;
     grid-column: 3/3;
   }
+
