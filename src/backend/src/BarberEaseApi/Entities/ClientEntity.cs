@@ -13,6 +13,8 @@ namespace BarberEaseApi.Entities
         public string State { get; set; }
         public string? Phone { get; set; }
 
+        public IEnumerable<AppointmentEntity> Appointments { get; set; }
+
         public void SetPassword(string password)
         {
             // This simulates hashing password, but sha256 is a easy to break

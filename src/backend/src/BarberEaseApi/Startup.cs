@@ -22,7 +22,6 @@ namespace BarberEaseApi
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IEstablishmentRepository, EstablishmentRepository>();
 
-
             // Services
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IAuthService, AuthService>();
