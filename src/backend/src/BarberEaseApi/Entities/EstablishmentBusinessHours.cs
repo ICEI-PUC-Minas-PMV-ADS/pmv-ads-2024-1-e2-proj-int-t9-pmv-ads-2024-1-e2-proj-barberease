@@ -1,6 +1,6 @@
 namespace BarberEaseApi.Entities
 {
-    public class EstablishmentBusinessHours
+    public class EstablishmentBusinessHours : BaseEntity
     {
         public string DayOfWeek { get; set; }
         public TimeOnly OpeningTime { get; set; }
