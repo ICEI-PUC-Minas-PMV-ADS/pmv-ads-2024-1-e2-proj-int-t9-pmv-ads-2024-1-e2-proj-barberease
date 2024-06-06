@@ -8,7 +8,7 @@ namespace BarberEaseApi.Mappings
     {
         public void Configure(EntityTypeBuilder<EstablishmentServiceEntity> builder)
         {
-            builder.ToTable("services");
+            builder.ToTable("establishment_services");
 
             builder.HasKey((establishmentService) => establishmentService.Id);
 
@@ -19,8 +19,6 @@ namespace BarberEaseApi.Mappings
 
             builder.HasOne((establishmentService) => establishmentService.Establishment)
                 .WithMany((establishment) => establishment.EstablishmentServices);
-            builder.HasMany((establishmentService) => establishmentService.Appointments)
-                .WithOne((appointment) => appointment.EstablishmentService);
 
             builder.Property((establishmentService) => establishmentService.Id)
                 .HasColumnName("id");

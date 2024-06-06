@@ -24,7 +24,7 @@ namespace BarberEaseApi.Mappings
                 .HasColumnName("date");
             builder.Property((appointment) => appointment.Status)
                 .IsRequired()
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .HasColumnName("status");
             builder.Property((appointment) => appointment.ClientId)
                 .IsRequired()
