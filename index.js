@@ -29,10 +29,6 @@ function changeRoute(initialPage) {
 
 validateInitialPages();
 
-if (
-  window.location.pathname == "/src/frontend/index.html" &&
-  window.location.search == ""
-)
-  window.location.replace(
-    `/src/frontend/index.html?page=pagina-inicial`
-  );
+if (window.location.pathname == "/index.html" && window.location.search == "")
+  window.location.replace(`/index.html?page=pagina-inicial`);
+
