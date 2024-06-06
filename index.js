@@ -1,2 +1,1 @@
-window.location.replace(`/pages/pagina-inicial/homePage.html`);
-
+window.location.href = '/pages/pagina-inicial/homePage.html'
