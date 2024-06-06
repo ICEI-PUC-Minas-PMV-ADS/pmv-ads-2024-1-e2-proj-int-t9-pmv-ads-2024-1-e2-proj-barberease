@@ -8,5 +8,6 @@ namespace BarberEaseApi.Interfaces.Services
         Task<IEnumerable<AppointmentDetailsDto>> GetAll();
         Task<AppointmentDetailsDto?> GetById(Guid id);
         Task<AppointmentDto?> Update(AppointmentUpdateDto appointment, Guid id);
+        Task<AppointmentDto?> UpdateStatus(AppointmentUpdateStatusDto appointment, Guid id);
     }
 }

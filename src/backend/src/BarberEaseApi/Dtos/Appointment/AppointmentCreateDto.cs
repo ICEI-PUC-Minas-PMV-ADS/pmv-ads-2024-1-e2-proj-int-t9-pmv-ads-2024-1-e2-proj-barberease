@@ -8,8 +8,8 @@ namespace BarberEaseApi.Dtos.Appointment
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Status is required")]
-        [StringLength(10, ErrorMessage = "Status must have {1} chars")]
-        public string Status { get; set; }
+        [StringLength(20, ErrorMessage = "Status must have {1} chars")]
+        public string Status { get; set; } // CANCELLED CONFIRMED RECEIVED
 
         [Required(ErrorMessage = "ClientId is required")]
         public Guid ClientId { get; set; }
