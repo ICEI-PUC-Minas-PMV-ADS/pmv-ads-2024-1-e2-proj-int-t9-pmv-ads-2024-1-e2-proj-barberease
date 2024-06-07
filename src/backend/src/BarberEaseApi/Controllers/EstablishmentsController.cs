@@ -17,7 +17,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] EstablishmentDtoCreate establishment)
+        public async Task<ActionResult> Create([FromBody] EstablishmentCreateDto establishment)
         {
             if (!ModelState.IsValid)
             {
@@ -67,6 +67,31 @@ namespace BarberEaseApi.Controllers
             }
         }
 
+        [HttpGet("{id:guid}/details")]
+        public async Task<ActionResult> GetByIdDetails(Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var result = await _service.GetByIdDetails(id);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
@@ -87,7 +112,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put([FromBody] EstablishmentDtoUpdate establishment, Guid id)
+        public async Task<ActionResult> Put([FromBody] EstablishmentUpdateDto establishment, Guid id)
         {
             if (!ModelState.IsValid)
             {

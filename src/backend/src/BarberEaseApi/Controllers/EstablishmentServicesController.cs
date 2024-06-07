@@ -1,8 +1,6 @@
 using System.Net;
-using BarberEaseApi.Dtos.Appointment;
 using BarberEaseApi.Dtos.EstablishmentService;
 using BarberEaseApi.Interfaces.Services;
-using BarberEaseApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BarberEaseApi.Controllers

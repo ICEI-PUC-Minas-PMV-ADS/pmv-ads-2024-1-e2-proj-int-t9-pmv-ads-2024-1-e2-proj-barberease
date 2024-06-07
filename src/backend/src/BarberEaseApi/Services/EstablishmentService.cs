@@ -17,7 +17,7 @@ namespace BarberEaseApi.Services
             _mapper = mapper;
         }
 
-        public async Task<EstablishmentDto?> Create(EstablishmentDtoCreate establishment)
+        public async Task<EstablishmentDto?> Create(EstablishmentCreateDto establishment)
         {
             var existsByEmail = await _repository.FindByEmail(establishment.Email);
             if (existsByEmail != null)
@@ -49,7 +49,13 @@ namespace BarberEaseApi.Services
             return _mapper.Map<EstablishmentDto>(entity);
         }
 
-        public async Task<EstablishmentDto?> Update(EstablishmentDtoUpdate establishment, Guid id)
+        public async Task<EstablishmentDetailsDto?> GetByIdDetails(Guid id)
+        {
+            var entity = await _repository.FindByIdDetails(id);
+            return _mapper.Map<EstablishmentDetailsDto>(entity);
+        }
+
+        public async Task<EstablishmentDto?> Update(EstablishmentUpdateDto establishment, Guid id)
         {
             var entity = _mapper.Map<EstablishmentEntity>(establishment);
             if (establishment.Password != null)
