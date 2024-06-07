@@ -6,7 +6,6 @@
 
 `Segundo Semestre`
 
-
 Desenvolver um sistema de reservas online projetado para uma barbearia 
 moderna que deseja oferecer aos seus clientes a conveniência de agendar 
 compromissos de forma rápida e fácil.  
@@ -29,6 +28,9 @@ serviços oferecidos pela barbearia.
 
 ## Instruções de utilização
 
+Você poderá acessar o nosso site no seguinte endereço de URL, onde você será redirecionado para a página inicial:
+
+- [**BarberEase**](https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/)
 
 
 # Documentação
@@ -49,10 +51,11 @@ serviços oferecidos pela barbearia.
 <li><a href="docs/13-Referências.md"> Referências</a></li>
 </ol>
 
+
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+<li><a href="./src/README.md"> Código Fonte</a></li>
 
 # Apresentação
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+<li><a href="./presentation/README.md"> Apresentação da solução</a></li>

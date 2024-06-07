@@ -8,6 +8,19 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
+### [0.3.4] - 06/06/2024
+
+#### Adição da entidade de serviço e agendamentos
+
+- Criação da entidade para os serviços dos estabelecimentos no backend
+- Criação da entidade para os agendamentos no backend
+- Criação de migração para a entidade serviço dos estabelecimentos no backend
+- Criação de migração para a entidade agendamento no backend
+- Ajustes no frontend e deploy do mesmo: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/
+- Implementada EstablishmentService CRUD e rotas no backend
+- Implementada Appointment CRUD e rotas no backend
+- Atualização da documentação
+
 ### [0.2.3] - 09/05/2024
 
 #### Adição da entidade de estabelecimento
