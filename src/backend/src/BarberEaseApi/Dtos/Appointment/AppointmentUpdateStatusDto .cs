@@ -6,6 +6,6 @@ namespace BarberEaseApi.Dtos.Appointment
     {
         [Required(ErrorMessage = "Status is required")]
         [StringLength(10, ErrorMessage = "Status must have {1} chars")]
-        public string Status { get; set; }
+        public string Status { get; set; } // CANCELLED CONFIRMED RECEIVED
     }
 }

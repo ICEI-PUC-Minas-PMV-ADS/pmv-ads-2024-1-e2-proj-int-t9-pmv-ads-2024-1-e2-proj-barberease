@@ -8,5 +8,7 @@ namespace BarberEaseApi.Dtos.EstablishmentService
         public string? Description { get; set; }
         public double Price { get; set; }
         public Guid EstablishmentId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

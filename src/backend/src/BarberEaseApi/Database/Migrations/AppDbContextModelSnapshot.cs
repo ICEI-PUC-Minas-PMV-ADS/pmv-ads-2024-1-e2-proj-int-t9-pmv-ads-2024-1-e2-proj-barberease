@@ -329,13 +329,7 @@ namespace BarberEaseApi.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category")
-                        .IsUnique();
-
                     b.HasIndex("EstablishmentId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("establishment_services", (string)null);
 

@@ -5,9 +5,8 @@ namespace BarberEaseApi.Interfaces.Services
     public interface IAppointmentService
     {
         Task<AppointmentDto?> Create(AppointmentCreateDto appointment);
-        Task<IEnumerable<AppointmentDetailsDto>> GetAll();
-        Task<AppointmentDetailsDto?> GetById(Guid id);
-        Task<AppointmentDto?> Update(AppointmentUpdateDto appointment, Guid id);
+        Task<IEnumerable<AppointmentDetailsDto>> GetAllDetails();
+        Task<AppointmentDetailsDto?> GetByIdDetails(Guid id);
         Task<AppointmentDto?> UpdateStatus(AppointmentUpdateStatusDto appointment, Guid id);
     }
 }

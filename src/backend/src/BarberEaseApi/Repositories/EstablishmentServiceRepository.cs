@@ -13,5 +13,12 @@ namespace BarberEaseApi.Repositories
         {
             _dataset = context.Set<EstablishmentServiceEntity>();
         }
+
+        public async Task<bool> ExistsByNameAndEstablishment(string name, Guid establishmentId)
+        {
+            return await _dataset.AnyAsync((establishmentService) =>
+                establishmentService.Name.ToLower() == name.ToLower() &&
+                establishmentService.EstablishmentId == establishmentId);
+        }
     }
 }

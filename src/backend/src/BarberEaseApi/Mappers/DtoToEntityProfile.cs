@@ -27,12 +27,10 @@ namespace BarberEaseApi.Mappers
             CreateMap<AppointmentDto, AppointmentEntity>().ReverseMap();
             CreateMap<AppointmentDetailsDto, AppointmentEntity>().ReverseMap();
             CreateMap<AppointmentCreateDto, AppointmentEntity>().ReverseMap();
-            CreateMap<AppointmentUpdateDto, AppointmentEntity>().ReverseMap();
             #endregion
 
             #region EstablishmentService
             CreateMap<EstablishmentServiceDto, EstablishmentServiceEntity>().ReverseMap();
-            CreateMap<EstablishmentServiceDetailsDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceCreateDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceUpdateDto, EstablishmentServiceEntity>().ReverseMap();
             #endregion

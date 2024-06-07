@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarberEaseApi.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240606025735_init")]
+    [Migration("20240606044004_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -332,13 +332,7 @@ namespace BarberEaseApi.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Category")
-                        .IsUnique();
-
                     b.HasIndex("EstablishmentId");
-
-                    b.HasIndex("Name")
-                        .IsUnique();
 
                     b.ToTable("establishment_services", (string)null);
 

@@ -12,11 +12,6 @@ namespace BarberEaseApi.Mappings
 
             builder.HasKey((establishmentService) => establishmentService.Id);
 
-            builder.HasIndex((establishmentService) => establishmentService.Name)
-                .IsUnique();
-            builder.HasIndex((establishmentService) => establishmentService.Category)
-                .IsUnique();
-
             builder.HasOne((establishmentService) => establishmentService.Establishment)
                 .WithMany((establishment) => establishment.EstablishmentServices);
 

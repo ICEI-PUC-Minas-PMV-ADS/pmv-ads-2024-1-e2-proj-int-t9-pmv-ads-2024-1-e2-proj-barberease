@@ -15,7 +15,7 @@ namespace BarberEaseApi.Database
             var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION") ?? "Data Source=db.sqlite3;Pooling=False";
             var dbDialect = Environment.GetEnvironmentVariable("DB_DIALECT") ?? "SQLite";
 
-            if (dbDialect.Equals("sqlite", StringComparison.CurrentCultureIgnoreCase))
+            if (dbDialect.ToLower() == "sqlite")
             {
                 optionsBuilder.UseSqlite(connectionString);
             }

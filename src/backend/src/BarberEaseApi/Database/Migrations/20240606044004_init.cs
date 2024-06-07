@@ -157,21 +157,9 @@ namespace BarberEaseApi.Database.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_establishment_services_category",
-                table: "establishment_services",
-                column: "category",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_establishment_services_establishment_id",
                 table: "establishment_services",
                 column: "establishment_id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_establishment_services_name",
-                table: "establishment_services",
-                column: "name",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_establishments_cnpj",

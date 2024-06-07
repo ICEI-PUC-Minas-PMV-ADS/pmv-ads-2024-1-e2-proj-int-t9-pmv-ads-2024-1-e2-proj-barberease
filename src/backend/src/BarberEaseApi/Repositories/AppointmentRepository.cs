@@ -14,7 +14,31 @@ namespace BarberEaseApi.Repositories
             _dataset = context.Set<AppointmentEntity>();
         }
 
-        public async Task<AppointmentEntity?> UpdateStatusAsync(string status, Guid id)
+        public async Task<IEnumerable<AppointmentEntity>> FindAllDetails()
+        {
+            return await _dataset
+                .Include((establishmentService) => establishmentService.EstablishmentService)
+                .Include((client) => client.Client)
+                .ToListAsync();
+        }
+
+        public async Task<AppointmentEntity?> FindByIdDetails(Guid id)
+        {
+            try
+            {
+                return await _dataset
+                    .Include((establishmentService) => establishmentService.EstablishmentService)
+                    .Include((client) => client.Client)
+                    .SingleOrDefaultAsync((entity) => entity.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<AppointmentEntity?> UpdateStatus(string status, Guid id)
         {
             try
             {
@@ -36,6 +60,13 @@ namespace BarberEaseApi.Repositories
 
                 throw;
             }
+        }
+
+        public async Task<bool> ExistsByDateAndService(DateTime date, Guid establishmentServiceId)
+        {
+            return await _dataset.AnyAsync((appointment) =>
+                appointment.Date == date &&
+                appointment.EstablishmentServiceId == establishmentServiceId);
         }
     }
 }
