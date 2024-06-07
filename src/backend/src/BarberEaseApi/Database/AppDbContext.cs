@@ -1,7 +1,6 @@
 using BarberEaseApi.Entities;
 using BarberEaseApi.Mappings;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace BarberEaseApi.Database
 {
@@ -37,6 +36,7 @@ namespace BarberEaseApi.Database
             modelBuilder.Entity<EstablishmentEntity>(new EstablishmentMap().Configure);
             modelBuilder.Entity<AppointmentEntity>(new AppointmentMap().Configure);
             modelBuilder.Entity<EstablishmentServiceEntity>(new EstablishmentServiceMap().Configure);
+            modelBuilder.Entity<EstablishmentPeriodEntity>(new EstablishmentPeriodMap().Configure);
 
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")?.ToLower() == "development")
             {
@@ -100,6 +100,84 @@ namespace BarberEaseApi.Database
                     CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
                     UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
                 };
+                var establishmentPeriod1 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("182cde4a-b74d-49a9-a2ec-59d1a82c2e68"),
+                    DayOfWeek = "MONDAY",
+                    OpeningTime = "09:00:00",
+                    ClosingTime = "18:00:00",
+                    TimeBetweenService = "00:30:00",
+                    IsClosed = false,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod2 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("58695664-a938-4dc7-9384-54616a77ad9f"),
+                    DayOfWeek = "TUESDAY",
+                    OpeningTime = "09:00:00",
+                    ClosingTime = "18:00:00",
+                    TimeBetweenService = "00:30:00",
+                    IsClosed = false,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod3 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("cdb52f2e-04e2-466c-8154-1403eb4aed63"),
+                    DayOfWeek = "WEDNESDAY",
+                    OpeningTime = "09:00:00",
+                    ClosingTime = "18:00:00",
+                    TimeBetweenService = "00:30:00",
+                    IsClosed = false,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod4 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("30813908-3985-42c2-8cee-0b7fde58a1be"),
+                    DayOfWeek = "THURSDAY",
+                    OpeningTime = "09:00:00",
+                    ClosingTime = "18:00:00",
+                    TimeBetweenService = "00:30:00",
+                    IsClosed = false,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod5 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("ecf07789-b490-4c26-acc7-8acd123767b6"),
+                    DayOfWeek = "FRIDAY",
+                    OpeningTime = "09:00:00",
+                    ClosingTime = "18:00:00",
+                    TimeBetweenService = "00:30:00",
+                    IsClosed = false,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod6 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("c7e3ba97-ae61-4ee5-bfb2-5e571cf6856e"),
+                    DayOfWeek = "SATURDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
+                var establishmentPeriod7 = new EstablishmentPeriodEntity
+                {
+                    Id = new Guid("4568c25f-ee4c-430f-a852-99d2d27bad8f"),
+                    DayOfWeek = "SUNDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishment.Id,
+                    CreatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                    UpdatedAt = DateTime.Parse("2024-06-06T00:41:32+0000"),
+                };
                 var appointment1 = new AppointmentEntity
                 {
                     Id = new Guid("aa4f97ba-514e-4964-a2f2-f639d2400aa6"),
@@ -134,6 +212,15 @@ namespace BarberEaseApi.Database
                 modelBuilder.Entity<ClientEntity>().HasData(client);
                 modelBuilder.Entity<EstablishmentEntity>().HasData(establishment);
                 modelBuilder.Entity<EstablishmentServiceEntity>().HasData(establishmentService1, establishmentService2, establishmentService3);
+                modelBuilder.Entity<EstablishmentPeriodEntity>().HasData(
+                    establishmentPeriod1,
+                    establishmentPeriod2,
+                    establishmentPeriod3,
+                    establishmentPeriod4,
+                    establishmentPeriod5,
+                    establishmentPeriod6,
+                    establishmentPeriod7
+                );
                 modelBuilder.Entity<AppointmentEntity>().HasData(appointment1, appointment2, appointment3);
             }
         }
