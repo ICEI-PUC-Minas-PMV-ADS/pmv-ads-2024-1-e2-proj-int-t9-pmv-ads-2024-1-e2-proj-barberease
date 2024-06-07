@@ -23,13 +23,14 @@ namespace BarberEaseApi
             services.AddScoped<IEstablishmentRepository, EstablishmentRepository>();
             services.AddScoped<IAppointmentRepository, AppointmentRepository>();
             services.AddScoped<IEstablishmentServiceRepository, EstablishmentServiceRepository>();
+            services.AddScoped<IEstablishmentPeriodRepository, EstablishmentPeriodRepository>();
 
             // Services
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IEstablishmentService, EstablishmentService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
-            services.AddTransient<IEstablishmentServiceService, EstablishmentServiceService>();
+            services.AddTransient<IEstablishmentPeriodService, EstablishmentPeriodService>();
 
             // Mapper
             var mapperConfig = new MapperConfiguration((cfg) =>
@@ -77,6 +78,7 @@ namespace BarberEaseApi
                 {
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "BarberEase API");
                     options.RoutePrefix = string.Empty;
+                    options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
                 });
             }
 
