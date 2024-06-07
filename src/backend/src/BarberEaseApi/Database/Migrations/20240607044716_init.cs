@@ -58,6 +58,31 @@ namespace BarberEaseApi.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "establishment_periods",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    day_of_week = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
+                    opening_time = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
+                    closing_time = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
+                    time_between_service = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
+                    is_closed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    establishment_id = table.Column<Guid>(type: "TEXT", nullable: false),
+                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_establishment_periods", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_establishment_periods_establishments_establishment_id",
+                        column: x => x.establishment_id,
+                        principalTable: "establishments",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "establishment_services",
                 columns: table => new
                 {
@@ -121,6 +146,20 @@ namespace BarberEaseApi.Database.Migrations
                 values: new object[] { new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), "Rua Francisco Salzillo", "03923087", "São Paulo", "72835673000172", "Establishment Default", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "establishment@default.com", "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3", "Establishment", "Default", "119123456789", "São Paulo", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) });
 
             migrationBuilder.InsertData(
+                table: "establishment_periods",
+                columns: new[] { "id", "closing_time", "created_at", "day_of_week", "establishment_id", "is_closed", "opening_time", "time_between_service", "updated_at" },
+                values: new object[,]
+                {
+                    { new Guid("182cde4a-b74d-49a9-a2ec-59d1a82c2e68"), "18:00:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "MONDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), false, "09:00:00", "00:30:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("30813908-3985-42c2-8cee-0b7fde58a1be"), "18:00:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "THURSDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), false, "09:00:00", "00:30:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("4568c25f-ee4c-430f-a852-99d2d27bad8f"), null, new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "SUNDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), true, null, null, new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("58695664-a938-4dc7-9384-54616a77ad9f"), "18:00:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "TUESDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), false, "09:00:00", "00:30:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("c7e3ba97-ae61-4ee5-bfb2-5e571cf6856e"), null, new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "SATURDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), true, null, null, new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("cdb52f2e-04e2-466c-8154-1403eb4aed63"), "18:00:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "WEDNESDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), false, "09:00:00", "00:30:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) },
+                    { new Guid("ecf07789-b490-4c26-acc7-8acd123767b6"), "18:00:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local), "FRIDAY", new Guid("db279123-e792-44aa-9c43-87c869ff5abd"), false, "09:00:00", "00:30:00", new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local) }
+                });
+
+            migrationBuilder.InsertData(
                 table: "establishment_services",
                 columns: new[] { "id", "category", "created_at", "description", "establishment_id", "name", "price", "updated_at" },
                 values: new object[,]
@@ -157,6 +196,11 @@ namespace BarberEaseApi.Database.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_establishment_periods_establishment_id",
+                table: "establishment_periods",
+                column: "establishment_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_establishment_services_establishment_id",
                 table: "establishment_services",
                 column: "establishment_id");
@@ -179,6 +223,9 @@ namespace BarberEaseApi.Database.Migrations
         {
             migrationBuilder.DropTable(
                 name: "appointments");
+
+            migrationBuilder.DropTable(
+                name: "establishment_periods");
 
             migrationBuilder.DropTable(
                 name: "clients");

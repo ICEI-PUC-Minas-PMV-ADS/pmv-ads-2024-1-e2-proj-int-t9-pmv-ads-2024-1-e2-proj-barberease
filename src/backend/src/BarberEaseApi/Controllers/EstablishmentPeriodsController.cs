@@ -1,5 +1,5 @@
 using System.Net;
-using BarberEaseApi.Dtos.Establishment;
+using BarberEaseApi.Dtos.EstablishmentPeriod;
 using BarberEaseApi.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,17 +7,17 @@ namespace BarberEaseApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EstablishmentsController : ControllerBase
+    public class EstablishmentPeriodsController : ControllerBase
     {
-        private readonly IEstablishmentService _service;
+        private readonly IEstablishmentPeriodService _service;
 
-        public EstablishmentsController(IEstablishmentService service)
+        public EstablishmentPeriodsController(IEstablishmentPeriodService service)
         {
             _service = service;
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] EstablishmentCreateDto establishment)
+        public async Task<ActionResult> Create([FromBody] EstablishmentPeriodCreateDto establishmentPeriod)
         {
             if (!ModelState.IsValid)
             {
@@ -26,64 +26,14 @@ namespace BarberEaseApi.Controllers
 
             try
             {
-                var result = await _service.Create(establishment);
+                var result = await _service.Create(establishmentPeriod);
                 if (result == null)
                 {
                     return Conflict();
                 }
-                var link = Url.Link("GetEstablishmentById", new { id = result.Id });
+                var link = Url.Link("GetPeriodById", new { id = result.Id });
                 var createdUri = link != null ? new Uri(link) : null;
                 return Created(createdUri, result);
-            }
-            catch (ArgumentException exc)
-            {
-
-                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
-            }
-        }
-
-        [HttpGet("{id:guid}", Name = "GetEstablishmentById")]
-        public async Task<ActionResult> GetById(Guid id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                var result = await _service.GetById(id);
-                if (result == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(result);
-            }
-            catch (ArgumentException exc)
-            {
-
-                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
-            }
-        }
-
-        [HttpGet("{id:guid}/details")]
-        public async Task<ActionResult> GetByIdDetails(Guid id)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                var result = await _service.GetByIdDetails(id);
-                if (result == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(result);
             }
             catch (ArgumentException exc)
             {
@@ -111,8 +61,8 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put([FromBody] EstablishmentUpdateDto establishment, Guid id)
+        [HttpGet("{id:guid}", Name = "GetPeriodById")]
+        public async Task<ActionResult> GetById(Guid id)
         {
             if (!ModelState.IsValid)
             {
@@ -121,7 +71,32 @@ namespace BarberEaseApi.Controllers
 
             try
             {
-                var result = await _service.Update(establishment, id);
+                var result = await _service.GetById(id);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult> Put([FromBody] EstablishmentPeriodUpdateDto establishmentPeriod, Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var result = await _service.Update(establishmentPeriod, id);
                 if (result == null)
                 {
                     return NotFound();

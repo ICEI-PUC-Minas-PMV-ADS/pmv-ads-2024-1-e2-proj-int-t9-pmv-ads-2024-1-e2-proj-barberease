@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BarberEaseApi.Dtos.Client
 {
-    public class ClientDtoUpdate
+    public class ClientUpdateDto
     {
         [EmailAddress(ErrorMessage = "E-mail is in invalid format")]
         [StringLength(100, ErrorMessage = "E-mail must have {1} chars")]

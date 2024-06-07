@@ -17,7 +17,7 @@ namespace BarberEaseApi.Services
             _mapper = mapper;
         }
 
-        public async Task<ClientDto?> Create(ClientDtoCreate client)
+        public async Task<ClientDto?> Create(ClientCreateDto client)
         {
             var existsByEmail = await _repository.FindByEmail(client.Email);
             if (existsByEmail != null)
@@ -43,7 +43,7 @@ namespace BarberEaseApi.Services
             return _mapper.Map<ClientDto>(entity);
         }
 
-        public async Task<ClientDto?> Update(ClientDtoUpdate client, Guid id)
+        public async Task<ClientDto?> Update(ClientUpdateDto client, Guid id)
         {
             var entity = _mapper.Map<ClientEntity>(client);
             if (client.Password != null)

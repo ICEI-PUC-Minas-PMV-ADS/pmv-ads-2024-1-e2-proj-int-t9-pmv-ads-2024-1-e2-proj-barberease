@@ -18,6 +18,7 @@ namespace BarberEaseApi.Entities
         public string? Phone { get; set; }
 
         public IEnumerable<EstablishmentServiceEntity> EstablishmentServices { get; set; }
+        public IEnumerable<EstablishmentPeriodEntity> EstablishmentPeriods { get; set; }
 
         public void SetPassword(string password)
         {

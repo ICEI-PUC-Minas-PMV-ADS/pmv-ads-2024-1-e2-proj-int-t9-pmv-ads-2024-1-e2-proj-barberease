@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BarberEaseApi.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240606044004_init")]
+    [Migration("20240607044716_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -289,6 +289,139 @@ namespace BarberEaseApi.Database.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BarberEaseApi.Entities.EstablishmentPeriodEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("id");
+
+                    b.Property<string>("ClosingTime")
+                        .HasMaxLength(8)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("closing_time");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("created_at");
+
+                    b.Property<string>("DayOfWeek")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("day_of_week");
+
+                    b.Property<Guid>("EstablishmentId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("establishment_id");
+
+                    b.Property<bool>("IsClosed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("is_closed");
+
+                    b.Property<string>("OpeningTime")
+                        .HasMaxLength(8)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("opening_time");
+
+                    b.Property<string>("TimeBetweenService")
+                        .HasMaxLength(8)
+                        .HasColumnType("TEXT")
+                        .HasColumnName("time_between_service");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("updated_at");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EstablishmentId");
+
+                    b.ToTable("establishment_periods", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("182cde4a-b74d-49a9-a2ec-59d1a82c2e68"),
+                            ClosingTime = "18:00:00",
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "MONDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = false,
+                            OpeningTime = "09:00:00",
+                            TimeBetweenService = "00:30:00",
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("58695664-a938-4dc7-9384-54616a77ad9f"),
+                            ClosingTime = "18:00:00",
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "TUESDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = false,
+                            OpeningTime = "09:00:00",
+                            TimeBetweenService = "00:30:00",
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("cdb52f2e-04e2-466c-8154-1403eb4aed63"),
+                            ClosingTime = "18:00:00",
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "WEDNESDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = false,
+                            OpeningTime = "09:00:00",
+                            TimeBetweenService = "00:30:00",
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("30813908-3985-42c2-8cee-0b7fde58a1be"),
+                            ClosingTime = "18:00:00",
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "THURSDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = false,
+                            OpeningTime = "09:00:00",
+                            TimeBetweenService = "00:30:00",
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("ecf07789-b490-4c26-acc7-8acd123767b6"),
+                            ClosingTime = "18:00:00",
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "FRIDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = false,
+                            OpeningTime = "09:00:00",
+                            TimeBetweenService = "00:30:00",
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("c7e3ba97-ae61-4ee5-bfb2-5e571cf6856e"),
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "SATURDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = true,
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = new Guid("4568c25f-ee4c-430f-a852-99d2d27bad8f"),
+                            CreatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local),
+                            DayOfWeek = "SUNDAY",
+                            EstablishmentId = new Guid("db279123-e792-44aa-9c43-87c869ff5abd"),
+                            IsClosed = true,
+                            UpdatedAt = new DateTime(2024, 6, 5, 21, 41, 32, 0, DateTimeKind.Local)
+                        });
+                });
+
             modelBuilder.Entity("BarberEaseApi.Entities.EstablishmentServiceEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -388,6 +521,17 @@ namespace BarberEaseApi.Database.Migrations
                     b.Navigation("EstablishmentService");
                 });
 
+            modelBuilder.Entity("BarberEaseApi.Entities.EstablishmentPeriodEntity", b =>
+                {
+                    b.HasOne("BarberEaseApi.Entities.EstablishmentEntity", "Establishment")
+                        .WithMany("EstablishmentPeriods")
+                        .HasForeignKey("EstablishmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Establishment");
+                });
+
             modelBuilder.Entity("BarberEaseApi.Entities.EstablishmentServiceEntity", b =>
                 {
                     b.HasOne("BarberEaseApi.Entities.EstablishmentEntity", "Establishment")
@@ -406,6 +550,8 @@ namespace BarberEaseApi.Database.Migrations
 
             modelBuilder.Entity("BarberEaseApi.Entities.EstablishmentEntity", b =>
                 {
+                    b.Navigation("EstablishmentPeriods");
+
                     b.Navigation("EstablishmentServices");
                 });
 

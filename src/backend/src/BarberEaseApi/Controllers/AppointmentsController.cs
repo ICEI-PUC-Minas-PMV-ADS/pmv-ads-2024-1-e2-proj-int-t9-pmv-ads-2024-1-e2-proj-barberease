@@ -31,7 +31,7 @@ namespace BarberEaseApi.Controllers
                 {
                     return Conflict();
                 }
-                var link = Url.Link("GetAppointmentById", new { id = result.Id });
+                var link = Url.Link("GetAppointmentDetailsById", new { id = result.Id });
                 var createdUri = link != null ? new Uri(link) : null;
                 return Created(createdUri, result);
             }
@@ -42,7 +42,7 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("details")]
         public async Task<ActionResult> GetAll()
         {
             if (!ModelState.IsValid)
@@ -61,8 +61,8 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet("{id:guid}", Name = "GetAppointmentById")]
-        public async Task<ActionResult> GetById(Guid id)
+        [HttpGet("{id:guid}/details", Name = "GetAppointmentDetailsById")]
+        public async Task<ActionResult> GetByIdDetails(Guid id)
         {
             if (!ModelState.IsValid)
             {
