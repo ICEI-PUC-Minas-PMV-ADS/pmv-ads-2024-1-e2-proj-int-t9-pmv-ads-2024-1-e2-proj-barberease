@@ -17,5 +17,8 @@ namespace BarberEaseApi.Dtos.EstablishmentService
 
         [Required(ErrorMessage = "Price is required")]
         public double Price { get; set; }
+
+        [Required(ErrorMessage = "EstablishmentId is required")]
+        public Guid EstablishmentId { get; set; }
     }
 }
