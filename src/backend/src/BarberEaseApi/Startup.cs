@@ -21,12 +21,15 @@ namespace BarberEaseApi
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IEstablishmentRepository, EstablishmentRepository>();
-
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IEstablishmentServiceRepository, EstablishmentServiceRepository>();
 
             // Services
             services.AddTransient<IClientService, ClientService>();
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IEstablishmentService, EstablishmentService>();
+            services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddTransient<IEstablishmentServiceService, EstablishmentServiceService>();
 
             // Mapper
             var mapperConfig = new MapperConfiguration((cfg) =>
