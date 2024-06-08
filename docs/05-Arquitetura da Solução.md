@@ -37,7 +37,6 @@ O projeto da base de dados corresponde à representação das entidades e relaci
 - C#
 - Framework .NET 8
 - EntityFramework 8
-- SQLite
 - SQLServer
 - Docker
 
@@ -56,8 +55,17 @@ O frontend foi hospedado no próprio GitHub Pages, no seguinte link
 
 - https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/
 
+#### Acesso no frontend
+
+Para acessar o frontend existem dois usuários padrão para tal:
+
+- **Cliente**: username: `client@default.com` senha: `123`
+- **Barbearia**: username: `establishment@default.com` senha: `123`
+
 ### Backend
 
 O banco de dados foi hospedado no Azure Clound, com uma instância do **SQLServer**.
 
 Igualmente o backend, foi hospedado em uma instância Docker para facilitar a troca de versões.
+
+- https://barberease.azurewebsites.net
