@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BarberEaseApi.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Initial_Migration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,16 +17,16 @@ namespace BarberEaseApi.Database.Migrations
                 name: "clients",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    email = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    hashed_password = table.Column<string>(type: "TEXT", maxLength: 255, nullable: false),
-                    first_name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    last_name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    city = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    state = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    phone = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    hashed_password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    first_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    last_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    city = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    state = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,20 +37,20 @@ namespace BarberEaseApi.Database.Migrations
                 name: "establishments",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    email = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    hashed_password = table.Column<string>(type: "TEXT", maxLength: 255, nullable: false),
-                    company_name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    cnpj = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    owner_first_name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    owner_last_name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    city = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    state = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    cep = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    address = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    phone = table.Column<string>(type: "TEXT", maxLength: 50, nullable: true),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    hashed_password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    company_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    cnpj = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    owner_first_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    owner_last_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    city = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    state = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    cep = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,15 +61,15 @@ namespace BarberEaseApi.Database.Migrations
                 name: "establishment_periods",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    day_of_week = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
-                    opening_time = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
-                    closing_time = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
-                    time_between_service = table.Column<string>(type: "TEXT", maxLength: 8, nullable: true),
-                    is_closed = table.Column<bool>(type: "INTEGER", nullable: false),
-                    establishment_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    day_of_week = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    opening_time = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: true),
+                    closing_time = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: true),
+                    time_between_service = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: true),
+                    is_closed = table.Column<bool>(type: "bit", nullable: false),
+                    establishment_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,14 +86,14 @@ namespace BarberEaseApi.Database.Migrations
                 name: "establishment_services",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    category = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
-                    description = table.Column<string>(type: "TEXT", nullable: true),
-                    price = table.Column<double>(type: "REAL", nullable: false),
-                    establishment_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    category = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    price = table.Column<double>(type: "float", nullable: false),
+                    establishment_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -110,13 +110,13 @@ namespace BarberEaseApi.Database.Migrations
                 name: "appointments",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    status = table.Column<string>(type: "TEXT", maxLength: 20, nullable: false),
-                    client_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    establishment_service_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    created_at = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    updated_at = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    client_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    establishment_service_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    created_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    updated_at = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

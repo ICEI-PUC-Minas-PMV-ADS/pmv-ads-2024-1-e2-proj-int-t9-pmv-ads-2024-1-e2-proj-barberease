@@ -70,17 +70,15 @@ namespace BarberEaseApi
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI((options) =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI((options) =>
-                {
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "BarberEase API");
-                    options.RoutePrefix = string.Empty;
-                    options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
-                });
-            }
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "BarberEase API");
+                options.RoutePrefix = string.Empty;
+                options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+            });
 
             app.UseCors("CorsPolicy");
 
@@ -88,12 +86,9 @@ namespace BarberEaseApi
 
             app.UseEndpoints((endpoints) => endpoints.MapControllers());
 
-            if (Environment.GetEnvironmentVariable("DB_APPLY_AUTO_MIGRATION")?.ToLower() == "true")
-            {
-                using var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-                using var context = service.ServiceProvider.GetService<AppDbContext>();
-                context?.Database.Migrate();
-            }
+            using var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            using var context = service.ServiceProvider.GetService<AppDbContext>();
+            context?.Database.Migrate();
         }
     }
 }

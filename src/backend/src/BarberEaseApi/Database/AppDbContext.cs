@@ -11,18 +11,9 @@ namespace BarberEaseApi.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION") ?? "Data Source=db.sqlite3;Pooling=False";
-            var dbDialect = Environment.GetEnvironmentVariable("DB_DIALECT") ?? "SQLite";
+            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION");
 
-            if (dbDialect.ToLower() == "sqlite")
-            {
-                optionsBuilder.UseSqlite(connectionString);
-            }
-            else
-            {
-                optionsBuilder.UseSqlServer(connectionString);
-            }
-
+            optionsBuilder.UseSqlServer(connectionString);
             optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
 
             base.OnConfiguring(optionsBuilder);
