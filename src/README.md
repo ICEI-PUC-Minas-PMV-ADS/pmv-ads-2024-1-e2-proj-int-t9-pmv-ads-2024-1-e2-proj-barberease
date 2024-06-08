@@ -9,6 +9,12 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
+### [1.1.0] - 08/06/2024
+
+#### Deploy back-end
+
+- Deploy do back-end na Azure: https://barberease.azurewebsites.net, pronto para que as requests do front apontem para ele
+
 ### [0.4.4] - 07/06/2024
 
 #### Adição da entidade de horário de funcionamento
