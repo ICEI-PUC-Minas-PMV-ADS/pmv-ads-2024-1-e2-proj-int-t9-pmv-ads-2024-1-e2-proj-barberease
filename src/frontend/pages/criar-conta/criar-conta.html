@@ -20,94 +20,82 @@
     <div class="backgroundC"></div>
     <section class="content">
       <div class="animation-container">
-        <h1>Selecione o tipo de cadastro!</h1>
 
-        <div class="select-form">
-          <button class="select-button first" id="first" onclick="toggleForm('client-form', 'first');">Cliente</button>
-          <button class="select-button second " id="second" onclick="toggleForm('barber-form', 'second');">Barbearia</button>
-        </div>
+        <section id="step1">
+          <h1>Selecione o tipo de cadastro!</h1>
+          <div class="select-form">
+            <button class="select-button first" id="first" onclick="toggleForm('client-form', 'first');">Cliente</button>
+            <button class="select-button second " id="second" onclick="toggleForm('barber-form', 'second');">Barbearia</button>
+          </div>
 
-        <form id="client-form">
-          <fieldset class="form-fieldset">
-            <i class="bi bi-arrow-return-right"></i>
-            <input id="clientName" name ="name" placeholder="Nome" required>
-          </fieldset>
+          <form id="data-form">
+            <fieldset class="form-fieldset">
+              <i class="bi bi-arrow-return-right"></i>
+              <input id="clientName" name ="name" placeholder="Nome" required>
+            </fieldset>
 
-          <fieldset class="form-fieldset">
-            <i class="bi bi-telephone"></i>
-            <input type="text" name ="telephone" maxlength="16" id="telephone" placeholder="Telefone" required>
-          </fieldset>
+            <fieldset class="form-fieldset">
+              <i class="bi bi-envelope"></i>
+              <input type="email" id="clientEmail" name="email" placeholder="Email" required>
+            </fieldset>
 
-          <fieldset class="form-fieldset">
-            <i class="bi bi-envelope"></i>
-            <input type="email" id="clientEmail" name="email" placeholder="Email" required>
-          </fieldset>
+            <fieldset class="form-fieldset">
+              <i class="bi bi-lock"></i>
+              <input type="password" id="clientPassword" name ="password" placeholder="Senha" required>
+            </fieldset>
 
-          <fieldset class="form-fieldset">
-            <i class="bi bi-lock"></i>
-            <input type="password" id="clientPassword" name ="password" placeholder="Senha" required>
-          </fieldset>
+            <fieldset class="form-fieldset">
+              <i class="bi bi-geo-alt"></i>
+              <input id="clientCep" name="cep" placeholder="CEP" required>
+            </fieldset>
+  
+            <fieldset class="form-fieldset" style="margin-bottom: 10px;">
+              <i class="bi bi-geo-alt"></i>
+              <input id="clientNumber" placeholder="Número" name="number" required>
+            </fieldset>
 
-          <fieldset class="form-fieldset">
-            <i class="bi bi-geo-alt"></i>
-            <input id="clientCep" name="cep" placeholder="CEP" required>
-          </fieldset>
+            <button type="submit" class="submit-btn" onclick="nextStep()">
+              Próximo
+            </button>
+            <a href="../pagina-inicial/homePage.html">
+              <i class="bi bi-box-arrow-in-right"></i>
+              Voltar
+            </a>
+          </form>
+        </section>
 
-          <fieldset class="form-fieldset" style="margin-bottom: 10px;">
-            <i class="bi bi-geo-alt"></i>
-            <input id="clientNumber" placeholder="Número" name="number" required>
-          </fieldset>
-
-          <button type="submit" class="submit-btn">
-            Cadastrar
-          </button>
-        </form>
-
-        <form id="barber-form" style="display: none;">
-          <fieldset class="form-fieldset">
-            <i class="bi bi-arrow-return-right"></i>
-            <input id="nameB" name="razao" placeholder="Razão Social" required>
-          </fieldset>
-
-          <fieldset class="form-fieldset">
-            <i class="bi bi-arrow-return-right"></i>
-            <input id="name" name="name" placeholder="Nome" required>
-          </fieldset>
-
-
-          <fieldset class="form-fieldset">
-            <i class="bi bi-arrow-right"></i>
-            <input id="cpnj" name="cnpj" placeholder="CNPJ" required>
-          </fieldset>
-
-          <fieldset class="form-fieldset">
-            <i class="bi bi-envelope"></i>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-          </fieldset>
+        <section id="step2" style="display: none;">
+          <h1>Preencha o(s) campo(os)</h1>
+          <form id="client-form">
+            <fieldset class="form-fieldset">
+              <i class="bi bi-telephone"></i>
+              <input type="text" name ="telephone" maxlength="16" id="telephone" placeholder="Telefone" required>
+            </fieldset>
+  
+            <button type="submit" class="submit-btn">
+              Cadastrar
+            </button>
+          </form>
           
-          <fieldset class="form-fieldset">
-            <i class="bi bi-lock"></i>
-            <input type="password" name="password" id="password" placeholder="Senha" required>
-          </fieldset>
-
-          <fieldset class="form-fieldset">
-            <i class="bi bi-geo-alt"></i>
-            <input id="cep" name="cep" placeholder="CEP" required>
-          </fieldset>
-
-          <fieldset class="form-fieldset" style="margin-bottom: 10px;">
-            <i class="bi bi-geo-alt"></i>
-            <input id="number" placeholder="Número" name ="number" required>
-          </fieldset>
-
-          <button type="submit" class="submit-btn">
-            Cadastrar
+          <form id="barber-form" style="display: none;">
+            <fieldset class="form-fieldset">
+              <i class="bi bi-arrow-return-right"></i>
+              <input id="nameB" name="razao" placeholder="Razão Social" required>
+            </fieldset>
+  
+            <fieldset class="form-fieldset">
+              <i class="bi bi-arrow-right"></i>
+              <input id="cpnj" name="cnpj" placeholder="CNPJ" required>
+            </fieldset>
+  
+            <button type="submit" class="submit-btn">
+              Cadastrar
+            </button>
+          </form>
+          <button class="submit-btn" onclick="previousStep()">
+            Voltar
           </button>
-        </form>
-        <a href="../pagina-inicial/homePage.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          Voltar
-        </a>
+        </section>
       </div>
     </section>
   </div>

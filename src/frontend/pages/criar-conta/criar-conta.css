@@ -43,3 +43,10 @@
     border-bottom-left-radius: 0;
     border-left-color: black;
 }
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column ;
+}
