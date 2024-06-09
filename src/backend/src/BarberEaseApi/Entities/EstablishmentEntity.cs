@@ -17,6 +17,9 @@ namespace BarberEaseApi.Entities
         public string Address { get; set; }
         public string? Phone { get; set; }
 
+        public IEnumerable<EstablishmentServiceEntity> EstablishmentServices { get; set; }
+        public IEnumerable<EstablishmentPeriodEntity> EstablishmentPeriods { get; set; }
+
         public void SetPassword(string password)
         {
             // This simulates hashing password, but sha256 is a easy to break

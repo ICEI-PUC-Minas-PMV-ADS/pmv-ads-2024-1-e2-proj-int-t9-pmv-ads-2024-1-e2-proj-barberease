@@ -26,18 +26,46 @@ O projeto da base de dados corresponde à representação das entidades e relaci
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+### Tecnologias utilizadas no frontend
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+- JavaScript
+- HTML
+- CSS
+
+### Tecnologias utilizadas no backend
+
+- C#
+- Framework .NET 8
+- EntityFramework 8
+- SQLServer
+- Docker
+
+### Tecnologias utilizadas para desenvolvimento
+
+- VS Code
+- DBeaver
+- Postman
 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
+### Frontend
 
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+O frontend foi hospedado no próprio GitHub Pages, no seguinte link
+
+- https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/
+
+#### Acesso no frontend
+
+Para acessar o frontend existem dois usuários padrão para tal:
+
+- **Cliente**: username: `client@default.com` senha: `123`
+- **Barbearia**: username: `establishment@default.com` senha: `123`
+
+### Backend
+
+O banco de dados foi hospedado no Azure Clound, com uma instância do **SQLServer**.
+
+Igualmente o backend, foi hospedado em uma instância Docker para facilitar a troca de versões.
+
+- https://barberease.azurewebsites.net

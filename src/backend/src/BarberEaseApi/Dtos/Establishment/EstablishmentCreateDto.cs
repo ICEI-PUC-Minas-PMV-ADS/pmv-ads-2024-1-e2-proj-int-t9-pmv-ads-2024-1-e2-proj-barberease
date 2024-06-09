@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BarberEaseApi.Dtos.Establishment
 {
-    public class EstablishmentDtoCreate
+    public class EstablishmentCreateDto
     {
         [Required(ErrorMessage = "E-mail is required")]
         [EmailAddress(ErrorMessage = "E-mail is in invalid format")]

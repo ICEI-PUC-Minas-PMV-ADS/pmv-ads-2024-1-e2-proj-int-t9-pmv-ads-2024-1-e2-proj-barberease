@@ -17,7 +17,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] ClientDtoCreate client)
+        public async Task<ActionResult> Create([FromBody] ClientCreateDto client)
         {
             if (!ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace BarberEaseApi.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put([FromBody] ClientDtoUpdate client, Guid id)
+        public async Task<ActionResult> Put([FromBody] ClientUpdateDto client, Guid id)
         {
             if (!ModelState.IsValid)
             {

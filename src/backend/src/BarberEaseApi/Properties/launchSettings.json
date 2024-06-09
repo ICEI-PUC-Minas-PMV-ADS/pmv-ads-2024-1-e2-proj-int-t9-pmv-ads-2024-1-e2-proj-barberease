@@ -16,10 +16,7 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:8000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "DB_CONNECTION": "Data Source=db.sqlite3;Pooling=False",
-        "DB_DIALECT": "SQLite",
-        "DB_APPLY_AUTO_MIGRATION": "true"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
   },

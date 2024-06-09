@@ -39,5 +39,21 @@ namespace BarberEaseApi.Repositories
                 throw;
             }
         }
+
+        public async Task<EstablishmentEntity?> FindByIdDetails(Guid id)
+        {
+            try
+            {
+                return await _dataset
+                    .Include((establishmentServices) => establishmentServices.EstablishmentServices)
+                    .Include((establishmentPeriods) => establishmentPeriods.EstablishmentPeriods)
+                    .SingleOrDefaultAsync((entity) => entity.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

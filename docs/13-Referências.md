@@ -1,7 +1,15 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
-
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+- [W3Schools HTML Tutorial](https://www.w3schools.com/html/)
+- [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [W3Schools CSS Tutorial](https://www.w3schools.com/css/)
+- [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [W3Schools JavaScript Tutorial](https://www.w3schools.com/js/)
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Microsoft C# Documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
+- [W3Schools C# Tutorial](https://www.w3schools.com/cs/index.php)
+- [Microsoft .NET Documentation](https://learn.microsoft.com/en-us/dotnet/core/)
+- [Official .NET Blog - .NET 8](https://devblogs.microsoft.com/dotnet/tag/net-8/)
+- [Microsoft EF Core Documentation](https://learn.microsoft.com/en-us/ef/core/)
+- [Entity Framework Core GitHub](https://github.com/dotnet/efcore)
+- [Microsoft ASP.NET Core Documentation](https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8)
