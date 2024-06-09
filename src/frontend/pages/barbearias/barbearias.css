@@ -11,29 +11,31 @@
   a:focus {
     color: aqua;
   }
-.header {
+  .header {
     display: grid;
     grid-template-columns: 1fr 4fr 2fr;
     justify-content: space-between;
     font-size: 16px;
     background: white;
     height: 75px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   .header a {
-    margin-top: 10px;
     color: var(--text-color-02);
-    font-family: sans-serif;
     font-weight: bold;
   }
+  
   .buttonHome {
     padding: 10px 20px;
     border-radius: 7px;
     background-color: var(--background-color-02);
-    font-family: sans-serif;
     font-weight: bolder;
     cursor: pointer;
   }
+  
   .centerItems {
     display: flex;
     gap: 15px;

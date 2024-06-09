@@ -1,5 +1,5 @@
 class AuthService {
-  static BASE_URL = 'http://localhost:8000';
+  static BASE_URL = 'https://barberease.azurewebsites.net';
   static AUTH_PATH = `${AuthService.BASE_URL}/api/Auth`;
 
   static async login(loginData) {

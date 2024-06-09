@@ -1,5 +1,5 @@
 class GetAllBarberService {
-    static BASE_URL = 'http://localhost:8000';
+    static BASE_URL = 'https://barberease.azurewebsites.net';
     static GETALL_PATH = `${GetAllBarberService.BASE_URL}/api/Establishments`;
   
     static async getall() {
