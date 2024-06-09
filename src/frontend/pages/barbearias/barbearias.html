@@ -13,7 +13,7 @@
   <title>barbearias</title>
 </head>
 
-<body>
+<body onload="barber()">
   <header class="header">
     <img src="../../assets/Logo.jpeg" alt="">
     <div class="centerItems">
@@ -27,13 +27,33 @@
     </div>
   </header>
   <main>
-    <h3>Barbearias mais próximas</h3>
+    <h3>Nossas barbearias</h3>
+        <div class="listaBarber">
+           <ul id="myList">
+              <div id="card">
+               <div class="card">
+                 <img src="../../assets/logo.jpeg" alt="Avatar">
+                 <div class="container">
+                  <h1>Nome da barbearia:</h1>
+                   <h4><b id="123"></b></h4>
+                  <h1>Telefone</h1> 
+                   <p id="345"></p>
+                   <h1>Endereço</h1>
+                   <p id="901"></p>
+                  
+                 
+                 </div>
+               </div>
+             </div>
+           </ul>
+         </div>
+    </div>
     
 
-    </li>
+    
   </main>
 
-
+  <script src= "../../services/GetAllBarberService.js"></script>
   <script src="barbearias.js"></script>
 
 </body>

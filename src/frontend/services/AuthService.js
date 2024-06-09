@@ -5,7 +5,8 @@ class AuthService {
   static async login(loginData) {
     const loginEndpoint = `${AuthService.AUTH_PATH}/Login`;
 
-    try {
+    try
+   {
       const response = await fetch(loginEndpoint, {
         method: 'POST',
         headers: {
