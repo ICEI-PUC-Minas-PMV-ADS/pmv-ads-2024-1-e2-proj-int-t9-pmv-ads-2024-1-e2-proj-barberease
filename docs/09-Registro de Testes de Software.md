@@ -38,7 +38,7 @@
 <br><br>
 <h3><b>Autenticação realizada com sucesso</b></h3>
 <figure>
-    <img src="">
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/CTS2.png">
     <figcaption>Figura 3 - Mensagem de autenticação </figure><br>
 </figure>
 <br><br>
