@@ -20,7 +20,8 @@
     <figcaption>Figura 1 - Nenhum formato de telefone aceito</figure><br>
 </figure>
 <br><br>
-
+_______________________________________________________________________________________________________________________________________________
+<br><br>
 
 | **Caso de Teste** | **CT-02 – Login do Cliente** |
 | --- | --- |
@@ -53,6 +54,16 @@
 | Critério de Êxito | O cliente consegue visualizar os estabelecimentos e os serviços oferecidos corretamente. |
 |Resultados obtidos | A página de visualização dos estabelecimentos exibe apenas informações básicas dos estabelecimentos. É possível visualizar todos os estabelecimentos cadastrados, porém os serviços de cada estabelecimento não são exibidos.|
 |Melhorias e recomendações | A equipe deverá inserir os dados dos serviços de cada estabelecimento. Necessária melhora no layout da página | 
+
+
+<h3><b>Autenticação realizada com sucesso</b></h3>
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/CTS%203.jpeg">
+    <figcaption>Figura 3 - Mensagem de autenticação </figure><br>
+</figure>
+<br><br>
+
+
 
 
 
