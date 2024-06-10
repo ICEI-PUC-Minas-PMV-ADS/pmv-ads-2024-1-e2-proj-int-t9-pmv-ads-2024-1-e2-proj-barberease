@@ -34,19 +34,18 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 
 
 
-| **Caso de Teste de Usabilidade** | **CTU-01 – Cadastro de Cliente** |
+| **Caso de Teste de Usabilidade** | **CTU-02 – Cadastro de Cliente** |
 | --- | --- |
-| Requisito Associado | RF-007 - A aplicação deve permitir ao cliente cadastrar uma conta. |
+| Requisito Associado | RF-001 - A aplicação deve permitir ao cliente cadastrar uma conta.  |
 | Participante | Elivaldo Barbosa (50 anos).|
 | Modalidade do teste | Card sorting |
 | Duração do teste | 8 min|
 | Descrição do teste | Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, específicamente da tela de cadastro do cliente, foram disponibilizados para o participante para avaliar e classificá-las de acordo com seu entendimento.| 
-| Conclusão | O resultado do teste foi satisfatório. O participante confundiu o botão que seleciona se o cadastro é barbearia ou cliente com um formulário, pois no seu entendimento os botões Barbearia/Cliente, quando não selecionados, tem o layout bem parecido com os formulários. O resto dos cards foram categorizados corretamente pela participante|
+| Conclusão | O resultado do teste foi satisfatório. O participante confundiu o botão que seleciona cadastro de barbearia ou de cliente com um formulário, pois no seu entendimento os botões Barbearia/Cliente, quando não selecionados, tem o layout bem parecido com os formulários. O resto dos cards foram categorizados corretamente pela participante|
 
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
-    <img src="
-https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Cardsorting%20EB%20EST.png">
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Cardsorting%20EB%20EST.png">
     <figcaption>Figura 1 - Início do teste </figure>
 </figure>
 
