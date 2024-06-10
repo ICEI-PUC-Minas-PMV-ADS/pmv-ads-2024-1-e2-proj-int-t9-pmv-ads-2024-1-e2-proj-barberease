@@ -10,14 +10,27 @@
 | Passos | 1. Acessar a página de registro.<br> 2. Preencher os campos obrigatórios.<br> 3. Aceitar os termos de uso.<br> 4. Clicar em "Registrar". |
 | Critério de Êxito | O cliente é registrado com sucesso. |
 |Resultados obtidos | Não foi possível cadastrar o cliente. O campo destinado a inserir o telefone não aceitou nenhum dos formatos (com DDD, sem DDD, com parênteses e hifen ou código internacional) inseridos|
-| Conclusão | Resultado insatisfatório |
+| Conclusão | Resultado insatisfatório | 
 
 
 <h3><b>Falha</b></h3>
 <figure>
     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/IMG_20240512_234252_535.jpg">
-    <figcaption>Figura 1 - Nenhum formato de telefone aceito</figure>
+    <figcaption>Figura 1 - Nenhum formato de telefone aceito</figure><br>
 </figure>
+<br><br>
+
+
+| **Caso de Teste** | **CT-02 – Login do Cliente** |
+| --- | --- |
+| Requisito Associado | RF-002 - A aplicação deve permitir ao cliente fazer login na sua conta fornecendo email e senha. |
+| Objetivo do Teste | Verificar se um cliente consegue fazer login na aplicação. |
+| Passos | 1. Acessar a página de login.<br> 2. Preencher os campos de email e senha.<br> 3. Clicar em "Entrar".<br> |
+| Critério de Êxito | O cliente é logado com sucesso. |
+|Resultados obtidos | Foi utilizado os dados de um client default para realizar o teste. A autenticação dos dados foi realizada com sucesso e exibida mensagem de autenticação bem sucedida. No entanto, a página para onde o cliente será redirecionado ainda está em desenvolvimento, bloqueando o fluxo do usuário.|
+| Conclusão | Resultado insatisfatório, porém atende parcialmente o critérios de êxito|
+
+
 
 | **Caso de Teste** 	| **CT-02 – Realizar login** 	|
 |:---:	|:---:	|
