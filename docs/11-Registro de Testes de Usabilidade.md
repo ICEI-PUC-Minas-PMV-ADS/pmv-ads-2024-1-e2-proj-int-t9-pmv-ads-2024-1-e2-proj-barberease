@@ -45,7 +45,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
-    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Card%20Sorting%20AF%20EST1.png">
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Card%20sorting%20EB%20EST2.png">
     <figcaption>Figura 1 - Início do teste </figure>
 </figure>
 
