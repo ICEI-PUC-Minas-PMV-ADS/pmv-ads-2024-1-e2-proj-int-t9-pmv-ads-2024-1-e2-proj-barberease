@@ -30,6 +30,21 @@
 |Resultados obtidos | Foi utilizado os dados de um client default para realizar o teste. A autenticação dos dados foi realizada com sucesso e exibida mensagem de autenticação bem sucedida. No entanto, a página para onde o cliente será redirecionado ainda está em desenvolvimento, bloqueando o fluxo do usuário.|
 | Conclusão | Resultado insatisfatório, porém atende parcialmente o critérios de êxito|
 
+<h3><b>Falha</b></h3>
+<figure>
+    <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/Falha%20CTS2.jpeg">
+    <figcaption>Figura 2 - Página não encontrada </figure><br>
+</figure>
+<br><br>
+<h3><b>Autenticação realizada com sucesso</b></h3>
+<figure>
+    <img src="">
+    <figcaption>Figura 3 - Mensagem de autenticação </figure><br>
+</figure>
+<br><br>
+
+
+
 
 
 | **Caso de Teste** 	| **CT-02 – Realizar login** 	|
