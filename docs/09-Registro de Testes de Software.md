@@ -60,10 +60,10 @@
 |Melhorias e recomendações | A equipe deverá inserir os dados dos serviços de cada estabelecimento. Necessária a melhora no layout da página | 
 
 
-<h3><b>Autenticação realizada com sucesso</b></h3>
+<h3><b>Lista de barbearias cadastradas</b></h3>
 <figure>
     <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/CTS%203.jpeg">
-    <figcaption>Figura 3 - Mensagem de autenticação </figure><br>
+    <figcaption>Figura 4 - Barbearias </figure><br>
 </figure>
 <br><br>
         ________________________________________________________________________________________________________________________________________________________
