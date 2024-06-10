@@ -45,6 +45,17 @@
 </figure>
 <br><br>
 
+| **Caso de Teste** | **CT-03 – Visualização de Estabelecimentos e Serviços** |
+| --- | --- |
+| Requisito Associado | RF-003 - A aplicação deve permitir ao cliente visualizar os estabelecimentos e seus serviços oferecidos. |
+| Objetivo do Teste | Verificar se um cliente consegue visualizar os estabelecimentos e os serviços oferecidos. |
+| Passos | 1. Acessar a página de busca de estabelecimentos.<br> 2. Navegar pela lista de estabelecimentos.<br> 3. Visualizar os serviços oferecidos por cada estabelecimento.<br> |
+| Critério de Êxito | O cliente consegue visualizar os estabelecimentos e os serviços oferecidos corretamente. |
+|Resultados obtidos | A página de visualização dos estabelecimentos exibe apenas informações básicas dos estabelecimentos. É possível visualizar todos os estabelecimentos cadastrados, porém os serviços de cada estabelecimento não são exibidos.|
+|Melhorias e recomendações | A equipe deverá inserir os dados dos serviços de cada estabelecimento. Necessária melhora no layout da página | 
+
+
+
 
 
 
