@@ -22,7 +22,6 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 }
 
 .header {
@@ -77,8 +76,8 @@ a:focus {
 }
 
 .buttonForm {
-  padding: 20px 40px;
-  border-radius: 7px;
+  padding: 20px 20px;
+  border-radius: 0px 7px 7px 0px;
   font-weight: 500;
   background-color: var(--background-color-02);
 }
@@ -93,7 +92,7 @@ a:focus {
 .inputItem {
   position: relative;
   padding: 20px 30px;
-  border-radius: 7px;
+  border-radius: 7px 0px 0px 7px;
 }
 
 .inputItem::before {
