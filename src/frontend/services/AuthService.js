@@ -14,6 +14,10 @@ class AuthService {
         body: JSON.stringify(loginData),
       });
 
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
       return await response.json();
     } catch (err) {
       console.error(`Request failed: ${JSON.stringify(err)}`);

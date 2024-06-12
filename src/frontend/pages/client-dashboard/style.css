@@ -83,6 +83,7 @@
 }
 
 .sidebar button {
+  display: none;
   background-color: var(--background-color-03);
   border: none;
   padding: 10px 20px;
@@ -163,6 +164,16 @@ table td {
 
 table th {
   background-color: var(--background-color-02);
+}
+
+table td a {
+  color: var(--text-color-01);
+  transition: all 200ms;
+}
+
+table td a:hover {
+  color: var(--text-color-01);
+  opacity: .5;
 }
 
 table td button {

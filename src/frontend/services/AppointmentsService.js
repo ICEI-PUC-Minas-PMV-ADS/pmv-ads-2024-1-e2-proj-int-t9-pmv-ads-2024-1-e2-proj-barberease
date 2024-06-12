@@ -1,9 +1,9 @@
-class ClientsService {
+class AppointmentsService {
   static BASE_URL = 'http://localhost:8000';
-  static CLIENTS_PATH = `${ClientsService.BASE_URL}/api/Clients`;
+  static APPOINTMENTS_PATH = `${AppointmentsService.BASE_URL}/api/Appointments`;
 
-  static async getById(clientId) {
-    const endpoint = `${ClientsService.CLIENTS_PATH}/${clientId}`;
+  static async getClientAppointments(clientId) {
+    const endpoint = `${AppointmentsService.APPOINTMENTS_PATH}/details/${clientId}/client`;
 
     try {
       const response = await fetch(endpoint);

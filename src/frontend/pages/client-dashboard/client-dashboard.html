@@ -29,9 +29,13 @@
       <a href="../assinatura/assinatura.html">Assinatura</a>
     </div>
     <div class="rightItems">
-      <a href="./client-dashboard.html" class="buttonHome">
+      <a href="./client-dashboard.html">
         <i class="bi bi-person-circle"></i>
-        PERFIL
+        Perfil
+      </a>
+      <a href="#" class="buttonHome">
+        <i class="bi bi-box-arrow-left"></i>
+        SAIR
       </a>
     </div>
   </header>
@@ -40,51 +44,54 @@
     <div class="sidebar">
       <h2>Dashboard</h2>
       <div id="profile-info" class="profile">
-        <img src="../../assets/default-profile.jpg" alt="Foto de Perfil Default">
-        <p class="name">Carlos Silva</p>
-        <p class="email">carlos.silva@example.com</p>
       </div>
-      <button id="edit-profile" title="Clique para edita o seu perfil">Editar Perfil</button>
-      <button id="show-appointments" title="Clique para mostrar os seus agendamentos">Mostrar Agendamentos</button>
+      <button id="edit-profile" title="Clique para edita o seu perfil">
+        Editar Perfil
+      </button>
+      <button id="show-appointments" title="Clique para mostrar os seus agendamentos">
+        Mostrar Agendamentos
+      </button>
     </div>
 
     <div class="content">
       <div id="appointments" class="info-section">
         <h2>Histórico de Agendamentos</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Data Agendada</th>
-              <th>Status</th>
-              <th>Serviço</th>
-              <th>Barbearia</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>01/06/2024 13:30</td>
-              <td><span class="status confirmed">Confirmado</span></td>
-              <td>Corte de Cabelo</td>
-              <td>João</td>
-              <td title="O agendamento foi confirmado"><button type="button" disabled>Cancelar</button></td>
-            </tr>
-            <tr>
-              <td>01/06/2024 13:30</td>
-              <td><span class="status received">Pendente</span></td>
-              <td>Barba</td>
-              <td>Pedro</td>
-              <td title="Cancelar agendamento"><button type="button">Cancelar</button></td>
-            </tr>
-            <tr>
-              <td>01/06/2024 13:30</td>
-              <td><span class="status cancelled">Cancelado</span></td>
-              <td>Barba</td>
-              <td>Pedro</td>
-              <td title="O agendamento foi cancelado"><button type="button" disabled>Cancelar</button></td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="appointments-info">
+          <!-- <table>
+            <thead>
+              <tr>
+                <th>Data Agendada</th>
+                <th>Status</th>
+                <th>Serviço</th>
+                <th>Barbearia</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01/06/2024 13:30</td>
+                <td><span class="status confirmed">Confirmado</span></td>
+                <td>Corte de Cabelo</td>
+                <td>João</td>
+                <td title="O agendamento foi confirmado"><button type="button" disabled>Cancelar</button></td>
+              </tr>
+              <tr>
+                <td>01/06/2024 13:30</td>
+                <td><span class="status received">Pendente</span></td>
+                <td>Barba</td>
+                <td>Pedro</td>
+                <td title="Cancelar agendamento"><button type="button">Cancelar</button></td>
+              </tr>
+              <tr>
+                <td>01/06/2024 13:30</td>
+                <td><span class="status cancelled">Cancelado</span></td>
+                <td>Barba</td>
+                <td>Pedro</td>
+                <td title="O agendamento foi cancelado"><button type="button" disabled>Cancelar</button></td>
+              </tr>
+            </tbody>
+          </table> -->
+        </div>
       </div>
 
       <div id="edit-info" class="info-section hidden">
@@ -118,7 +125,9 @@
     integrity="sha512-79j1YQOJuI8mLseq9icSQKT6bLlLtWknKwj1OpJZMdPt2pFBry3vQTt+NZuJw7NSd1pHhZlu0s12Ngqfa371EA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../../services/ClientsService.js"></script>
+  <script src="../../services/AppointmentsService.js"></script>
   <script src="../../lib/ToastifyLib.js"></script>
+  <script src="../../utils/utilities.js"></script>
   <script src="./client-dashboard.js"></script>
 </body>
 
