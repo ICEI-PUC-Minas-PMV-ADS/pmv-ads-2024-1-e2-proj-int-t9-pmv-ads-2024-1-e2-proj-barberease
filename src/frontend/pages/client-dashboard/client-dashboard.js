@@ -11,8 +11,13 @@ showAppointmentsBtn.addEventListener('click', clickShowAppointments);
 editProfileBtn.addEventListener('click', clickEditProfile);
 
 async function domContentLoaded() {
-  // Verificar se usuário correto está logado para acessar página.
-  // Caso contrário, redirecionar usuário para página de login.
+  const isUserAuthenticated = localStorage.getItem('authenticated') === '1';
+
+  // Guard condition.
+  if (!isUserAuthenticated) {
+    window.location.href = '../login/login.html';
+    return;
+  }
 
   const profileSection = document.getElementById('profile-info');
   const appointmentsInfoSection = document.getElementById('appointments-info');
@@ -65,7 +70,9 @@ async function domContentLoaded() {
             </a>
           </td>
           <td title="${btnEnabled ? '' : 'Não há como cancelar'}">
-            <button type="button" ${btnEnabled ? '' : 'disabled'}>Cancelar</button>
+            <button type="button" data-appointment-id=${appointment.id} onclick="clickCancelAppointment(this)" ${btnEnabled ? '' : 'disabled'}>
+              Cancelar
+            </button>
           </td>
         </tr>
       `;
@@ -108,5 +115,24 @@ function clickEditProfile(event) {
   if (editProfileSection.classList.contains('hidden')) {
     editProfileSection.classList.remove('hidden');
     appointmentsSection.classList.add('hidden');
+  }
+}
+
+async function clickCancelAppointment(targetBtn) {
+  const appointmentId = targetBtn.dataset.appointmentId;
+  const updateStatusData = { status: 'CANCELLED' };
+
+  try {
+    await AppointmentsService.updateStatus(appointmentId, updateStatusData);
+    ToastifyLib.toast(
+      'Agendamento cancelado com sucesso',
+      'var(--background-color-success)'
+    );
+    location.reload();
+  } catch (error) {
+    ToastifyLib.toast(
+      'Erro ao cancelar agendamento, por favor tente novamente',
+      'var(--background-color-error)'
+    );
   }
 }
