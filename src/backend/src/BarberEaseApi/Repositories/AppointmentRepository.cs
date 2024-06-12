@@ -18,7 +18,19 @@ namespace BarberEaseApi.Repositories
         {
             return await _dataset
                 .Include((establishmentService) => establishmentService.EstablishmentService)
+                .ThenInclude((establishmentService) => establishmentService.Establishment)
                 .Include((client) => client.Client)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<AppointmentEntity>> FindAllByClientDetails(Guid clientId)
+        {
+            return await _dataset
+                .Include((establishmentService) => establishmentService.EstablishmentService)
+                .ThenInclude((establishmentService) => establishmentService.Establishment)
+                .Include((client) => client.Client)
+                .Where((appointment) => appointment.ClientId == clientId)
+                .OrderByDescending((appointment) => appointment.Date)
                 .ToListAsync();
         }
 

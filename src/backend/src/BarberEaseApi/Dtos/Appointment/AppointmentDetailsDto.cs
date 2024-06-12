@@ -11,6 +11,6 @@ namespace BarberEaseApi.Dtos.Appointment
         public ClientDto Client { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public EstablishmentServiceDto EstablishmentService { get; set; }
+        public EstablishmentServiceDetailsDto EstablishmentService { get; set; }
     }
 }

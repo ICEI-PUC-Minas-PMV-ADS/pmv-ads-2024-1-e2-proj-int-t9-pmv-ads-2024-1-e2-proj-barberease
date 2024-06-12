@@ -33,6 +33,7 @@ namespace BarberEaseApi.Mappers
 
             #region EstablishmentService
             CreateMap<EstablishmentServiceDto, EstablishmentServiceEntity>().ReverseMap();
+            CreateMap<EstablishmentServiceDetailsDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceCreateDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceUpdateDto, EstablishmentServiceEntity>().ReverseMap();
             #endregion
