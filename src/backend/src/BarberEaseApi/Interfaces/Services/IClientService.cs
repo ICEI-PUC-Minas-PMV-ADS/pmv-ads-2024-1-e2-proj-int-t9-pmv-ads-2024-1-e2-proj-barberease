@@ -8,6 +8,7 @@ namespace BarberEaseApi.Interfaces.Services
         Task<IEnumerable<ClientDto>> GetAll();
         Task<ClientDto?> GetById(Guid id);
         Task<ClientDto?> Update(ClientUpdateDto client, Guid id);
+        Task<ClientDto?> PartialUpdate(ClientPartialUpdateDto client, Guid id);
         Task<bool> Delete(Guid id);
     }
 }

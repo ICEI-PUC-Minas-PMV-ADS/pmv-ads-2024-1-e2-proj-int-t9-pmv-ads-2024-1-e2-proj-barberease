@@ -1,0 +1,264 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  justify-content: space-between;
+  font-size: 16px;
+  background: var(--text-color-01);
+  height: 75px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header img {
+  max-width: 75px;
+  max-height: 100%;
+}
+
+.header a {
+  color: var(--text-color-02);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttonHome {
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: var(--background-color-02);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.centerItems {
+  display: flex;
+  gap: 15px;
+}
+
+.rightItems {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: end;
+  grid-column: 3/3;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--background-color-02);
+  padding: 20px;
+  text-align: center;
+}
+
+.profile {
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile .name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile .email {
+  font-size: 1em;
+  margin: 0;
+  max-width: fit-content;
+}
+
+.sidebar h2 {
+  margin: 0;
+  color: var(--text-color-02);
+  margin-bottom: 1rem;
+}
+
+.sidebar button {
+  display: none;
+  background-color: var(--background-color-03);
+  border: none;
+  padding: 10px 20px;
+  color: var(--text-color-01);
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 7px;
+  transition: all 250ms;
+}
+
+.sidebar button:hover {
+  background-color: var(--text-color-01);
+  color: var(--text-color-02);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.info-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.info-section.hidden {
+  display: none;
+}
+
+.info-section h2 {
+  color: var(--background-color-02);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--background-color-03);
+  border-radius: 5px;
+}
+
+form input:disabled {
+  color: var(--text-color-01);
+}
+
+form input:disabled::placeholder {
+  color: var(--text-color-01);
+}
+
+form button {
+  background-color: var(--background-color-03);
+  border: none;
+  padding: 10px;
+  color: var(--text-color-01);
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 7px;
+  transition: all 250ms;
+}
+
+form button:hover {
+  background-color: var(--background-color-02);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-style: hidden;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+table th {
+  background-color: var(--background-color-02);
+}
+
+table td a {
+  color: var(--text-color-01);
+  transition: all 200ms;
+}
+
+table td a:hover {
+  color: var(--text-color-01);
+  opacity: .5;
+}
+
+table td button {
+  background-color: var(--background-color-03);
+  border: none;
+  padding: 5px 10px;
+  color: var(--text-color-01);
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 200ms;
+}
+
+table td button:hover {
+  background-color: var(--background-color-02);
+}
+
+table td button:disabled {
+  cursor: not-allowed;
+}
+
+table td button:disabled:hover {
+  background-color: var(--background-color-03);
+}
+
+table td .status {
+  border-radius: 5px;
+  padding: 3px 5px;
+  display: inline-block;
+  color: var(--text-color-02);
+}
+
+table td .status.confirmed {
+  background-color: var(--background-color-success);
+}
+
+table td .status.cancelled {
+  color: var(--text-color-01);
+  background-color: var(--background-color-error);
+}
+
+table td .status.received {
+  background-color: var(--background-color-warning);
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px;
+    text-align: left;
+  }
+
+  .sidebar button {
+    width: 100%;
+  }
+
+  .content {
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .info-section {
+    display: block;
+  }
+}
+
+@media (max-width: 550px) {
+  .centerItems {
+    display: none;
+  }
+}

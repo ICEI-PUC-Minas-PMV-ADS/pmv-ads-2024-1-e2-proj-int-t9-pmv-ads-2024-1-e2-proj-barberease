@@ -16,6 +16,7 @@ namespace BarberEaseApi.Mappers
             CreateMap<ClientDto, ClientEntity>().ReverseMap();
             CreateMap<ClientCreateDto, ClientEntity>().ReverseMap();
             CreateMap<ClientUpdateDto, ClientEntity>().ReverseMap();
+            CreateMap<ClientPartialUpdateDto, ClientEntity>().ReverseMap();
             #endregion
 
             #region Establishment
@@ -33,6 +34,7 @@ namespace BarberEaseApi.Mappers
 
             #region EstablishmentService
             CreateMap<EstablishmentServiceDto, EstablishmentServiceEntity>().ReverseMap();
+            CreateMap<EstablishmentServiceDetailsDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceCreateDto, EstablishmentServiceEntity>().ReverseMap();
             CreateMap<EstablishmentServiceUpdateDto, EstablishmentServiceEntity>().ReverseMap();
             #endregion

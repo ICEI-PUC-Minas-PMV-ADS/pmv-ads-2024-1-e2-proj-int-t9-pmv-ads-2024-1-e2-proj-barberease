@@ -3,11 +3,10 @@ class AuthService {
   static AUTH_PATH = `${AuthService.BASE_URL}/api/Auth`;
 
   static async login(loginData) {
-    const loginEndpoint = `${AuthService.AUTH_PATH}/Login`;
+    const endpoint = `${AuthService.AUTH_PATH}/Login`;
 
-    try
-   {
-      const response = await fetch(loginEndpoint, {
+    try {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -15,9 +14,13 @@ class AuthService {
         body: JSON.stringify(loginData),
       });
 
-      return response.json();
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
     } catch (err) {
-      console.error(`Login failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${JSON.stringify(err)}`);
       throw err;
     }
   }

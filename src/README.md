@@ -9,6 +9,14 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
+### [1.2.0] - 08/06/2024
+
+#### Deploy back-end + dashboard do cliente
+
+- Deploy da versão 1.2.0 do back-end
+- Alterações no back-end para o dashboard do cliente
+- Alterações no front-end para o dashboard do cliente
+
 ### [1.1.0] - 08/06/2024
 
 #### Deploy back-end
