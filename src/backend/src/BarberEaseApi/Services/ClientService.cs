@@ -54,6 +54,59 @@ namespace BarberEaseApi.Services
             return _mapper.Map<ClientDto>(result);
         }
 
+        public async Task<ClientDto?> PartialUpdate(ClientPartialUpdateDto client, Guid id)
+        {
+            var result = await _repository.FindByIdAsync(id);
+            if (result == null)
+            {
+                return null;
+            }
+            var entity = _mapper.Map<ClientEntity>(client);
+            if (client.Email == null)
+            {
+                entity.Email = result.Email;
+            }
+            else
+            {
+                var existsByEmail = await _repository.FindByEmail(client.Email);
+                if (existsByEmail != null)
+                {
+                    return null;
+                }
+            }
+            if (client.Password == null)
+            {
+                entity.HashedPassword = result.HashedPassword;
+            }
+            else
+            {
+                entity.SetPassword(client.Password);
+            }
+            if (client.FirstName == null)
+            {
+                entity.FirstName = result.FirstName;
+            }
+            if (client.LastName == null)
+            {
+                entity.LastName = result.LastName;
+            }
+            if (client.City == null)
+            {
+                entity.City = result.City;
+            }
+            if (client.State == null)
+            {
+                entity.State = result.State;
+            }
+            if (client.Phone == null)
+            {
+                entity.Phone = result.Phone;
+            }
+
+            var updateResult = await _repository.UpdateAsync(entity, id);
+            return _mapper.Map<ClientDto>(updateResult);
+        }
+
         public async Task<bool> Delete(Guid id)
         {
             return await _repository.DeleteAsync(id);

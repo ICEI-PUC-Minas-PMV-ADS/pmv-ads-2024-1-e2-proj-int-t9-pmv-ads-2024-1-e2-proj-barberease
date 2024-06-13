@@ -16,6 +16,7 @@ namespace BarberEaseApi.Mappers
             CreateMap<ClientDto, ClientEntity>().ReverseMap();
             CreateMap<ClientCreateDto, ClientEntity>().ReverseMap();
             CreateMap<ClientUpdateDto, ClientEntity>().ReverseMap();
+            CreateMap<ClientPartialUpdateDto, ClientEntity>().ReverseMap();
             #endregion
 
             #region Establishment
