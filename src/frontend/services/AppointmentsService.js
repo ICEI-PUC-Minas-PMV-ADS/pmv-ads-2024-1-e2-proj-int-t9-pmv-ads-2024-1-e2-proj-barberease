@@ -1,5 +1,5 @@
 class AppointmentsService {
-  static BASE_URL = 'http://localhost:8000';
+  static BASE_URL = 'https://barberease.azurewebsites.net';
   static APPOINTMENTS_PATH = `${AppointmentsService.BASE_URL}/api/Appointments`;
 
   static async getClientAppointments(clientId) {

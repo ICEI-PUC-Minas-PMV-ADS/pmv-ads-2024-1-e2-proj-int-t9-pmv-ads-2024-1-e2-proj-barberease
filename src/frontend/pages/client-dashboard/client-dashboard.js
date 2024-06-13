@@ -4,11 +4,17 @@ const showAppointmentsBtn = document.getElementById('show-appointments');
 const appointmentsSection = document.getElementById('appointments');
 const editProfileSection = document.getElementById('edit-info');
 
+const editForm = document.getElementById('edit-form');
+const cepInput = document.getElementById('cep');
+
 // Events
 document.addEventListener('DOMContentLoaded', domContentLoaded);
 
 showAppointmentsBtn.addEventListener('click', clickShowAppointments);
 editProfileBtn.addEventListener('click', clickEditProfile);
+
+editForm.addEventListener('submit', submitEditForm);
+cepInput.addEventListener('blur', setAddressInfo);
 
 async function domContentLoaded() {
   const isUserAuthenticated = localStorage.getItem('authenticated') === '1';
@@ -36,13 +42,22 @@ async function domContentLoaded() {
 
   try {
     const response = await ClientsService.getById(clientIdentifier);
+
     profileSection.innerHTML = `
       <img src="../../assets/default-profile.jpg" alt="Foto de Perfil Default">
-      <p class="name">
+      <p class="name" title="${formatName(response.firstName, response.lastName)}">
         ${formatName(response.firstName, response.lastName)}
       </p>
-      <p class="email">${response.email}</p>
+      <p class="email" title="${response.email}">
+        <i class="bi bi-envelope-fill"></i>
+        ${response.email}
+      </p>
+      <p title="${formatAddress(response.city, response.state)}">
+        <i class="bi bi-geo-alt-fill"></i>
+        ${formatAddress(response.city, response.state)}
+      </p>
     `;
+
     editProfileBtn.style.display = 'inline-block';
     showAppointmentsBtn.style.display = 'inline-block';
   } catch (err) {
@@ -134,5 +149,85 @@ async function clickCancelAppointment(targetBtn) {
       'Erro ao cancelar agendamento, por favor tente novamente',
       'var(--background-color-error)'
     );
+  }
+}
+
+async function submitEditForm(event) {
+  event.preventDefault();
+
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
+
+  const updateData = {};
+
+  const name = formData.get('name');
+  if (name) {
+    const firstName = name.split(' ').at(0)
+    updateData.firstName = firstName;
+    updateData.lastName = name.split(' ').at(-1) ?? firstName;
+  }
+
+  const email = formData.get('email');
+  if (email) {
+    updateData.email = email;
+  }
+
+  const password = formData.get('password');
+  if (email) {
+    updateData.password = password;
+  }
+
+  const cep = formData.get('cep');
+  if (cep) {
+    updateData.city = formData.get('city');
+    updateData.state = formData.get('state');
+  }
+
+  const phone = formData.get('phone');
+  if (email) {
+    updateData.phone = phone;
+  }
+
+  try {
+    const clientIdentifier = localStorage.getItem('userIdentifier');
+    await ClientsService.updateById(clientIdentifier, updateData);
+
+    ToastifyLib.toast(
+      'Informações atualizadas com sucesso!',
+      'var(--background-color-success)'
+    );
+
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
+  } catch (err) {
+    ToastifyLib.toast(
+      'Erro ao atualizar informações, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
+}
+
+async function setAddressInfo(event) {
+  event.preventDefault();
+
+  const targetInput = event.target;
+  const cep = targetInput.value;
+
+  if (cep.length !== 8) {
+    return;
+  }
+
+  const stateInput = document.getElementById('state');
+  const cityInput = document.getElementById('city');
+
+  try {
+    const response = await getAddressByCep(cep);
+    stateInput.value = response.uf;
+    cityInput.value = response.localidade;
+  } catch (err) {
+    console.error(err);
+    stateInput.value = '';
+    cityInput.value = '';
   }
 }

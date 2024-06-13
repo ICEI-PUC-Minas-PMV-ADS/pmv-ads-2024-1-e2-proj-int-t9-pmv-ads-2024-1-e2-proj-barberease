@@ -29,14 +29,14 @@
       <a href="../assinatura/assinatura.html">Assinatura</a>
     </div>
     <div class="rightItems">
-      <a href="./client-dashboard.html">
+      <a href="./client-dashboard.html" title="Ir para o perfil">
         <i class="bi bi-person-circle"></i>
         Perfil
       </a>
-      <a href="#" class="buttonHome">
+      <button onclick="logoutUser()" class="buttonHome" title="Clique para sair">
         <i class="bi bi-box-arrow-left"></i>
         SAIR
-      </a>
+      </button>
     </div>
   </header>
 
@@ -57,65 +57,30 @@
       <div id="appointments" class="info-section">
         <h2>Histórico de Agendamentos</h2>
         <div id="appointments-info">
-          <!-- <table>
-            <thead>
-              <tr>
-                <th>Data Agendada</th>
-                <th>Status</th>
-                <th>Serviço</th>
-                <th>Barbearia</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>01/06/2024 13:30</td>
-                <td><span class="status confirmed">Confirmado</span></td>
-                <td>Corte de Cabelo</td>
-                <td>João</td>
-                <td title="O agendamento foi confirmado"><button type="button" disabled>Cancelar</button></td>
-              </tr>
-              <tr>
-                <td>01/06/2024 13:30</td>
-                <td><span class="status received">Pendente</span></td>
-                <td>Barba</td>
-                <td>Pedro</td>
-                <td title="Cancelar agendamento"><button type="button">Cancelar</button></td>
-              </tr>
-              <tr>
-                <td>01/06/2024 13:30</td>
-                <td><span class="status cancelled">Cancelado</span></td>
-                <td>Barba</td>
-                <td>Pedro</td>
-                <td title="O agendamento foi cancelado"><button type="button" disabled>Cancelar</button></td>
-              </tr>
-            </tbody>
-          </table> -->
         </div>
       </div>
 
       <div id="edit-info" class="info-section hidden">
         <h2>Informações Pessoais</h2>
-        <form>
+        <form id="edit-form">
           <label for="name">Nome:</label>
-          <input type="text" id="name" name="name">
+          <input type="text" id="name" name="name" placeholder="Nome completo">
 
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
+          <input type="email" id="email" name="email" placeholder="Email">
 
           <label for="password">Senha:</label>
-          <input type="password" id="password" name="password">
+          <input type="password" id="password" name="password" placeholder="Senha">
 
-          <label for="city">Cidade:</label>
-          <input type="text" id="city" name="city">
-
-          <label for="state">Estado:</label>
-          <input type="text" id="state" name="state">
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep" name="cep" placeholder="CEP" minlength="8" maxlength="8">
+          <input type="text" id="state" name="state" placeholder="Estado" disabled>
+          <input type="text" id="city" name="city" placeholder="Cidade" disabled>
 
           <label for="phone">Telefone:</label>
-          <input type="tel" id="phone" name="phone">
+          <input type="tel" id="phone" name="phone" placeholder="Telefone" minlength="11" maxlength="11">
 
-          <button type="submit">Atualizar Informações</button>
+          <button type="submit" title="Atualizar informações">Atualizar Informações</button>
         </form>
       </div>
     </div>

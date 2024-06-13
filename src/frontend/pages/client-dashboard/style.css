@@ -56,6 +56,9 @@
 
 .profile {
   margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile img {
@@ -74,6 +77,7 @@
 .profile .email {
   font-size: 1em;
   margin: 0;
+  max-width: fit-content;
 }
 
 .sidebar h2 {
@@ -123,6 +127,7 @@
 form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 form label {
@@ -136,6 +141,14 @@ form input {
   border-radius: 5px;
 }
 
+form input:disabled {
+  color: var(--text-color-01);
+}
+
+form input:disabled::placeholder {
+  color: var(--text-color-01);
+}
+
 form button {
   background-color: var(--background-color-03);
   border: none;
@@ -143,6 +156,8 @@ form button {
   color: var(--text-color-01);
   cursor: pointer;
   margin-top: 20px;
+  border-radius: 7px;
+  transition: all 250ms;
 }
 
 form button:hover {

@@ -4,6 +4,12 @@ function formatName(firstName, lastName) {
   return `${formattedFirstName} ${formattedLastName}`;
 }
 
+function formatAddress(city, state) {
+  const formattedCity = city.at(0).toUpperCase() + city.slice(1);
+  const formattedState = state.at(0).toUpperCase() + state.slice(1);
+  return `${formattedCity}, ${formattedState}`;
+}
+
 function formatDateString(dateString) {
   const date = new Date(dateString);
   return date.toLocaleString('pt-br', {
@@ -31,4 +37,30 @@ function getAppointmentStatus(status) {
     statusDisplay: displayStatustMap[status],
     cssClassStatus: cssClassStatusMap[status],
   }
+}
+
+async function getAddressByCep(cep) {
+  const url = `http://viacep.com.br/ws/${cep}/json/`
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return await response.json();
+  } catch (err) {
+    console.error(`Request failed: ${JSON.stringify(err)}`);
+    throw err;
+  }
+}
+
+function logoutUser() {
+  // Remove user information.
+  localStorage.removeItem('authenticated');
+  localStorage.removeItem('userIdentifier');
+  localStorage.removeItem('userType');
+
+  window.location.href = '../login/login.html';
 }
