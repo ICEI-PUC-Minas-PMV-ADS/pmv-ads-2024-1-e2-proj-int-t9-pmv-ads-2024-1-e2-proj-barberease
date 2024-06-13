@@ -80,7 +80,7 @@ async function domContentLoaded() {
           </td>
           <td>${appointment.establishmentService.name}</td>
           <td>
-            <a href="../barbearia/barbearia.html?barberId=${appointment.establishmentService.establishment.id}">
+            <a href="#">
               ${appointment.establishmentService.establishment.companyName}
             </a>
           </td>
@@ -139,11 +139,15 @@ async function clickCancelAppointment(targetBtn) {
 
   try {
     await AppointmentsService.updateStatus(appointmentId, updateStatusData);
+
     ToastifyLib.toast(
       'Agendamento cancelado com sucesso',
       'var(--background-color-success)'
     );
-    location.reload();
+
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   } catch (error) {
     ToastifyLib.toast(
       'Erro ao cancelar agendamento, por favor tente novamente',
