@@ -66,6 +66,83 @@ namespace BarberEaseApi.Services
             return _mapper.Map<EstablishmentDto>(result);
         }
 
+        public async Task<EstablishmentDto?> PartialUpdate(EstablishmentPartialtUpdateDto establishment, Guid id)
+        {
+            var result = await _repository.FindByIdAsync(id);
+            if (result == null)
+            {
+                return null;
+            }
+            var entity = _mapper.Map<EstablishmentEntity>(establishment);
+            if (establishment.Email == null)
+            {
+                entity.Email = result.Email;
+            }
+            else
+            {
+                var existsByEmail = await _repository.FindByEmail(establishment.Email);
+                if (existsByEmail != null)
+                {
+                    return null;
+                }
+            }
+            if (establishment.Password == null)
+            {
+                entity.HashedPassword = result.HashedPassword;
+            }
+            else
+            {
+                entity.SetPassword(establishment.Password);
+            }
+            if (establishment.CompanyName == null)
+            {
+                entity.CompanyName = result.CompanyName;
+            }
+            if (establishment.Cnpj == null)
+            {
+                entity.Cnpj = result.Cnpj;
+            }
+            else
+            {
+                var existsByCnpj = await _repository.FindByCnpj(establishment.Cnpj);
+                if (existsByCnpj != null)
+                {
+                    return null;
+                }
+            }
+            if (establishment.OwnerFirstName == null)
+            {
+                entity.OwnerFirstName = result.OwnerFirstName;
+            }
+            if (establishment.OwnerLastName == null)
+            {
+                entity.OwnerLastName = result.OwnerLastName;
+            }
+            if (establishment.City == null)
+            {
+                entity.City = result.City;
+            }
+            if (establishment.State == null)
+            {
+                entity.State = result.State;
+            }
+            if (establishment.Cep == null)
+            {
+                entity.Cep = result.Cep;
+            }
+            if (establishment.Address == null)
+            {
+                entity.Address = result.Address;
+            }
+            if (establishment.Phone == null)
+            {
+                entity.Phone = result.Phone;
+            }
+
+            var updateResult = await _repository.UpdateAsync(entity, id);
+            return _mapper.Map<EstablishmentDto>(updateResult);
+        }
+
         public async Task<bool> Delete(Guid id)
         {
             return await _repository.DeleteAsync(id);

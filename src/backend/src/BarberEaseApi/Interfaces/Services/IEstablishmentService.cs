@@ -9,6 +9,7 @@ namespace BarberEaseApi.Interfaces.Services
         Task<EstablishmentDto?> GetById(Guid id);
         Task<EstablishmentDetailsDto?> GetByIdDetails(Guid id);
         Task<EstablishmentDto?> Update(EstablishmentUpdateDto establishment, Guid id);
+        Task<EstablishmentDto?> PartialUpdate(EstablishmentPartialtUpdateDto establishment, Guid id);
         Task<bool> Delete(Guid id);
     }
 }

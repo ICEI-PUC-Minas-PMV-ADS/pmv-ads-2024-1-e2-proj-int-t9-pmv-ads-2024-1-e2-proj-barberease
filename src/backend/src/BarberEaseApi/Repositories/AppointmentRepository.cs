@@ -30,7 +30,7 @@ namespace BarberEaseApi.Repositories
                 .ThenInclude((establishmentService) => establishmentService.Establishment)
                 .Include((client) => client.Client)
                 .Where((appointment) => appointment.ClientId == clientId)
-                .OrderByDescending((appointment) => appointment.Date && appointment.CreatedAt)
+                .OrderByDescending((appointment) => appointment.Date)
                 .ToListAsync();
         }
 

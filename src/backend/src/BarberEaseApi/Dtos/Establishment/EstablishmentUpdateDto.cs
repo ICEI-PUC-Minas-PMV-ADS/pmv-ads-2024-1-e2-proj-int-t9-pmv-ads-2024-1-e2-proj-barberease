@@ -45,7 +45,6 @@ namespace BarberEaseApi.Dtos.Establishment
         public string Address { get; set; }
 
         [StringLength(50, ErrorMessage = "Phone must have {1} chars")]
-        [Phone(ErrorMessage = "Phone is in invalid format")]
         public string? Phone { get; set; }
     }
 }
