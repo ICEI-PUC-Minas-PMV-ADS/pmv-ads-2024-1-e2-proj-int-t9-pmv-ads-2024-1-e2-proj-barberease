@@ -1,5 +1,7 @@
 const editProfileBtn = document.getElementById('edit-profile');
 const showAppointmentsBtn = document.getElementById('show-appointments');
+const showServicesBtn = document.getElementById('show-services');
+const showPeriodsBtn = document.getElementById('show-periods');
 
 const appointmentsSection = document.getElementById('appointments');
 const editProfileSection = document.getElementById('edit-info');
@@ -12,6 +14,8 @@ document.addEventListener('DOMContentLoaded', domContentLoaded);
 
 showAppointmentsBtn.addEventListener('click', clickShowAppointments);
 editProfileBtn.addEventListener('click', clickEditProfile);
+showServicesBtn.addEventListener('click', clickShowServices);
+showPeriodsBtn.addEventListener('click', clickShowPeriods);
 
 editForm.addEventListener('submit', submitEditForm);
 cepInput.addEventListener('blur', setAddressInfo);
@@ -74,8 +78,10 @@ async function domContentLoaded() {
 
     editProfileBtn.style.display = 'inline-block';
     showAppointmentsBtn.style.display = 'inline-block';
+    showServicesBtn.style.display = 'inline-block';
+    showPeriodsBtn.style.display = 'inline-block';
   } catch (err) {
-    console.log(err);
+    console.error(err);
     profileSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
   }
 
@@ -160,6 +166,16 @@ function clickEditProfile(event) {
   }
 }
 
+function clickShowServices(event) {
+  event.preventDefault();
+  console.log('Show services');
+}
+
+function clickShowPeriods(event) {
+  event.preventDefault();
+  console.log('Show periods');
+}
+
 async function clickCancelAppointment(targetBtn) {
   const appointmentId = targetBtn.dataset.appointmentId;
   const updateStatusData = { status: 'CANCELLED' };
@@ -216,9 +232,8 @@ async function submitEditForm(event) {
 
   const name = formData.get('name');
   if (name) {
-    const firstName = name.split(' ').at(0)
-    updateData.firstName = firstName;
-    updateData.lastName = name.split(' ').at(-1) ?? firstName;
+    updateData.ownerFirstName = name.split(' ').at(0);
+    updateData.ownerLastName = name.split(' ').at(-1) ?? '';
   }
 
   const email = formData.get('email');
@@ -227,27 +242,39 @@ async function submitEditForm(event) {
   }
 
   const password = formData.get('password');
-  if (email) {
+  if (password) {
     updateData.password = password;
+  }
+
+  const companyName = formData.get('company-name');
+  if (companyName) {
+    updateData.companyName = companyName;
+  }
+
+  const cnpj = formData.get('cnpj');
+  if (cnpj) {
+    updateData.cnpj = cnpj;
   }
 
   const cep = formData.get('cep');
   if (cep) {
-    updateData.city = formData.get('city');
-    updateData.state = formData.get('state');
+    updateData.cep = cep;
+    updateData.city = document.getElementById('city').value;
+    updateData.state = document.getElementById('state').value;
+    updateData.address = document.getElementById('address').value;
   }
 
   const phone = formData.get('phone');
-  if (email) {
+  if (phone) {
     updateData.phone = phone;
   }
 
   try {
     const establishmentIdentifier = localStorage.getItem('userIdentifier');
-    await ClientsService.updateById(establishmentIdentifier, updateData);
+    await EstablishmentService.updateById(establishmentIdentifier, updateData);
 
     ToastifyLib.toast(
-      'Informações atualizadas com sucesso!',
+      'Informações gerais atualizadas com sucesso!',
       'var(--background-color-success)'
     );
 
@@ -274,14 +301,17 @@ async function setAddressInfo(event) {
 
   const stateInput = document.getElementById('state');
   const cityInput = document.getElementById('city');
+  const addressInput = document.getElementById('address');
 
   try {
     const response = await getAddressByCep(cep);
     stateInput.value = response.uf;
     cityInput.value = response.localidade;
+    addressInput.value = response.logradouro;
   } catch (err) {
     console.error(err);
     stateInput.value = '';
     cityInput.value = '';
+    addressInput.value = '';
   }
 }

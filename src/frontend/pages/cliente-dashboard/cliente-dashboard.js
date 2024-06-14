@@ -177,9 +177,8 @@ async function submitEditForm(event) {
 
   const name = formData.get('name');
   if (name) {
-    const firstName = name.split(' ').at(0)
-    updateData.firstName = firstName;
-    updateData.lastName = name.split(' ').at(-1) ?? firstName;
+    updateData.firstName = name.split(' ').at(0);
+    updateData.lastName = name.split(' ').at(-1) ?? '';
   }
 
   const email = formData.get('email');
@@ -188,18 +187,18 @@ async function submitEditForm(event) {
   }
 
   const password = formData.get('password');
-  if (email) {
+  if (password) {
     updateData.password = password;
   }
 
   const cep = formData.get('cep');
   if (cep) {
-    updateData.city = formData.get('city');
-    updateData.state = formData.get('state');
+    updateData.city = document.getElementById('city').value;
+    updateData.state = document.getElementById('state').value;
   }
 
   const phone = formData.get('phone');
-  if (email) {
+  if (phone) {
     updateData.phone = phone;
   }
 

@@ -23,7 +23,11 @@
 
 <body>
   <header class="header">
-    <img src="../../assets/logo.jpeg" alt="Logo BarberEase">
+    <div>
+      <a href="../pagina-inicial/homePage.html">
+        <img src="../../assets/logo.jpeg" alt="Logo BarberEase">
+      </a>
+    </div>
     <div class="centerItems">
       <a href="../barbearias/barbearias.html">Barbearias</a>
       <a href="../assinatura/assinatura.html">Assinatura</a>
@@ -45,7 +49,7 @@
       <h2>Dashboard</h2>
       <div id="profile-info" class="profile">
       </div>
-      <button id="edit-profile" title="Clique para edita o seu perfil">
+      <button id="edit-profile" title="Clique para editar o seu perfil">
         Editar Perfil
       </button>
       <button id="show-appointments" title="Clique para mostrar os seus agendamentos">
@@ -73,12 +77,13 @@
           <input type="password" id="password" name="password" placeholder="Senha">
 
           <label for="cep">CEP:</label>
-          <input type="text" id="cep" name="cep" placeholder="CEP" minlength="8" maxlength="8">
+          <input type="text" id="cep" name="cep" placeholder="CEP (apenas números)" minlength="8" maxlength="8">
           <input type="text" id="state" name="state" placeholder="Estado" disabled>
           <input type="text" id="city" name="city" placeholder="Cidade" disabled>
 
           <label for="phone">Telefone:</label>
-          <input type="tel" id="phone" name="phone" placeholder="Telefone" minlength="11" maxlength="11">
+          <input type="tel" id="phone" name="phone" placeholder="Telefone (apenas números)" minlength="11"
+            maxlength="11">
 
           <button type="submit" title="Atualizar informações">Atualizar Informações</button>
         </form>
