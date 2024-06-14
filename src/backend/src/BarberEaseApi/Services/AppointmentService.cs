@@ -45,6 +45,12 @@ namespace BarberEaseApi.Services
             return _mapper.Map<IEnumerable<AppointmentDetailsDto>>(entities);
         }
 
+        public async Task<IEnumerable<AppointmentDetailsDto>> GetByEstablishmentIdDetails(Guid establishmentId)
+        {
+            var entities = await _repository.FindAllByEstablishmentDetails(establishmentId);
+            return _mapper.Map<IEnumerable<AppointmentDetailsDto>>(entities);
+        }
+
         public async Task<AppointmentDetailsDto?> GetByIdDetails(Guid id)
         {
             var entity = await _repository.FindByIdDetails(id);

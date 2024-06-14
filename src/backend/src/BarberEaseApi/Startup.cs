@@ -30,6 +30,7 @@ namespace BarberEaseApi
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IEstablishmentService, EstablishmentService>();
             services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddTransient<IEstablishmentServiceService, EstablishmentServiceService>();
             services.AddTransient<IEstablishmentPeriodService, EstablishmentPeriodService>();
 
             // Mapper

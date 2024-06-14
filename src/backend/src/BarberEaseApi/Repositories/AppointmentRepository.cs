@@ -30,6 +30,17 @@ namespace BarberEaseApi.Repositories
                 .ThenInclude((establishmentService) => establishmentService.Establishment)
                 .Include((client) => client.Client)
                 .Where((appointment) => appointment.ClientId == clientId)
+                .OrderByDescending((appointment) => appointment.Date && appointment.CreatedAt)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<AppointmentEntity>> FindAllByEstablishmentDetails(Guid establishmentId)
+        {
+            return await _dataset
+                .Include((establishmentService) => establishmentService.EstablishmentService)
+                .ThenInclude((establishmentService) => establishmentService.Establishment)
+                .Include((client) => client.Client)
+                .Where((appointment) => appointment.EstablishmentService.Establishment.Id == establishmentId)
                 .OrderByDescending((appointment) => appointment.Date)
                 .ToListAsync();
         }
