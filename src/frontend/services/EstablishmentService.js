@@ -1,15 +1,15 @@
-class ClientsService {
+class EstablishmentService {
   static PROD_BASE_URL = 'https://barberease.azurewebsites.net';
   static LOCAL_BASE_URL = 'http://localhost:8000';
 
   static BASE_URL =
     ['localhost', '127.0.0.1'].includes(location.hostname)
-      ? ClientsService.LOCAL_BASE_URL
-      : ClientsService.PROD_BASE_URL;
-  static CLIENTS_PATH = `${ClientsService.BASE_URL}/api/Clients`;
+      ? EstablishmentService.LOCAL_BASE_URL
+      : EstablishmentService.PROD_BASE_URL;
+  static ESTABLISHMENT_PATH = `${EstablishmentService.BASE_URL}/api/Establishments`;
 
-  static async getById(clientId) {
-    const endpoint = `${ClientsService.CLIENTS_PATH}/${clientId}`;
+  static async getById(establishmentId) {
+    const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}`;
 
     try {
       const response = await fetch(endpoint);
@@ -25,8 +25,8 @@ class ClientsService {
     }
   }
 
-  static async updateById(clientId, updateData) {
-    const endpoint = `${ClientsService.CLIENTS_PATH}/${clientId}`;
+  static async updateById(establishmentId, updateData) {
+    const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}`;
 
     try {
       const response = await fetch(endpoint, {

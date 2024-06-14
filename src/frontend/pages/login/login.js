@@ -32,7 +32,7 @@ async function submitLoginForm(event) {
 
       if (response.userType === 'Client') {
         setTimeout(() => {
-          window.location.href = '../client-dashboard/client-dashboard.html';
+          window.location.href = '../cliente-dashboard/cliente-dashboard.html';
         }, 2000);
         return;
       }
