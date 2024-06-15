@@ -61,7 +61,7 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet("details/{clientId:guid}/client", Name = "GetAppointmentDetailsByClientId")]
+        [HttpGet("details/{clientId:guid}/client")]
         public async Task<ActionResult> GetByClentIdDetails(Guid clientId)
         {
             if (!ModelState.IsValid)
@@ -80,7 +80,7 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet("details/{establishmentId:guid}/establishment", Name = "GetAppointmentDetailsByEstablishmentId")]
+        [HttpGet("details/{establishmentId:guid}/establishment")]
         public async Task<ActionResult> GetByEstablishmentIdDetails(Guid establishmentId)
         {
             if (!ModelState.IsValid)
