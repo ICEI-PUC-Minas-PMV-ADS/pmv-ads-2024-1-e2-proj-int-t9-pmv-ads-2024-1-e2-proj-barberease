@@ -9,6 +9,9 @@ const servicesSection = document.getElementById('services');
 
 const editForm = document.getElementById('edit-form');
 const cepInput = document.getElementById('cep');
+const addServiceBtn = document.getElementById('add-service-btn');
+const addServiceForm = document.getElementById('add-service-form');
+
 
 // Events
 document.addEventListener('DOMContentLoaded', domContentLoaded);
@@ -20,6 +23,9 @@ showPeriodsBtn.addEventListener('click', clickShowPeriods);
 
 editForm.addEventListener('submit', submitEditForm);
 cepInput.addEventListener('blur', setAddressInfo);
+addServiceBtn.addEventListener('click', clickAddService);
+addServiceForm.addEventListener('submit', submitAddServiceForm);
+
 
 async function domContentLoaded() {
   const isUserAuthenticated =
@@ -322,4 +328,110 @@ async function setAddressInfo(event) {
     cityInput.value = '';
     addressInput.value = '';
   }
+}
+
+function clickAddService(event) {
+  event.preventDefault();
+
+  if (addServiceForm.classList.contains('show')) {
+    addServiceForm.classList.remove('show');
+  } else {
+    addServiceForm.classList.add('show');
+  }
+}
+
+async function submitAddServiceForm(event) {
+  event.preventDefault();
+
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
+  console.log('helooooo');
+  // const updateData = {};
+
+  // const name = formData.get('name');
+  // if (name) {
+  //   updateData.ownerFirstName = name.split(' ').at(0);
+  //   updateData.ownerLastName = name.split(' ').at(-1) ?? '';
+  // }
+
+  // const email = formData.get('email');
+  // if (email) {
+  //   updateData.email = email;
+  // }
+
+  // const password = formData.get('password');
+  // if (password) {
+  //   updateData.password = password;
+  // }
+
+  // const companyName = formData.get('company-name');
+  // if (companyName) {
+  //   updateData.companyName = companyName;
+  // }
+
+  // const cnpj = formData.get('cnpj');
+  // if (cnpj) {
+  //   updateData.cnpj = cnpj;
+  // }
+
+  // const cep = formData.get('cep');
+  // if (cep) {
+  //   updateData.cep = cep;
+  //   updateData.city = document.getElementById('city').value;
+  //   updateData.state = document.getElementById('state').value;
+  //   updateData.address = document.getElementById('address').value;
+  // }
+
+  // const phone = formData.get('phone');
+  // if (phone) {
+  //   updateData.phone = phone;
+  // }
+
+  // try {
+  //   const establishmentIdentifier = localStorage.getItem('userIdentifier');
+  //   await EstablishmentService.updateById(establishmentIdentifier, updateData);
+
+  //   ToastifyLib.toast(
+  //     'Informações gerais atualizadas com sucesso!',
+  //     'var(--background-color-success)'
+  //   );
+
+  //   setTimeout(() => {
+  //     location.reload();
+  //   }, 2000);
+  // } catch (err) {
+  //   ToastifyLib.toast(
+  //     'Erro ao atualizar informações, por favor tente novamente',
+  //     'var(--background-color-error)'
+  //   );
+  // }
+}
+
+async function clickEditService(targetBtn) {
+  const serviceInfoWrapper = targetBtn.parentElement.parentElement;
+  const [nameInput, categoryInput, descriptionInput, priceInput] = serviceInfoWrapper.querySelectorAll('input');
+
+  const isEditing = nameInput.disabled;
+  nameInput.disabled = !isEditing;
+  categoryInput.disabled = !isEditing;
+  descriptionInput.disabled = !isEditing;
+  priceInput.disabled = !isEditing;
+
+  targetBtn.innerHTML = isEditing ? '<i class="bi bi-floppy"></i>' : '<i class="bi bi-pencil-square"></i>';
+  targetBtn.title = isEditing ? 'Clique para salvar' : 'Clique para editar';
+
+  if (!isEditing) {
+    const name = nameInput.value;
+    const category = categoryInput.value;
+    const description = descriptionInput.value;
+    const price = priceInput.value;
+
+    const updateData = { name, category, description, price };
+
+    console.log(updateData);
+  }
+}
+
+async function clickDeleteService(targetBtn) {
+  console.log('Deletar serviço');
 }

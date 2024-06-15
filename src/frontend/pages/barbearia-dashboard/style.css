@@ -306,19 +306,19 @@ table td .status.received {
   background-color: var(--background-color-02);
 }
 
-.add-service-button {
+.add-service-btn {
   background-color: var(--background-color-02);
-  border: none;
   color: var(--text-color-01);
   padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 16px;
+  margin-top: 12px;
+  margin-bottom: 8px;
   align-self: flex-start;
   transition: all 200ms;
 }
 
-.add-service-button:hover {
+.add-service-btn:hover {
   background-color: var(--background-color-03);
 }
 
@@ -332,6 +332,10 @@ table td .status.received {
   width: calc(33.333% - 32px);
 }
 
+#add-service-form.show {
+  display: block;
+}
+
 #add-service-form input,
 #add-service-form select {
   width: 100%;
@@ -343,7 +347,6 @@ table td .status.received {
 
 #add-service-form button {
   background-color: var(--background-color-03);
-  border: none;
   color: var(--text-color-01);
   padding: 8px 16px;
   border-radius: 4px;
@@ -366,7 +369,7 @@ table td .status.received {
     flex: 1 1 100%;
   }
 
-  .add-service-button {
+  .add-service-btn {
     padding: 8px 16px;
   }
 
@@ -408,7 +411,7 @@ table td .status.received {
     padding: 12px;
   }
 
-  .add-service-button {
+  .add-service-btn {
     padding: 8px 16px;
   }
 }
