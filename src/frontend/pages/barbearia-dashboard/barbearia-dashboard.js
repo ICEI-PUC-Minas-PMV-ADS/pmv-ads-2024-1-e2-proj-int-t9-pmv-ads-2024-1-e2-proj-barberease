@@ -5,6 +5,7 @@ const showPeriodsBtn = document.getElementById('show-periods');
 
 const appointmentsSection = document.getElementById('appointments');
 const editProfileSection = document.getElementById('edit-info');
+const servicesSection = document.getElementById('services');
 
 const editForm = document.getElementById('edit-form');
 const cepInput = document.getElementById('cep');
@@ -154,6 +155,7 @@ function clickShowAppointments(event) {
   if (appointmentsSection.classList.contains('hidden')) {
     appointmentsSection.classList.remove('hidden');
     editProfileSection.classList.add('hidden');
+    servicesSection.classList.add('hidden');
   }
 }
 
@@ -163,12 +165,18 @@ function clickEditProfile(event) {
   if (editProfileSection.classList.contains('hidden')) {
     editProfileSection.classList.remove('hidden');
     appointmentsSection.classList.add('hidden');
+    servicesSection.classList.add('hidden');
   }
 }
 
 function clickShowServices(event) {
   event.preventDefault();
-  console.log('Show services');
+
+  if (servicesSection.classList.contains('hidden')) {
+    servicesSection.classList.remove('hidden');
+    appointmentsSection.classList.add('hidden');
+    editProfileSection.classList.add('hidden');
+  }
 }
 
 function clickShowPeriods(event) {
