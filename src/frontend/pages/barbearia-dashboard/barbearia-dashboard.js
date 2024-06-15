@@ -40,9 +40,11 @@ async function domContentLoaded() {
 
   const profileSection = document.getElementById('profile-info');
   const appointmentsInfoSection = document.getElementById('appointments-info');
+  const servicesInfoSection = document.getElementById('services-info');
 
   profileSection.textContent = 'Carregando informações...';
   appointmentsInfoSection.textContent = 'Carregando informações...';
+  servicesInfoSection.textContent = 'Carregando informações...'
 
   const establishmentIdentifier = localStorage.getItem('userIdentifier');
 
@@ -50,6 +52,7 @@ async function domContentLoaded() {
     console.error('User is not autenticated');
     profileSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
     appointmentsInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
+    servicesInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
     return;
   }
 
@@ -152,6 +155,51 @@ async function domContentLoaded() {
   } catch (err) {
     console.error(err);
     appointmentsInfoSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
+  }
+
+  try {
+    const response = await EstablishmentServiceService.getEstablishmentServices(establishmentIdentifier);
+
+    const servicesCards = response.reduce((acc, service) => {
+      return acc + `
+        <div class="service-card">
+          <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
+          <div class="service-info">
+            <input type="text" value="${service.name}" placeholder="Nome" disabled>
+            <input type="text" value="${service.category}" placeholder="Categoria" disabled>
+            <input type="text" value="${service.description || ''}" placeholder="Descrição" disabled>
+            <input type="number" value="${service.price}" disabled>
+            <div class="service-buttons">
+              <button
+                class="edit"
+                title="Clique para editar"
+                data-service-id="test"
+                onclick="clickEditService(this)"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button
+                class="delete"
+                title="Clique para deletar"
+                data-service-id="${service.id}"
+                onclick="clickDeleteService(this)"
+              >
+                <i class="bi bi-trash-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }, '');
+
+    if (!servicesCards) {
+      servicesInfoSection.textContent = 'Não há nenhum serviço por aqui, você precisa adicionar serviços para que os clientes possam fazer agendamentos...'
+    } else {
+      servicesInfoSection.innerHTML = servicesCards;
+    }
+  } catch (err) {
+    console.error(err);
+    servicesInfoSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
   }
 }
 
@@ -288,7 +336,7 @@ async function submitEditForm(event) {
     await EstablishmentService.updateById(establishmentIdentifier, updateData);
 
     ToastifyLib.toast(
-      'Informações gerais atualizadas com sucesso!',
+      'Informações gerais atualizadas com sucesso',
       'var(--background-color-success)'
     );
 
@@ -433,5 +481,34 @@ async function clickEditService(targetBtn) {
 }
 
 async function clickDeleteService(targetBtn) {
-  console.log('Deletar serviço');
+  const confirmed = confirm('Você gostaria de deletar esse serviço? Isso deletará todos os agendamentos vinculados a esse serviço.');
+
+  if (!confirmed) {
+    return;
+  }
+
+  const serviceCard = targetBtn.parentElement.parentElement.parentElement;
+  const servicesInfoSection = serviceCard.parentElement;
+  const serviceId = targetBtn.dataset.serviceId;
+
+  try {
+    await EstablishmentServiceService.deleteById(serviceId);
+
+    ToastifyLib.toast(
+      `Serviço deletado com sucesso`,
+      'var(--background-color-success)'
+    );
+
+    if (servicesInfoSection.children.length === 1) {
+      servicesInfoSection.textContent = 'Não há nenhum serviço por aqui, você precisa adicionar serviços para que os clientes possam fazer agendamentos...';
+      return;
+    }
+
+    serviceCard.outerHTML = '';
+  } catch (err) {
+    ToastifyLib.toast(
+      'Erro ao deletar serviço, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }

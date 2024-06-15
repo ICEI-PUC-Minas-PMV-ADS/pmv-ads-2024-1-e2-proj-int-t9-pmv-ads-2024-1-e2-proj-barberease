@@ -242,8 +242,8 @@ table td .status.received {
 #services-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
+  gap: 2rem;
+  justify-content: flex-start;
   margin-bottom: 2rem;
 }
 
