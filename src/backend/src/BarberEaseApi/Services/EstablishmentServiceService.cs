@@ -56,9 +56,27 @@ namespace BarberEaseApi.Services
 
         public async Task<EstablishmentServiceDto?> Update(EstablishmentServiceUpdateDto establishmentService, Guid id)
         {
+            var result = await _repository.FindByIdAsync(id);
+            if (result == null)
+            {
+                return null;
+            }
+            if (result.Name != establishmentService.Name)
+            {
+                var establishmentServiceExists = await _repository.ExistsByNameAndEstablishment(
+                    establishmentService.Name,
+                    establishmentService.EstablishmentId
+                );
+                if (establishmentServiceExists)
+                {
+                    return null;
+                }
+
+            }
+
             var entity = _mapper.Map<EstablishmentServiceEntity>(establishmentService);
-            var result = await _repository.UpdateAsync(entity, id);
-            return _mapper.Map<EstablishmentServiceDto>(result);
+            var resultUpdate = await _repository.UpdateAsync(entity, id);
+            return _mapper.Map<EstablishmentServiceDto>(resultUpdate);
         }
 
         public async Task<bool> Delete(Guid id)

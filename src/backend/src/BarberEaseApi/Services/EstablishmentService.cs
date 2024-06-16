@@ -80,10 +80,14 @@ namespace BarberEaseApi.Services
             }
             else
             {
-                var existsByEmail = await _repository.FindByEmail(establishment.Email);
-                if (existsByEmail != null)
+                if (result.Email != establishment.Email)
                 {
-                    return null;
+
+                    var existsByEmail = await _repository.FindByEmail(establishment.Email);
+                    if (existsByEmail != null)
+                    {
+                        return null;
+                    }
                 }
             }
             if (establishment.Password == null)
@@ -104,10 +108,14 @@ namespace BarberEaseApi.Services
             }
             else
             {
-                var existsByCnpj = await _repository.FindByCnpj(establishment.Cnpj);
-                if (existsByCnpj != null)
+                if (result.Email != establishment.Email)
                 {
-                    return null;
+
+                    var existsByCnpj = await _repository.FindByCnpj(establishment.Cnpj);
+                    if (existsByCnpj != null)
+                    {
+                        return null;
+                    }
                 }
             }
             if (establishment.OwnerFirstName == null)
