@@ -30,7 +30,7 @@ class EstablishmentServiceService {
 
     try {
       const response = await fetch(endpoint, {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -76,6 +76,8 @@ class EstablishmentServiceService {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
+
+      return await response.json();
     } catch (err) {
       console.error(`Request failed: ${JSON.stringify(err)}`);
       throw err;

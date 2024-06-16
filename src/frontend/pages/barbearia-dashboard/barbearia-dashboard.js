@@ -167,13 +167,13 @@ async function domContentLoaded() {
           <div class="service-info">
             <input type="text" value="${service.name}" placeholder="Nome" disabled>
             <input type="text" value="${service.category}" placeholder="Categoria" disabled>
-            <input type="text" value="${service.description || ''}" placeholder="Descrição" disabled>
+            <input type="text" value="${service.description}" placeholder="Descrição" disabled>
             <input type="number" value="${service.price}" disabled>
             <div class="service-buttons">
               <button
                 class="edit"
                 title="Clique para editar"
-                data-service-id="test"
+                data-service-id="${service.id}"
                 onclick="clickEditService(this)"
               >
                 <i class="bi bi-pencil-square"></i>
@@ -393,66 +393,62 @@ async function submitAddServiceForm(event) {
 
   const targetForm = event.target;
   const formData = new FormData(targetForm);
-  console.log('helooooo');
-  // const updateData = {};
 
-  // const name = formData.get('name');
-  // if (name) {
-  //   updateData.ownerFirstName = name.split(' ').at(0);
-  //   updateData.ownerLastName = name.split(' ').at(-1) ?? '';
-  // }
+  const name = formData.get('service-name');
+  const category = formData.get('service-category');
+  const description = formData.get('service-description');
+  const price = formData.get('service-price');
 
-  // const email = formData.get('email');
-  // if (email) {
-  //   updateData.email = email;
-  // }
 
-  // const password = formData.get('password');
-  // if (password) {
-  //   updateData.password = password;
-  // }
+  try {
+    const establishmentId = localStorage.getItem('userIdentifier');
+    const createData = { establishmentId, name, category, description, price };
 
-  // const companyName = formData.get('company-name');
-  // if (companyName) {
-  //   updateData.companyName = companyName;
-  // }
+    const response = await EstablishmentServiceService.create(createData);
 
-  // const cnpj = formData.get('cnpj');
-  // if (cnpj) {
-  //   updateData.cnpj = cnpj;
-  // }
+    ToastifyLib.toast(
+      `Serviço "${response.name}" criado com sucesso`,
+      'var(--background-color-success)'
+    );
 
-  // const cep = formData.get('cep');
-  // if (cep) {
-  //   updateData.cep = cep;
-  //   updateData.city = document.getElementById('city').value;
-  //   updateData.state = document.getElementById('state').value;
-  //   updateData.address = document.getElementById('address').value;
-  // }
+    document.getElementById('services-info').innerHTML += `
+      <div class="service-card">
+        <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
+        <div class="service-info">
+          <input type="text" value="${response.name}" placeholder="Nome" disabled>
+          <input type="text" value="${response.category}" placeholder="Categoria" disabled>
+          <input type="text" value="${response.description}" placeholder="Descrição" disabled>
+          <input type="number" value="${response.price}" disabled>
+          <div class="service-buttons">
+            <button
+              class="edit"
+              title="Clique para editar"
+              data-service-id="${response.id}"
+              onclick="clickEditService(this)"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button
+              class="delete"
+              title="Clique para deletar"
+              data-service-id="${response.id}"
+              onclick="clickDeleteService(this)"
+            >
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
 
-  // const phone = formData.get('phone');
-  // if (phone) {
-  //   updateData.phone = phone;
-  // }
-
-  // try {
-  //   const establishmentIdentifier = localStorage.getItem('userIdentifier');
-  //   await EstablishmentService.updateById(establishmentIdentifier, updateData);
-
-  //   ToastifyLib.toast(
-  //     'Informações gerais atualizadas com sucesso!',
-  //     'var(--background-color-success)'
-  //   );
-
-  //   setTimeout(() => {
-  //     location.reload();
-  //   }, 2000);
-  // } catch (err) {
-  //   ToastifyLib.toast(
-  //     'Erro ao atualizar informações, por favor tente novamente',
-  //     'var(--background-color-error)'
-  //   );
-  // }
+    targetForm.reset();
+    targetForm.classList.remove('show');
+  } catch (err) {
+    ToastifyLib.toast(
+      'Erro ao criar serviço, pode ser que um serviço com o mesmo nome já exista, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }
 
 async function clickEditService(targetBtn) {
@@ -468,15 +464,38 @@ async function clickEditService(targetBtn) {
   targetBtn.innerHTML = isEditing ? '<i class="bi bi-floppy"></i>' : '<i class="bi bi-pencil-square"></i>';
   targetBtn.title = isEditing ? 'Clique para salvar' : 'Clique para editar';
 
+  const name = nameInput.value;
+  const category = categoryInput.value;
+  const description = descriptionInput.value;
+  const price = priceInput.value;
+
   if (!isEditing) {
-    const name = nameInput.value;
-    const category = categoryInput.value;
-    const description = descriptionInput.value;
-    const price = priceInput.value;
+    try {
+      const establishmentId = localStorage.getItem('userIdentifier');
+      const serviceId = targetBtn.dataset.serviceId;
 
-    const updateData = { name, category, description, price };
+      const updateData = { name, category, description, price, establishmentId };
 
-    console.log(updateData);
+      await EstablishmentServiceService.updateById(serviceId, updateData);
+
+      ToastifyLib.toast(
+        'Serviço atualizado com sucesso',
+        'var(--background-color-success)'
+      );
+
+      nameInput.disabled = true;
+      categoryInput.disabled = true;
+      descriptionInput.disabled = true;
+      priceInput.disabled = true;
+
+      targetBtn.innerHTML = '<i class="bi bi-pencil-square"></i>';
+      targetBtn.title = 'Clique para editar';
+    } catch (err) {
+      ToastifyLib.toast(
+        'Erro ao atualizar serviço, por favor tente novamente',
+        'var(--background-color-error)'
+      );
+    }
   }
 }
 
