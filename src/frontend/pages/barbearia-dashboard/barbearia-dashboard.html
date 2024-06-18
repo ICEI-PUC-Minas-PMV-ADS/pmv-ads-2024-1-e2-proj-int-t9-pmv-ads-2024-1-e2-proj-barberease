@@ -104,11 +104,11 @@
 
       <div id="services" class="info-section hidden">
         <h2>Gerenciar Serviços</h2>
-        <button class="add-service-btn" id="add-service-btn" title="Novo serviço">
+        <button class="section-add-btn" id="add-service-btn" title="Novo serviço">
           <i class="bi bi-plus-square-fill"></i>
           Adicionar Serviço
         </button>
-        <form id="add-service-form">
+        <form class="section-form" id="add-service-form">
           <input type="text" id="service-name" name="service-name" placeholder="Nome" required>
           <input type="text" id="service-category" name="service-category" placeholder="Categoria" required>
           <input type="text" id="service-description" name="service-description" placeholder="Descrição">
@@ -118,7 +118,14 @@
             Salvar
           </button>
         </form>
-        <div id="services-info">
+        <div class="container-cards" id="services-info">
+        </div>
+      </div>
+
+      <div id="periods" class="info-section hidden">
+        <h2>Gerenciar Horário de Funcionamento</h2>
+        <p class="section-sub">Edite os horários de sua barbearia conforme a sua necessidade.</p>
+        <div class="container-cards" id="periods-info">
         </div>
       </div>
     </div>
@@ -130,6 +137,7 @@
   <script src="../../services/EstablishmentService.js"></script>
   <script src="../../services/AppointmentsService.js"></script>
   <script src="../../services/EstablishmentServiceService.js"></script>
+  <script src="../../services/EstablishmentPeriodService.js"></script>
   <script src="../../lib/ToastifyLib.js"></script>
   <script src="../../utils/utilities.js"></script>
   <script src="./barbearia-dashboard.js"></script>

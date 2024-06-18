@@ -124,6 +124,10 @@
   color: var(--background-color-02);
 }
 
+.info-section .section-sub {
+  margin-bottom: 15px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -239,7 +243,7 @@ table td .status.received {
   background-color: var(--background-color-warning);
 }
 
-#services-info {
+.container-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -247,7 +251,7 @@ table td .status.received {
   margin-bottom: 2rem;
 }
 
-.service-card {
+.section-card {
   background-color: var(--text-color-01);
   border: 1px solid var(--background-color-03);
   border-radius: 8px;
@@ -258,33 +262,59 @@ table td .status.received {
   align-items: center;
 }
 
-.service-card img {
+.section-card img {
   width: 110px;
   height: 110px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 5px;
 }
 
-.service-card .service-info input {
+.section-card .card-body label {
+  color: var(--text-color-02);
+  margin-top: 5px;
+}
+
+.section-card .card-body input {
   width: 100%;
+  margin-top: 5px;
   margin-bottom: 8px;
 }
 
-.service-card .service-info input[type="text"],
-.service-card .service-info input[type="number"] {
+.section-card .card-body input[type="text"],
+.section-card .card-body input[type="number"] {
   padding: 8px;
   border: 1px solid var(--background-color-03);
   border-radius: 4px;
 }
 
-.service-card .service-buttons {
+.section-card .card-body input,
+.section-card .card-body select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  border: 1px solid var(--background-color-03);
+  border-radius: 4px;
+}
+
+.section-card .card-body input[type="checkbox"] {
+  width: unset;
+  vertical-align: middle;
+}
+
+.section-card .card-body input[type="checkbox"]~label {
+  cursor: pointer;
+}
+
+.section-card .card-buttons {
   margin-top: 8px;
   display: flex;
   gap: 8px;
   justify-content: center;
 }
 
-.service-card .service-buttons button {
+.section-card .card-buttons button {
   background-color: var(--background-color-02);
   border: none;
   color: var(--text-color-01);
@@ -294,19 +324,19 @@ table td .status.received {
   transition: all 250ms;
 }
 
-.service-card .service-buttons button:hover {
+.section-card .card-buttons button:hover {
   background-color: var(--background-color-03);
 }
 
-.service-card .service-buttons button.edit {
+.section-card .card-buttons button.edit {
   background-color: var(--background-color-03);
 }
 
-.service-card .service-buttons button.edit:hover {
+.section-card .card-buttons button.edit:hover {
   background-color: var(--background-color-02);
 }
 
-.add-service-btn {
+.section-add-btn {
   background-color: var(--background-color-02);
   color: var(--text-color-01);
   padding: 12px 24px;
@@ -318,11 +348,11 @@ table td .status.received {
   transition: all 200ms;
 }
 
-.add-service-btn:hover {
+.section-add-btn:hover {
   background-color: var(--background-color-03);
 }
 
-#add-service-form {
+.section-form {
   display: none;
   margin-bottom: 16px;
   border: 1px solid var(--background-color-03);
@@ -332,12 +362,17 @@ table td .status.received {
   width: calc(33.333% - 32px);
 }
 
-#add-service-form.show {
+.section-form.show {
   display: block;
 }
 
-#add-service-form input,
-#add-service-form select {
+.section-form label {
+  color: var(--text-color-02);
+  margin-top: 5px;
+}
+
+.section-form input,
+.section-form select {
   width: 100%;
   padding: 8px;
   margin-bottom: 8px;
@@ -345,7 +380,16 @@ table td .status.received {
   border-radius: 4px;
 }
 
-#add-service-form button {
+.section-form input[type="checkbox"] {
+  width: unset;
+  vertical-align: middle;
+}
+
+.section-form input[type="checkbox"]~label {
+  cursor: pointer;
+}
+
+.section-form button {
   background-color: var(--background-color-03);
   color: var(--text-color-01);
   padding: 8px 16px;
@@ -353,27 +397,27 @@ table td .status.received {
   cursor: pointer;
 }
 
-#add-service-form button:hover {
+.section-form button:hover {
   background-color: var(--background-color-02);
 }
 
 @media (max-width: 1024px) {
-  .service-card {
+  .section-card {
     flex: 1 1 calc(50% - 32px);
   }
 }
 
 @media (max-width: 768px) {
-  .service-card {
+  .section-card {
     width: 100%;
     flex: 1 1 100%;
   }
 
-  .add-service-btn {
+  .section-add-btn {
     padding: 8px 16px;
   }
 
-  #add-service-form {
+  .section-form {
     width: 100%;
   }
 }
@@ -407,11 +451,11 @@ table td .status.received {
     display: block;
   }
 
-  .service-card {
+  .section-card {
     padding: 12px;
   }
 
-  .add-service-btn {
+  .section-add-btn {
     padding: 8px 16px;
   }
 }

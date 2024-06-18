@@ -6,11 +6,20 @@ const showPeriodsBtn = document.getElementById('show-periods');
 const appointmentsSection = document.getElementById('appointments');
 const editProfileSection = document.getElementById('edit-info');
 const servicesSection = document.getElementById('services');
+const periodsSection = document.getElementById('periods');
 
 const editForm = document.getElementById('edit-form');
 const cepInput = document.getElementById('cep');
 const addServiceBtn = document.getElementById('add-service-btn');
 const addServiceForm = document.getElementById('add-service-form');
+
+const PERIOD_TIME_BETWEEN_SERVICES_MAP = {
+  1: '00:10',
+  2: '00:20',
+  3: '00:30',
+  4: '00:40',
+  5: '00:50',
+};
 
 
 // Events
@@ -26,7 +35,6 @@ cepInput.addEventListener('blur', setAddressInfo);
 addServiceBtn.addEventListener('click', clickAddService);
 addServiceForm.addEventListener('submit', submitAddServiceForm);
 
-
 async function domContentLoaded() {
   const isUserAuthenticated =
     localStorage.getItem('authenticated') === '1' &&
@@ -41,10 +49,12 @@ async function domContentLoaded() {
   const profileSection = document.getElementById('profile-info');
   const appointmentsInfoSection = document.getElementById('appointments-info');
   const servicesInfoSection = document.getElementById('services-info');
+  const periodsInfoSection = document.getElementById('periods-info');
 
   profileSection.textContent = 'Carregando informações...';
   appointmentsInfoSection.textContent = 'Carregando informações...';
   servicesInfoSection.textContent = 'Carregando informações...'
+  periodsInfoSection.textContent = 'Carregando informações...'
 
   const establishmentIdentifier = localStorage.getItem('userIdentifier');
 
@@ -53,6 +63,7 @@ async function domContentLoaded() {
     profileSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
     appointmentsInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
     servicesInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
+    periodsInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
     return;
   }
 
@@ -162,14 +173,14 @@ async function domContentLoaded() {
 
     const servicesCards = response.reduce((acc, service) => {
       return acc + `
-        <div class="service-card">
+        <div class="section-card">
           <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
-          <div class="service-info">
+          <div class="card-body">
             <input type="text" value="${service.name}" placeholder="Nome" disabled>
             <input type="text" value="${service.category}" placeholder="Categoria" disabled>
             <input type="text" value="${service.description}" placeholder="Descrição" disabled>
             <input type="number" value="${service.price}" disabled>
-            <div class="service-buttons">
+            <div class="card-buttons">
               <button
                 class="edit"
                 title="Clique para editar"
@@ -201,6 +212,59 @@ async function domContentLoaded() {
     console.error(err);
     servicesInfoSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
   }
+
+  try {
+    const response = await EstablishmentPeriodService.getEstablishmentPeriods(establishmentIdentifier);
+
+    const defineTimeBetweenServicesOptions = (time) => {
+      const options = Object.entries(PERIOD_TIME_BETWEEN_SERVICES_MAP).reduce((acc, [k, v]) => {
+        return acc + `<option value="${k}" ${time === v ? 'selected' : ''}>${v}</option>`;
+      }, '');
+      return options;
+    };
+
+    const periodsCards = response.reduce((acc, period, index) => {
+      return acc + `
+        <div class="section-card">
+          <img src="../../assets/calendar.png" alt="Imagem default com um calendário">
+          <div class="card-body">
+            <label for="period-day-of-week-${index}">Dia da semana:</label>
+            <select id="period-day-of-week-${index}" disabled>
+              <option value="${period.dayOfWeek}" selected>${getDayOfWeeek(period.dayOfWeek)}</option>
+            </select>
+            <label for="period-opening-time-${index}">Horário de abertura:</label>
+            <input type="text" id="period-opening-time-${index}" value="${period.openingTime ?? ''}" placeholder="00:00" disabled>
+            <label for="period-closing-time-${index}">Horário de fechamento:</label>
+            <input type="text" id="period-closing-time-${index}" value="${period.closingTime ?? ''}" placeholder="00:00" disabled>
+            <label for="period-time-between-service-${index}">Minutos entre os serviços:</label>
+            <select id="period-time-between-service-${index}" disabled>
+              ${defineTimeBetweenServicesOptions(period.timeBetweenService)}
+            </select>
+            <div>
+              <input type="checkbox" id="period-is-closed-${index}" ${period.isClosed ? 'checked' : ''} onchange="onChangeIsClosed(this)" disabled>
+              <label for="period-is-closed-${index}">Fechado</label>
+            </div>
+            <div class="card-buttons">
+              <button class="edit" title="Clique para editar" data-period-id="${period.id}" data-is-editing="true"
+                onclick="clickEditPeriod(this)">
+                <i class="bi bi-pencil-square"></i>
+                Editar
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }, '');
+
+    if (!periodsCards) {
+      periodsInfoSection.textContent = 'Não há nenhum horário por aqui, você precisa adicionar horário para que os clientes possam fazer agendamentos...'
+    } else {
+      periodsInfoSection.innerHTML = periodsCards;
+    }
+  } catch (err) {
+    console.error(err);
+    periodsInfoSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
+  }
 }
 
 function clickShowAppointments(event) {
@@ -210,6 +274,7 @@ function clickShowAppointments(event) {
     appointmentsSection.classList.remove('hidden');
     editProfileSection.classList.add('hidden');
     servicesSection.classList.add('hidden');
+    periodsSection.classList.add('hidden');
   }
 }
 
@@ -220,6 +285,7 @@ function clickEditProfile(event) {
     editProfileSection.classList.remove('hidden');
     appointmentsSection.classList.add('hidden');
     servicesSection.classList.add('hidden');
+    periodsSection.classList.add('hidden');
   }
 }
 
@@ -230,12 +296,19 @@ function clickShowServices(event) {
     servicesSection.classList.remove('hidden');
     appointmentsSection.classList.add('hidden');
     editProfileSection.classList.add('hidden');
+    periodsSection.classList.add('hidden');
   }
 }
 
 function clickShowPeriods(event) {
   event.preventDefault();
-  console.log('Show periods');
+
+  if (periodsSection.classList.contains('hidden')) {
+    periodsSection.classList.remove('hidden');
+    appointmentsSection.classList.add('hidden');
+    editProfileSection.classList.add('hidden');
+    servicesSection.classList.add('hidden');
+  }
 }
 
 async function clickCancelAppointment(targetBtn) {
@@ -388,6 +461,16 @@ function clickAddService(event) {
   }
 }
 
+function clickAddPeriod(event) {
+  event.preventDefault();
+
+  if (addPeriodForm.classList.contains('show')) {
+    addPeriodForm.classList.remove('show');
+  } else {
+    addPeriodForm.classList.add('show');
+  }
+}
+
 async function submitAddServiceForm(event) {
   event.preventDefault();
 
@@ -398,7 +481,6 @@ async function submitAddServiceForm(event) {
   const category = formData.get('service-category');
   const description = formData.get('service-description');
   const price = formData.get('service-price');
-
 
   try {
     const establishmentId = localStorage.getItem('userIdentifier');
@@ -411,15 +493,21 @@ async function submitAddServiceForm(event) {
       'var(--background-color-success)'
     );
 
-    document.getElementById('services-info').innerHTML += `
-      <div class="service-card">
+    const servicesInfoSection = document.getElementById('services-info');
+
+    if (!servicesInfoSection.children.length) {
+      servicesInfoSection.textContent = '';
+    }
+
+    servicesInfoSection.innerHTML += `
+      <div class="section-card">
         <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
-        <div class="service-info">
+        <div class="card-body">
           <input type="text" value="${response.name}" placeholder="Nome" disabled>
           <input type="text" value="${response.category}" placeholder="Categoria" disabled>
           <input type="text" value="${response.description}" placeholder="Descrição" disabled>
           <input type="number" value="${response.price}" disabled>
-          <div class="service-buttons">
+          <div class="card-buttons">
             <button
               class="edit"
               title="Clique para editar"
@@ -452,8 +540,8 @@ async function submitAddServiceForm(event) {
 }
 
 async function clickEditService(targetBtn) {
-  const serviceInfoWrapper = targetBtn.parentElement.parentElement;
-  const [nameInput, categoryInput, descriptionInput, priceInput] = serviceInfoWrapper.querySelectorAll('input');
+  const cardBody = targetBtn.parentElement.parentElement;
+  const [nameInput, categoryInput, descriptionInput, priceInput] = cardBody.querySelectorAll('input');
 
   const isEditing = nameInput.disabled;
   nameInput.disabled = !isEditing;
@@ -464,12 +552,12 @@ async function clickEditService(targetBtn) {
   targetBtn.innerHTML = isEditing ? '<i class="bi bi-floppy"></i>' : '<i class="bi bi-pencil-square"></i>';
   targetBtn.title = isEditing ? 'Clique para salvar' : 'Clique para editar';
 
-  const name = nameInput.value;
-  const category = categoryInput.value;
-  const description = descriptionInput.value;
-  const price = priceInput.value;
-
   if (!isEditing) {
+    const name = nameInput.value;
+    const category = categoryInput.value;
+    const description = descriptionInput.value;
+    const price = priceInput.value;
+
     try {
       const establishmentId = localStorage.getItem('userIdentifier');
       const serviceId = targetBtn.dataset.serviceId;
@@ -527,6 +615,98 @@ async function clickDeleteService(targetBtn) {
   } catch (err) {
     ToastifyLib.toast(
       'Erro ao deletar serviço, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
+}
+
+function onChangeIsClosed(targetInput) {
+  const cardBody = targetInput.parentElement.parentElement;
+  const [openingTimeInput, closingTimeInput] = cardBody.querySelectorAll('input');
+  const [_, timeBetweenServiceSelect] = cardBody.querySelectorAll('select');
+  const isClosed = targetInput.checked;
+
+  if (isClosed) {
+    openingTimeInput.disabled = true;
+    closingTimeInput.disabled = true;
+    timeBetweenServiceSelect.disabled = true;
+
+    openingTimeInput.value = '';
+    closingTimeInput.value = '';
+    timeBetweenServiceSelect.options[timeBetweenServiceSelect.selectedIndex].selected = false;
+  } else {
+    openingTimeInput.disabled = false;
+    closingTimeInput.disabled = false;
+    timeBetweenServiceSelect.disabled = false;
+  }
+}
+
+async function clickEditPeriod(targetBtn) {
+  const cardBody = targetBtn.parentElement.parentElement;
+  const [dayOfWeekSelect, timeBetweenServiceSelect] = cardBody.querySelectorAll('select');
+  const [openingTimeInput, closingTimeInput, isClosedInput] = cardBody.querySelectorAll('input');
+
+  const isEditing = targetBtn.dataset.isEditing === 'true';
+
+  if (isEditing) {
+    openingTimeInput.disabled = false;
+    closingTimeInput.disabled = false;
+    timeBetweenServiceSelect.disabled = false;
+    isClosedInput.disabled = false;
+
+    targetBtn.innerHTML = '<i class="bi bi-floppy"></i> Salvar';
+    targetBtn.title = 'Clique para salvar';
+    targetBtn.dataset.isEditing = 'false';
+    return;
+  }
+
+  const dayOfWeek = dayOfWeekSelect.value;
+  let openingTime = null;
+  let closingTime = null;
+  let timeBetweenService = null;
+  const isClosed = isClosedInput.checked;
+  if (!isClosed) {
+    openingTime = openingTimeInput.value;
+    closingTime = closingTimeInput.value;
+    timeBetweenService = timeBetweenServiceSelect.options[timeBetweenServiceSelect.selectedIndex].text;
+
+    const timeRegex = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+    if (!timeRegex.test(openingTime) || !timeRegex.test(closingTime)) {
+      ToastifyLib.toast(
+        'Erro ao atualizar horário, horários de abertura e fechamento devem seguir o padrão "00:00"',
+        'var(--background-color-error)',
+        5000
+      );
+      return;
+    }
+  }
+
+  try {
+    const establishmentId = localStorage.getItem('userIdentifier');
+    const periodId = targetBtn.dataset.periodId;
+
+    const updateData = { dayOfWeek, openingTime, closingTime, timeBetweenService, isClosed, establishmentId };
+
+    console.log(updateData);
+
+    await EstablishmentPeriodService.updateById(periodId, updateData);
+
+    ToastifyLib.toast(
+      `Horário para "${getDayOfWeeek(dayOfWeek)}" atualizado com sucesso`,
+      'var(--background-color-success)'
+    );
+
+    openingTimeInput.disabled = true;
+    closingTimeInput.disabled = true;
+    timeBetweenServiceSelect.disabled = true;
+    isClosedInput.disabled = true;
+
+    targetBtn.innerHTML = '<i class="bi bi-pencil-square"></i> Editar';
+    targetBtn.title = 'Clique para editar';
+    targetBtn.dataset.isEditing = 'true';
+  } catch (err) {
+    ToastifyLib.toast(
+      'Erro ao atualizar horário, por favor tente novamente',
       'var(--background-color-error)'
     );
   }

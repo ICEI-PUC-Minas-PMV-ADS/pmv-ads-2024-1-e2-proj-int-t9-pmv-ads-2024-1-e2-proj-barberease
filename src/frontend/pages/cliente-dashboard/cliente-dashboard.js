@@ -82,7 +82,7 @@ async function domContentLoaded() {
           </td>
           <td>${appointment.establishmentService.name}</td>
           <td>
-            <a href="#">
+            <a href="../barbearia/barbearia.html?id=${appointment.establishmentService.establishment.id}">
               ${appointment.establishmentService.establishment.companyName}
             </a>
           </td>
