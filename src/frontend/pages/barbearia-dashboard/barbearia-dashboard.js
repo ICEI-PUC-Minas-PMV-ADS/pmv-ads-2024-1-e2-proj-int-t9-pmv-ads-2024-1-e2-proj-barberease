@@ -178,7 +178,7 @@ async function domContentLoaded() {
           <div class="card-body">
             <input type="text" value="${service.name}" placeholder="Nome" disabled>
             <input type="text" value="${service.category}" placeholder="Categoria" disabled>
-            <input type="text" value="${service.description}" placeholder="Descrição" disabled>
+            <input type="text" value="${service.description || ''}" placeholder="Descrição" disabled>
             <input type="number" value="${service.price}" disabled>
             <div class="card-buttons">
               <button
@@ -505,7 +505,7 @@ async function submitAddServiceForm(event) {
         <div class="card-body">
           <input type="text" value="${response.name}" placeholder="Nome" disabled>
           <input type="text" value="${response.category}" placeholder="Categoria" disabled>
-          <input type="text" value="${response.description}" placeholder="Descrição" disabled>
+          <input type="text" value="${response.description || ''}" placeholder="Descrição" disabled>
           <input type="number" value="${response.price}" disabled>
           <div class="card-buttons">
             <button
