@@ -61,7 +61,7 @@ namespace BarberEaseApi.Controllers
             }
         }
 
-        [HttpGet("details/{clientId:guid}/client", Name = "GetAppointmentDetailsByClientId")]
+        [HttpGet("details/{clientId:guid}/client")]
         public async Task<ActionResult> GetByClentIdDetails(Guid clientId)
         {
             if (!ModelState.IsValid)
@@ -72,6 +72,25 @@ namespace BarberEaseApi.Controllers
             try
             {
                 return Ok(await _service.GetByClentIdDetails(clientId));
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
+        [HttpGet("details/{establishmentId:guid}/establishment")]
+        public async Task<ActionResult> GetByEstablishmentIdDetails(Guid establishmentId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await _service.GetByEstablishmentIdDetails(establishmentId));
             }
             catch (ArgumentException exc)
             {

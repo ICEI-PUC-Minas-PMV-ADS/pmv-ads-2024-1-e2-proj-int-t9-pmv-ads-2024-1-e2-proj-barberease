@@ -9,11 +9,16 @@ namespace BarberEaseApi.Services
     public class EstablishmentService : IEstablishmentService
     {
         private readonly IEstablishmentRepository _repository;
+        private readonly IEstablishmentPeriodRepository _periodsRepository;
         private readonly IMapper _mapper;
 
-        public EstablishmentService(IEstablishmentRepository repository, IMapper mapper)
+        public EstablishmentService(
+            IEstablishmentRepository repository,
+            IEstablishmentPeriodRepository periodsRepository,
+            IMapper mapper)
         {
             _repository = repository;
+            _periodsRepository = periodsRepository;
             _mapper = mapper;
         }
 
@@ -34,6 +39,9 @@ namespace BarberEaseApi.Services
             var entity = _mapper.Map<EstablishmentEntity>(establishment);
             entity.SetPassword(establishment.Password);
             var result = await _repository.CreateAsync(entity);
+
+            await CreateDefaultPeriods(result.Id);
+
             return _mapper.Map<EstablishmentDto>(result);
         }
 
@@ -66,9 +74,156 @@ namespace BarberEaseApi.Services
             return _mapper.Map<EstablishmentDto>(result);
         }
 
+        public async Task<EstablishmentDto?> PartialUpdate(EstablishmentPartialtUpdateDto establishment, Guid id)
+        {
+            var result = await _repository.FindByIdAsync(id);
+            if (result == null)
+            {
+                return null;
+            }
+            var entity = _mapper.Map<EstablishmentEntity>(establishment);
+            if (establishment.Email == null)
+            {
+                entity.Email = result.Email;
+            }
+            else
+            {
+                if (result.Email != establishment.Email)
+                {
+
+                    var existsByEmail = await _repository.FindByEmail(establishment.Email);
+                    if (existsByEmail != null)
+                    {
+                        return null;
+                    }
+                }
+            }
+            if (establishment.Password == null)
+            {
+                entity.HashedPassword = result.HashedPassword;
+            }
+            else
+            {
+                entity.SetPassword(establishment.Password);
+            }
+            if (establishment.CompanyName == null)
+            {
+                entity.CompanyName = result.CompanyName;
+            }
+            if (establishment.Cnpj == null)
+            {
+                entity.Cnpj = result.Cnpj;
+            }
+            else
+            {
+                if (result.Email != establishment.Email)
+                {
+
+                    var existsByCnpj = await _repository.FindByCnpj(establishment.Cnpj);
+                    if (existsByCnpj != null)
+                    {
+                        return null;
+                    }
+                }
+            }
+            if (establishment.OwnerFirstName == null)
+            {
+                entity.OwnerFirstName = result.OwnerFirstName;
+            }
+            if (establishment.OwnerLastName == null)
+            {
+                entity.OwnerLastName = result.OwnerLastName;
+            }
+            if (establishment.City == null)
+            {
+                entity.City = result.City;
+            }
+            if (establishment.State == null)
+            {
+                entity.State = result.State;
+            }
+            if (establishment.Cep == null)
+            {
+                entity.Cep = result.Cep;
+            }
+            if (establishment.Address == null)
+            {
+                entity.Address = result.Address;
+            }
+            if (establishment.Phone == null)
+            {
+                entity.Phone = result.Phone;
+            }
+
+            var updateResult = await _repository.UpdateAsync(entity, id);
+            return _mapper.Map<EstablishmentDto>(updateResult);
+        }
+
         public async Task<bool> Delete(Guid id)
         {
             return await _repository.DeleteAsync(id);
+        }
+
+        private async Task CreateDefaultPeriods(Guid establishmentId)
+        {
+            var periods = new List<EstablishmentPeriodEntity>
+            {
+                new() {
+                    DayOfWeek = "MONDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "TUESDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "WEDNESDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "THURSDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "FRIDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "SATURDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "SUNDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishmentId,
+                }
+            };
+
+            foreach (var period in periods)
+            {
+                await _periodsRepository.CreateAsync(period);
+            }
         }
     }
 }

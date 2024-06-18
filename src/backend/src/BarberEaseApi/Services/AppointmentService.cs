@@ -9,28 +9,35 @@ namespace BarberEaseApi.Services
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository _repository;
+        private readonly IEstablishmentServiceRepository _serviceRepository;
         private readonly IMapper _mapper;
 
         public AppointmentService(
             IAppointmentRepository repository,
+            IEstablishmentServiceRepository serviceRepository,
             IMapper mapper)
         {
             _repository = repository;
+            _serviceRepository = serviceRepository;
             _mapper = mapper;
         }
 
         public async Task<AppointmentDto?> Create(AppointmentCreateDto appointment)
         {
-            var appointmentExists = await _repository.ExistsByDateAndService(appointment.Date, appointment.EstablishmentServiceId);
-
+            var result = await _serviceRepository.FindByIdAsync(appointment.EstablishmentServiceId);
+            if (result == null)
+            {
+                return null;
+            }
+            var appointmentExists = await _repository.ExistsByDateAndEstablishment(appointment.Date, result.EstablishmentId);
             if (appointmentExists)
             {
                 return null;
             }
 
             var entity = _mapper.Map<AppointmentEntity>(appointment);
-            var result = await _repository.CreateAsync(entity);
-            return _mapper.Map<AppointmentDto>(result);
+            var createResult = await _repository.CreateAsync(entity);
+            return _mapper.Map<AppointmentDto>(createResult);
         }
 
         public async Task<IEnumerable<AppointmentDetailsDto>> GetAllDetails()
@@ -42,6 +49,12 @@ namespace BarberEaseApi.Services
         public async Task<IEnumerable<AppointmentDetailsDto>> GetByClentIdDetails(Guid clientId)
         {
             var entities = await _repository.FindAllByClientDetails(clientId);
+            return _mapper.Map<IEnumerable<AppointmentDetailsDto>>(entities);
+        }
+
+        public async Task<IEnumerable<AppointmentDetailsDto>> GetByEstablishmentIdDetails(Guid establishmentId)
+        {
+            var entities = await _repository.FindAllByEstablishmentDetails(establishmentId);
             return _mapper.Map<IEnumerable<AppointmentDetailsDto>>(entities);
         }
 

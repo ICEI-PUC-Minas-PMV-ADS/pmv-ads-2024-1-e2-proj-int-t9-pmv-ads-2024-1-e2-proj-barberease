@@ -34,6 +34,17 @@ namespace BarberEaseApi.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<AppointmentEntity>> FindAllByEstablishmentDetails(Guid establishmentId)
+        {
+            return await _dataset
+                .Include((establishmentService) => establishmentService.EstablishmentService)
+                .ThenInclude((establishmentService) => establishmentService.Establishment)
+                .Include((client) => client.Client)
+                .Where((appointment) => appointment.EstablishmentService.Establishment.Id == establishmentId)
+                .OrderByDescending((appointment) => appointment.Date)
+                .ToListAsync();
+        }
+
         public async Task<AppointmentEntity?> FindByIdDetails(Guid id)
         {
             try
@@ -74,11 +85,12 @@ namespace BarberEaseApi.Repositories
             }
         }
 
-        public async Task<bool> ExistsByDateAndService(DateTime date, Guid establishmentServiceId)
+        public async Task<bool> ExistsByDateAndEstablishment(DateTime date, Guid establishmentId)
         {
-            return await _dataset.AnyAsync((appointment) =>
-                appointment.Date == date &&
-                appointment.EstablishmentServiceId == establishmentServiceId);
+            return await _dataset
+                .AnyAsync((appointment) =>
+                    appointment.Date == date &&
+                    appointment.EstablishmentService.Establishment.Id == establishmentId);
         }
     }
 }

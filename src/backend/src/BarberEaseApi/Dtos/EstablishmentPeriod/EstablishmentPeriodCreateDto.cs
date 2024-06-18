@@ -8,16 +8,16 @@ namespace BarberEaseApi.Dtos.EstablishmentPeriod
         [StringLength(20, ErrorMessage = "DayOfWeek must have {1} chars")]
         public string DayOfWeek { get; set; }
 
-        [StringLength(8, ErrorMessage = "OpeningTime must have {1} chars")]
-        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$", ErrorMessage = "OpeningTime must be in the format HH:MM:SS")]
+        [StringLength(5, ErrorMessage = "OpeningTime must have {1} chars")]
+        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d$", ErrorMessage = "OpeningTime must be in the format HH:MM")]
         public string? OpeningTime { get; set; }
 
-        [StringLength(8, ErrorMessage = "ClosingTime must have {1} chars")]
-        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$", ErrorMessage = "ClosingTime must be in the format HH:MM:SS")]
+        [StringLength(5, ErrorMessage = "ClosingTime must have {1} chars")]
+        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d$", ErrorMessage = "ClosingTime must be in the format HH:MM")]
         public string? ClosingTime { get; set; }
 
-        [StringLength(8, ErrorMessage = "TimeBetweenService must have {1} chars")]
-        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$", ErrorMessage = "TimeBetweenService must be in the format HH:MM:SS")]
+        [StringLength(5, ErrorMessage = "TimeBetweenService must have {1} chars")]
+        [RegularExpression(@"^(?:[01]\d|2[0-3]):[0-5]\d$", ErrorMessage = "TimeBetweenService must be in the format HH:MM")]
         public string? TimeBetweenService { get; set; }
 
         [Required(ErrorMessage = "IsClosed is required")]

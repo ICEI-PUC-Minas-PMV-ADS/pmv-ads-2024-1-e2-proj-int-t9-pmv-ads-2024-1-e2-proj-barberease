@@ -4,9 +4,22 @@ function formatName(firstName, lastName) {
   return `${formattedFirstName} ${formattedLastName}`;
 }
 
+function formatCompanyName(companyName) {
+  return companyName
+    .split(' ')
+    .map((word) => word.at(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 function formatAddress(city, state) {
-  const formattedCity = city.at(0).toUpperCase() + city.slice(1);
-  const formattedState = state.at(0).toUpperCase() + state.slice(1);
+  const formattedCity = city
+    .split(' ')
+    .map((word) => word.at(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  const formattedState = state
+    .split(' ')
+    .map((word) => word.at(0).toUpperCase() + word.slice(1))
+    .join(' ');
   return `${formattedCity}, ${formattedState}`;
 }
 
@@ -19,6 +32,18 @@ function formatDateString(dateString) {
     hour: '2-digit',
     minute: '2-digit',
   });
+}
+
+function formatPhoneNumber(phoneNumber) {
+  const cleaned = ('' + phoneNumber).replace(/\D/g, '');
+
+  const match = cleaned.match(/^(\d{2})(\d{5})(\d{4})$/);
+
+  if (match) {
+    return `(${match[1]}) ${match[2]}-${match[3]}`;
+  }
+
+  return null;
 }
 
 function getAppointmentStatus(status) {
@@ -37,6 +62,20 @@ function getAppointmentStatus(status) {
     statusDisplay: displayStatustMap[status],
     cssClassStatus: cssClassStatusMap[status],
   }
+}
+
+function getDayOfWeeek(day) {
+  const periodWeekDayMap = {
+    MONDAY: 'Segunda-feira',
+    TUESDAY: 'Terça-feira',
+    WEDNESDAY: 'Quarta-feira',
+    THURSDAY: 'Quinta-feira',
+    FRIDAY: 'Sexta-feira',
+    SATURDAY: 'Sábado',
+    SUNDAY: 'Domingo',
+  };
+
+  return periodWeekDayMap[day];
 }
 
 async function getAddressByCep(cep) {

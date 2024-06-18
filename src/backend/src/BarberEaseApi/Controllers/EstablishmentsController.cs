@@ -136,6 +136,31 @@ namespace BarberEaseApi.Controllers
             }
         }
 
+        [HttpPatch("{id:guid}")]
+        public async Task<ActionResult> Patch([FromBody] EstablishmentPartialtUpdateDto establishment, Guid id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var result = await _service.PartialUpdate(establishment, id);
+                if (result == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult> Delete(Guid id)
         {

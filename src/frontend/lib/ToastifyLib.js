@@ -9,11 +9,11 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
  */
 class ToastifyLib {
-  static toast(text, backgroundColor) {
+  static toast(text, backgroundColor, duration) {
     Toastify({
       text,
       backgroundColor,
-      duration: 3000,
+      duration: duration ?? 3000,
       close: true,
       gravity: 'top',
       position: 'right',

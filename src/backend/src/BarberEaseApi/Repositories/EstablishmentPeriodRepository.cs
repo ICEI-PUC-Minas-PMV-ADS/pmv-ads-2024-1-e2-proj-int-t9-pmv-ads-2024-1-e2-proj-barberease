@@ -14,6 +14,14 @@ namespace BarberEaseApi.Repositories
             _dataset = context.Set<EstablishmentPeriodEntity>();
         }
 
+        public async Task<IEnumerable<EstablishmentPeriodEntity>> FindAllByEstablishment(Guid establishmentId)
+        {
+            return await _dataset
+                .Where((establishmentPeriod) => establishmentPeriod.EstablishmentId == establishmentId)
+                .OrderBy((establishmentPeriod) => establishmentPeriod.CreatedAt)
+                .ToListAsync();
+        }
+
         public async Task<bool> ExistsByDayOfWeekAndEstablishment(string dayOfWeek, Guid establishmentId)
         {
             return await _dataset.AnyAsync((establishmentPeriod) =>

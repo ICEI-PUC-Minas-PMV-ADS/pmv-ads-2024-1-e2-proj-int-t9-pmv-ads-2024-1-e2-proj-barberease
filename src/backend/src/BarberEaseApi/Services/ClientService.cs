@@ -68,10 +68,14 @@ namespace BarberEaseApi.Services
             }
             else
             {
-                var existsByEmail = await _repository.FindByEmail(client.Email);
-                if (existsByEmail != null)
+                if (result.Email != client.Email)
                 {
-                    return null;
+
+                    var existsByEmail = await _repository.FindByEmail(client.Email);
+                    if (existsByEmail != null)
+                    {
+                        return null;
+                    }
                 }
             }
             if (client.Password == null)

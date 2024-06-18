@@ -20,5 +20,13 @@ namespace BarberEaseApi.Repositories
                 establishmentService.Name.ToLower() == name.ToLower() &&
                 establishmentService.EstablishmentId == establishmentId);
         }
+
+        public async Task<IEnumerable<EstablishmentServiceEntity>> FindAllByEstablishment(Guid establishmentId)
+        {
+            return await _dataset
+                .Where((establishmentService) => establishmentService.EstablishmentId == establishmentId)
+                .OrderBy((establishmentService) => establishmentService.CreatedAt)
+                .ToListAsync();
+        }
     }
 }

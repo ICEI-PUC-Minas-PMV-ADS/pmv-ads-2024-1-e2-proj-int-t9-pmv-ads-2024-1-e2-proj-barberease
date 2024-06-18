@@ -17,7 +17,9 @@ editForm.addEventListener('submit', submitEditForm);
 cepInput.addEventListener('blur', setAddressInfo);
 
 async function domContentLoaded() {
-  const isUserAuthenticated = localStorage.getItem('authenticated') === '1';
+  const isUserAuthenticated =
+    localStorage.getItem('authenticated') === '1' &&
+    localStorage.getItem('userType') === 'Client';
 
   // Guard condition.
   if (!isUserAuthenticated) {
@@ -80,12 +82,17 @@ async function domContentLoaded() {
           </td>
           <td>${appointment.establishmentService.name}</td>
           <td>
-            <a href="#">
+            <a href="../barbearia/barbearia.html?id=${appointment.establishmentService.establishment.id}">
               ${appointment.establishmentService.establishment.companyName}
             </a>
           </td>
           <td title="${btnEnabled ? '' : 'Não há como cancelar'}">
-            <button type="button" data-appointment-id=${appointment.id} onclick="clickCancelAppointment(this)" ${btnEnabled ? '' : 'disabled'}>
+            <button
+              type="button"
+              data-appointment-id=${appointment.id}
+              ${btnEnabled ? 'onclick="clickCancelAppointment(this)"' : ''}
+              ${btnEnabled ? '' : 'disabled'}
+            >
               Cancelar
             </button>
           </td>
@@ -93,22 +100,26 @@ async function domContentLoaded() {
       `;
     }, '');
 
-    appointmentsInfoSection.innerHTML = `
-      <table>
-        <thead>
-          <tr>
-            <th>Data Agendada</th>
-            <th>Status</th>
-            <th>Serviço</th>
-            <th>Barbearia</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${tableBody}
-        </tbody>
-      </table>
-    `;
+    if (!tableBody) {
+      appointmentsInfoSection.textContent = 'Você ainda não fez nenhum agendamento...'
+    } else {
+      appointmentsInfoSection.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Data Agendada</th>
+              <th>Status</th>
+              <th>Serviço</th>
+              <th>Barbearia</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableBody}
+          </tbody>
+        </table>
+      `;
+    }
   } catch (err) {
     console.error(err);
     appointmentsInfoSection.textContent = 'Erro ao carregar informações, tente novamente mais tarde...';
@@ -166,9 +177,8 @@ async function submitEditForm(event) {
 
   const name = formData.get('name');
   if (name) {
-    const firstName = name.split(' ').at(0)
-    updateData.firstName = firstName;
-    updateData.lastName = name.split(' ').at(-1) ?? firstName;
+    updateData.firstName = name.split(' ').at(0);
+    updateData.lastName = name.split(' ').at(-1) ?? '';
   }
 
   const email = formData.get('email');
@@ -177,18 +187,18 @@ async function submitEditForm(event) {
   }
 
   const password = formData.get('password');
-  if (email) {
+  if (password) {
     updateData.password = password;
   }
 
   const cep = formData.get('cep');
   if (cep) {
-    updateData.city = formData.get('city');
-    updateData.state = formData.get('state');
+    updateData.city = document.getElementById('city').value;
+    updateData.state = document.getElementById('state').value;
   }
 
   const phone = formData.get('phone');
-  if (email) {
+  if (phone) {
     updateData.phone = phone;
   }
 

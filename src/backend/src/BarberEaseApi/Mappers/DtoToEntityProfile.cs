@@ -23,6 +23,7 @@ namespace BarberEaseApi.Mappers
             CreateMap<EstablishmentDto, EstablishmentEntity>().ReverseMap();
             CreateMap<EstablishmentCreateDto, EstablishmentEntity>().ReverseMap();
             CreateMap<EstablishmentUpdateDto, EstablishmentEntity>().ReverseMap();
+            CreateMap<EstablishmentPartialtUpdateDto, EstablishmentEntity>().ReverseMap();
             CreateMap<EstablishmentDetailsDto, EstablishmentEntity>().ReverseMap();
             #endregion
 

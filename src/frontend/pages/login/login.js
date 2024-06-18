@@ -32,13 +32,13 @@ async function submitLoginForm(event) {
 
       if (response.userType === 'Client') {
         setTimeout(() => {
-          window.location.href = '../client-dashboard/client-dashboard.html';
+          location.href = '../cliente-dashboard/cliente-dashboard.html';
         }, 2000);
         return;
       }
 
       setTimeout(() => {
-        window.location.href = '../pagina-inicial/pagina-inicial.html'; // Change this later to establishment dashboard
+        location.href = '../barbearia-dashboard/barbearia-dashboard.html';
       }, 2000);
       return;
     }
