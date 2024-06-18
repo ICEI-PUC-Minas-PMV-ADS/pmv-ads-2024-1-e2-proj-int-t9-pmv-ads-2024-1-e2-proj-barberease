@@ -49,6 +49,11 @@ O projeto da base de dados corresponde à representação das entidades e relaci
 
 ## Hospedagem
 
+### Diagrama de arquitetura
+
+![BarberEase Diagrama de Arquitetura](./img/barberease-arch-diagram.png)
+
+
 ### Frontend
 
 O frontend foi hospedado no próprio GitHub Pages, no seguinte link

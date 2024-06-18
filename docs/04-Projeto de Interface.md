@@ -15,21 +15,20 @@ O Fluxo de Usuário (User Flow) abaixo mostra o mapeamento do fluxo de navegaç�
 
 ## Wireframes
 
-Home Page
-![Home Page](./img/Wireframes/Home.png)
-Crie sua Conta
-![Home Page](./img/Wireframes/Crie%20sua%20Conta.png)
-Entrar
-![Entrar](./img/Wireframes/Entrar.png)
-Barbearias
-![Barbearias](./img/Wireframes/Barbearias.png)
-Barbearia
-![Barbearia](./img/Wireframes/Barbearia.png)
-Carrinho
-![Carrinho](./img/Wireframes/Carrinho.png)
-Assinatura
-![Assinatura](./img/Wireframes/Assinatura.png)
-Anuncie Conosco
-![Anuncie Conosco](./img/Wireframes/Anuncie%20conosco.png)
+> Os quadrados cinza escuro com bordas arrendondadas serão imagens, já os retangulos cinza claro serão formulários.
 
-Os quadrados cinza escuro com bordas arrendondadas serão imagens, já os retangulos cinza claro serão formulários.
+
+### Home Page
+![Home Page](./img/wireframes/home.png)
+
+### Crie sua Conta
+![Crie sua conta](./img/wireframes/crie-sua-conta.png)
+
+### Entrar
+![Entrar](./img/wireframes/entrar.png)
+
+### Barbearias
+![Barbearias](./img/wireframes/barbearias.png)
+
+### Barbearia
+![Barbearia](./img/wireframes/barbearia.png)
