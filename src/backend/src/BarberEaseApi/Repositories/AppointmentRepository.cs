@@ -85,11 +85,12 @@ namespace BarberEaseApi.Repositories
             }
         }
 
-        public async Task<bool> ExistsByDateAndService(DateTime date, Guid establishmentServiceId)
+        public async Task<bool> ExistsByDateAndEstablishment(DateTime date, Guid establishmentId)
         {
-            return await _dataset.AnyAsync((appointment) =>
-                appointment.Date == date &&
-                appointment.EstablishmentServiceId == establishmentServiceId);
+            return await _dataset
+                .AnyAsync((appointment) =>
+                    appointment.Date == date &&
+                    appointment.EstablishmentService.Establishment.Id == establishmentId);
         }
     }
 }

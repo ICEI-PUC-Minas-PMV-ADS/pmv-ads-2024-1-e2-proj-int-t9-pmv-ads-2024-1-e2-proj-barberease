@@ -10,6 +10,6 @@ namespace BarberEaseApi.Interfaces.Repositories
         Task<IEnumerable<AppointmentEntity>> FindAllByEstablishmentDetails(Guid establishmentId);
         Task<AppointmentEntity?> FindByIdDetails(Guid id);
         Task<AppointmentEntity?> UpdateStatus(string status, Guid id);
-        Task<bool> ExistsByDateAndService(DateTime date, Guid establishmentServiceId);
+        Task<bool> ExistsByDateAndEstablishment(DateTime date, Guid establishmentId);
     }
 }

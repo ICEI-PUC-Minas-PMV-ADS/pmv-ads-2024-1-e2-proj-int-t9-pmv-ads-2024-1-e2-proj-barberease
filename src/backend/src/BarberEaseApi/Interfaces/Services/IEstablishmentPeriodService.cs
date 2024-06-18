@@ -6,6 +6,7 @@ namespace BarberEaseApi.Interfaces.Services
     {
         Task<EstablishmentPeriodDto?> Create(EstablishmentPeriodCreateDto establishmentPeriod);
         Task<IEnumerable<EstablishmentPeriodDto>> GetAll();
+        Task<IEnumerable<EstablishmentPeriodDto>> GetByEstablishmentId(Guid establishmentId);
         Task<EstablishmentPeriodDto?> GetById(Guid id);
         Task<EstablishmentPeriodDto?> Update(EstablishmentPeriodUpdateDto establishmentPeriod, Guid id);
         Task<bool> Delete(Guid id);

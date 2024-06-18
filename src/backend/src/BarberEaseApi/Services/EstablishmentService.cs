@@ -9,11 +9,16 @@ namespace BarberEaseApi.Services
     public class EstablishmentService : IEstablishmentService
     {
         private readonly IEstablishmentRepository _repository;
+        private readonly IEstablishmentPeriodRepository _periodsRepository;
         private readonly IMapper _mapper;
 
-        public EstablishmentService(IEstablishmentRepository repository, IMapper mapper)
+        public EstablishmentService(
+            IEstablishmentRepository repository,
+            IEstablishmentPeriodRepository periodsRepository,
+            IMapper mapper)
         {
             _repository = repository;
+            _periodsRepository = periodsRepository;
             _mapper = mapper;
         }
 
@@ -34,6 +39,9 @@ namespace BarberEaseApi.Services
             var entity = _mapper.Map<EstablishmentEntity>(establishment);
             entity.SetPassword(establishment.Password);
             var result = await _repository.CreateAsync(entity);
+
+            await CreateDefaultPeriods(result.Id);
+
             return _mapper.Map<EstablishmentDto>(result);
         }
 
@@ -154,6 +162,68 @@ namespace BarberEaseApi.Services
         public async Task<bool> Delete(Guid id)
         {
             return await _repository.DeleteAsync(id);
+        }
+
+        private async Task CreateDefaultPeriods(Guid establishmentId)
+        {
+            var periods = new List<EstablishmentPeriodEntity>
+            {
+                new() {
+                    DayOfWeek = "MONDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "TUESDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "WEDNESDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "THURSDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "FRIDAY",
+                    OpeningTime = "09:00",
+                    ClosingTime = "18:00",
+                    TimeBetweenService = "00:30",
+                    IsClosed = false,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "SATURDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishmentId,
+                },
+                new() {
+                    DayOfWeek = "SUNDAY",
+                    IsClosed = true,
+                    EstablishmentId = establishmentId,
+                }
+            };
+
+            foreach (var period in periods)
+            {
+                await _periodsRepository.CreateAsync(period);
+            }
         }
     }
 }

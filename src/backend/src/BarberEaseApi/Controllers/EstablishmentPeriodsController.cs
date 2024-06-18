@@ -61,6 +61,25 @@ namespace BarberEaseApi.Controllers
             }
         }
 
+        [HttpGet("{establishmentId:guid}/establishment")]
+        public async Task<ActionResult> GetByEstablishmentId(Guid establishmentId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await _service.GetByEstablishmentId(establishmentId));
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
         [HttpGet("{id:guid}", Name = "GetPeriodById")]
         public async Task<ActionResult> GetById(Guid id)
         {
