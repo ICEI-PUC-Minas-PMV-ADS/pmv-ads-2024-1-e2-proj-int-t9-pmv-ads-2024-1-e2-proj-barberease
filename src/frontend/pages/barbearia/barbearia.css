@@ -73,9 +73,20 @@ h3{
     grid-area: main;
   
   }
-  .tup{
-     
-
+  .tupu{
+    text-align: center;
+  }
+  #tel{
+    margin-top: 30px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
+  #tel2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    grid-template-areas: "abc def ghi";
+    display: grid;
+    align-items: center;
   }
   #poi{
     margin-top: 0;

@@ -10,6 +10,7 @@ async function barberId()
      document.getElementById('1dd').innerText= databarber.companyName;
      
      document.getElementById('1bb').innerText= databarber.address +", "+ databarber.city +"- "+databarber.state;
+     document.getElementById('phone').innerText=databarber.phone;
      const htmlbase = document.getElementById("abcd").innerHTML;
      let lista = document.getElementById("ServList");
      for (let i=0;i<3;++i)
