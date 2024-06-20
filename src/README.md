@@ -14,6 +14,8 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 #### Finaliza página de cadastro
 
 - Finaliza página cadastro do cliente e do estabelecimento
+- Refatora página de estabelecimentos
+- Adiciona funcionalidades na página de estabelecimentos e na página inicial
 
 
 ### [1.3.0] - 18/06/2024
