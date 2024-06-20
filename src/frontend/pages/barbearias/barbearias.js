@@ -13,7 +13,7 @@ async function barber()
        const li= document.createElement('li');
             li.innerHTML=hghghg
             document.getElementById("dfg").setAttribute("id",i)
-            document.getElementById("123").setAttribute("id","c"+i)
+           document.getElementById("123").setAttribute("id","c"+i)
             document.getElementById("345").setAttribute("id","d"+i)
             document.getElementById("901").setAttribute("id","e"+i)
             document.getElementById("c"+i).innerText= response[i].companyName; 
