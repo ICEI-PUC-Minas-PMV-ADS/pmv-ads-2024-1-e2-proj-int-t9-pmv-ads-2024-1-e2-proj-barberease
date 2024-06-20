@@ -26,7 +26,7 @@ class AuthService {
 
       return await response.json();
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }

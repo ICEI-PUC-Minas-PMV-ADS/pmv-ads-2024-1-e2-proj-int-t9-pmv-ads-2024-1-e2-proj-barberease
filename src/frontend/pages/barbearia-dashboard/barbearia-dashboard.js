@@ -532,8 +532,14 @@ async function submitAddServiceForm(event) {
     targetForm.reset();
     targetForm.classList.remove('show');
   } catch (err) {
+    if (err.message === 'Conflict') {
+      ToastifyLib.toast(
+        `Erro ao criar serviço, já existe um serviço com o nome "${name}", por favor tente novamente`,
+        'var(--background-color-error)'
+      );
+    }
     ToastifyLib.toast(
-      'Erro ao criar serviço, pode ser que um serviço com o mesmo nome já exista, por favor tente novamente',
+      'Erro ao criar serviço, por favor tente novamente',
       'var(--background-color-error)'
     );
   }
@@ -686,8 +692,6 @@ async function clickEditPeriod(targetBtn) {
     const periodId = targetBtn.dataset.periodId;
 
     const updateData = { dayOfWeek, openingTime, closingTime, timeBetweenService, isClosed, establishmentId };
-
-    console.log(updateData);
 
     await EstablishmentPeriodService.updateById(periodId, updateData);
 

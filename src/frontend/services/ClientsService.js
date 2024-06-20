@@ -20,7 +20,7 @@ class ClientsService {
 
       return await response.json();
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }
@@ -41,7 +41,7 @@ class ClientsService {
         throw new Error(response.statusText);
       }
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }
@@ -64,7 +64,7 @@ class ClientsService {
 
       return await response.json();
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }

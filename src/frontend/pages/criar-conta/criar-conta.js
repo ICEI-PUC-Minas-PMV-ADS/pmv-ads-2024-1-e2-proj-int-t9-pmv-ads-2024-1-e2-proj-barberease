@@ -71,14 +71,119 @@ function showBarberForm(event) {
   resetSteps(barberForm.id);
 }
 
-function submitClientForm(event) {
+async function submitClientForm(event) {
   event.preventDefault();
-  console.log('submitClientForm');
+
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
+
+  const name = formData.get('name');
+  const firstName = name.split(' ').at(0);
+  const lastName = name.split(' ').at(-1) ?? '';
+  const email = formData.get('email');
+  const password = formData.get('password');
+  const phone = formData.get('phone');
+  const city = document.getElementById('client-city').value;
+  const state = document.getElementById('client-state').value;
+
+  try {
+    const createData = {
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
+      city,
+      state,
+    };
+
+    await ClientsService.create(createData);
+
+    ToastifyLib.toast(
+      'Conta criada com sucesso, redirecionando...',
+      'var(--background-color-success)'
+    );
+
+    setTimeout(() => {
+      location.href = '../login/login.html';
+    }, 2000);
+  } catch (err) {
+    if (err.message === 'Conflict') {
+      ToastifyLib.toast(
+        'Erro ao criar conta, este e-mail já está cadastrado',
+        'var(--background-color-error)',
+        3000
+      );
+      return;
+    }
+
+    ToastifyLib.toast(
+      'Erro ao criar conta, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }
 
-function submitBarberForm(event) {
+async function submitBarberForm(event) {
   event.preventDefault();
-  console.log('submitBarberForm');
+
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
+
+  const name = formData.get('name');
+  const ownerFirstName = name.split(' ').at(0);
+  const ownerLastName = name.split(' ').at(-1) ?? '';
+  const email = formData.get('email');
+  const password = formData.get('password');
+  const phone = formData.get('phone');
+  const companyName = formData.get('company-name');
+  const cnpj = formData.get('cnpj');
+  const cep = formData.get('cep');
+  const city = document.getElementById('barber-city').value;
+  const state = document.getElementById('barber-state').value;
+  const address = document.getElementById('barber-address').value;
+
+  try {
+    const createData = {
+      ownerFirstName,
+      ownerLastName,
+      email,
+      password,
+      phone,
+      companyName,
+      cnpj,
+      cep,
+      city,
+      state,
+      address,
+    };
+
+    await EstablishmentService.create(createData);
+
+    ToastifyLib.toast(
+      'Conta criada com sucesso, preparando tudo e redirecionando...',
+      'var(--background-color-success)',
+      3000
+    );
+
+    setTimeout(() => {
+      location.href = '../login/login.html';
+    }, 2000);
+  } catch (err) {
+    if (err.message === 'Conflict') {
+      ToastifyLib.toast(
+        'Erro ao criar conta, barbearia já está cadastrada',
+        'var(--background-color-error)',
+        3000
+      );
+      return;
+    }
+
+    ToastifyLib.toast(
+      'Erro ao criar conta, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }
 
 async function setClientAddress(event) {
@@ -144,7 +249,7 @@ function nextStep(formId) {
   const form = document.getElementById(formId);
   const currentStep = form.querySelector('.step.active');
   const nextStep = currentStep.nextElementSibling;
-  if (nextStep) {
+  if (nextStep && validateForm(formId)) {
     currentStep.classList.remove('active');
     nextStep.classList.add('active');
   }
@@ -158,4 +263,18 @@ function prevStep(formId) {
     currentStep.classList.remove('active');
     prevStep.classList.add('active');
   }
+}
+
+function validateForm(formId) {
+  const form = document.getElementById(formId);
+  let isValid = true;
+  const inputs = form.querySelectorAll('.step.active input[required]');
+  for (const input of inputs) {
+    if (!input.checkValidity()) {
+      isValid = false;
+      input.reportValidity();
+      break;
+    }
+  }
+  return isValid;
 }
