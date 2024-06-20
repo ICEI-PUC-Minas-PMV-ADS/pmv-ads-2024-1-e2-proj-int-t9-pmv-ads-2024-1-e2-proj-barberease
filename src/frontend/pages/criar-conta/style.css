@@ -1,0 +1,236 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.content {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background {
+  flex: 1;
+  background: url('../../assets/sign-up-background.jpg') no-repeat center;
+  background-size: cover;
+}
+
+.animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: appear-from-left 1s;
+}
+
+.animation-container form {
+  margin: 0px 0;
+  width: 340px;
+  text-align: center;
+}
+
+.animation-container form h1 {
+  margin-bottom: 24px;
+}
+
+.animation-container form a {
+  color: #f4ede8;
+  display: block;
+  margin-top: 24px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.animation-container form a:hover {
+  color: #c4b9b9;
+}
+
+.animation-container>a {
+  color: var(--background-color-02);
+  display: block;
+  margin-top: 24px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.animation-container>a:hover {
+  color: var(--background-color-03);
+}
+
+.animation-container>a .bi {
+  margin-right: 5px;
+}
+
+.section-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.select-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.select-button {
+  background-color: #232129;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 12px;
+  width: 200px;
+  border: 1px solid #232129;
+  color: var(--background-color-03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  transition: 250ms;
+}
+
+.select-button:hover {
+  background-color: var(--background-color-03);
+  color: var(--text-color-02);
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.3);
+  transition: 250ms;
+}
+
+.select-button.client {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-color: var(--text-color-02);
+}
+
+.select-button.establishment {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-color: var(--text-color-02);
+}
+
+.form-fieldset {
+  background: #232129;
+  border-radius: 10px;
+  padding: 16px;
+  width: 100%;
+  border: 2px solid #232129;
+  color: #666660;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.form-fieldset+div {
+  margin-top: 8px;
+}
+
+.form-fieldset.is-focused {
+  border-color: var(--background-color-02);
+  color: var(--background-color-02);
+}
+
+.form-fieldset.is-filled {
+  color: var(--background-color-02);
+}
+
+.form-fieldset input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  color: #f4ede8;
+}
+
+.form-fieldset input::placeholder {
+  color: #666660;
+}
+
+.form-fieldset input:disabled::placeholder {
+  opacity: .4;
+}
+
+.form-fieldset .bi {
+  margin-right: 18px;
+}
+
+.submit-btn {
+  background: var(--background-color-02);
+  border-radius: 10px;
+  border: 0;
+  padding: 0 16px;
+  width: 100%;
+  height: 56px;
+  color: var(--text-color-02);
+  font-weight: 700;
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: var(--background-color-03);
+}
+
+.next-btn {
+  background: var(--background-color-02);
+  border-radius: 10px;
+  border: 0;
+  padding: 0 16px;
+  width: 100%;
+  height: 56px;
+  color: var(--text-color-02);
+  font-weight: 700;
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+
+.next-btn:hover {
+  background-color: var(--background-color-03);
+}
+
+.prev-btn {
+  background: var(--background-color-02);
+  border-radius: 10px;
+  border: 0;
+  padding: 0 16px;
+  width: 100%;
+  height: 56px;
+  color: var(--text-color-02);
+  font-weight: 700;
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+
+.prev-btn:hover {
+  background-color: var(--background-color-03);
+}
+
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
+#barber-form {
+  display: none;
+}
+
+#client-form {
+  display: none;
+}
+
+@keyframes appear-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

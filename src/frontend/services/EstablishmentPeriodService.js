@@ -20,7 +20,7 @@ class EstablishmentPeriodService {
 
       return await response.json();
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }
@@ -41,7 +41,7 @@ class EstablishmentPeriodService {
         throw new Error(response.statusText);
       }
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }
@@ -56,7 +56,7 @@ class EstablishmentPeriodService {
         throw new Error(response.statusText);
       }
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }
@@ -79,7 +79,7 @@ class EstablishmentPeriodService {
 
       return await response.json();
     } catch (err) {
-      console.error(`Request failed: ${JSON.stringify(err)}`);
+      console.error(`Request failed: ${err.message}`);
       throw err;
     }
   }

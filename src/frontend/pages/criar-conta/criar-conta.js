@@ -1,95 +1,280 @@
+const selectClientBtn = document.getElementById('select-client-btn');
+const selectEstablishmentBtn = document.getElementById('select-establishment-btn');
+
 const clientForm = document.getElementById('client-form');
 const barberForm = document.getElementById('barber-form');
-const dataForm = document.getElementById('data-form');
 
+const clientCepInput = document.getElementById('client-cep');
+const barberCepInput = document.getElementById('barber-cep');
+
+const logoImg = document.getElementById('img-logo');
+
+const nextBtns = document.querySelectorAll('.next-btn');
+const prevBtns = document.querySelectorAll('.prev-btn');
+const stepForms = document.querySelectorAll('.step-form');
+
+
+// Events
+selectClientBtn.addEventListener('click', showClientForm);
+selectEstablishmentBtn.addEventListener('click', showBarberForm);
 clientForm.addEventListener('submit', submitClientForm);
 barberForm.addEventListener('submit', submitBarberForm);
-dataForm.addEventListener('submit', submitDataForm);
+clientCepInput.addEventListener('blur', setClientAddress);
+barberCepInput.addEventListener('blur', setBarberAddress);
+nextBtns.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const formElement = event.target.closest('.step-form');
+    nextStep(formElement.id);
+  });
+});
+prevBtns.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const formElement = event.target.closest('.step-form');
+    prevStep(formElement.id);
+  });
+});
 
-async function submitDataForm(event){
-    event.preventDefault();
 
-    const targetForm = event.target;
-    const formData = new FormData(targetForm);
+function showClientForm(event) {
+  event.preventDefault();
 
-    const cep = formData.get('cep');
+  stepForms.forEach((form) => {
+    form.style.display = 'none';
+  });
+  clientForm.style.display = 'block';
+  clientForm.style.animation = 'appear-from-left 1s';
+  logoImg.style.display = 'none';
+  selectClientBtn.style.backgroundColor = 'var(--background-color-03)';
+  selectClientBtn.style.color = 'var(--text-color-02)';
+  selectEstablishmentBtn.style.backgroundColor = '#232129';
+  selectEstablishmentBtn.style.color = 'var(--background-color-03)';
+  barberForm.reset();
 
-    const url = `http://viacep.com.br/ws/${cep}/json/`
-    const dados = await fetch(url);
-    const endereco = await dados.json();
+  resetSteps(clientForm.id);
+}
 
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const password = formData.get('password');
-    const number = formData.get('number');
-    const city = endereco.localidade;
-    const uf = endereco.uf;
+function showBarberForm(event) {
+  event.preventDefault();
 
-    console.log(endereco);
+  stepForms.forEach((form) => {
+    form.style.display = 'none';
+  });
+  barberForm.style.display = 'block';
+  barberForm.style.animation = 'appear-from-left 1s';
+  logoImg.style.display = 'none';
+  selectEstablishmentBtn.style.backgroundColor = 'var(--background-color-03)';
+  selectEstablishmentBtn.style.color = 'var(--text-color-02)';
+  selectClientBtn.style.backgroundColor = '#232129';
+  selectClientBtn.style.color = 'var(--background-color-03)';
+  clientForm.reset();
+
+  resetSteps(barberForm.id);
 }
 
 async function submitClientForm(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const targetForm = event.target;
-    const formData = new FormData(targetForm);
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
 
-    const phone = formData.get('telephone');
+  const name = formData.get('name');
+  const firstName = name.split(' ').at(0);
+  const lastName = name.split(' ').at(-1) ?? '';
+  const email = formData.get('email');
+  const password = formData.get('password');
+  const phone = formData.get('phone');
+  const city = document.getElementById('client-city').value;
+  const state = document.getElementById('client-state').value;
+
+  try {
+    const createData = {
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
+      city,
+      state,
+    };
+
+    await ClientsService.create(createData);
+
+    ToastifyLib.toast(
+      'Conta criada com sucesso, redirecionando...',
+      'var(--background-color-success)'
+    );
+
+    setTimeout(() => {
+      location.href = '../login/login.html';
+    }, 2000);
+  } catch (err) {
+    if (err.message === 'Conflict') {
+      ToastifyLib.toast(
+        'Erro ao criar conta, este e-mail já está cadastrado',
+        'var(--background-color-error)',
+        3000
+      );
+      return;
+    }
+
+    ToastifyLib.toast(
+      'Erro ao criar conta, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }
 
 async function submitBarberForm(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const targetForm = event.target;
-    const formData = new FormData(targetForm);
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
 
-    const razao = formData.get('razao');
-    const cnpj = formData.get('cnpj');
+  const name = formData.get('name');
+  const ownerFirstName = name.split(' ').at(0);
+  const ownerLastName = name.split(' ').at(-1) ?? '';
+  const email = formData.get('email');
+  const password = formData.get('password');
+  const phone = formData.get('phone');
+  const companyName = formData.get('company-name');
+  const cnpj = formData.get('cnpj');
+  const cep = formData.get('cep');
+  const city = document.getElementById('barber-city').value;
+  const state = document.getElementById('barber-state').value;
+  const address = document.getElementById('barber-address').value;
+
+  try {
+    const createData = {
+      ownerFirstName,
+      ownerLastName,
+      email,
+      password,
+      phone,
+      companyName,
+      cnpj,
+      cep,
+      city,
+      state,
+      address,
+    };
+
+    await EstablishmentService.create(createData);
+
+    ToastifyLib.toast(
+      'Conta criada com sucesso, preparando tudo e redirecionando...',
+      'var(--background-color-success)',
+      3000
+    );
+
+    setTimeout(() => {
+      location.href = '../login/login.html';
+    }, 2000);
+  } catch (err) {
+    if (err.message === 'Conflict') {
+      ToastifyLib.toast(
+        'Erro ao criar conta, barbearia já está cadastrada',
+        'var(--background-color-error)',
+        3000
+      );
+      return;
+    }
+
+    ToastifyLib.toast(
+      'Erro ao criar conta, por favor tente novamente',
+      'var(--background-color-error)'
+    );
+  }
 }
 
-//Functions
-var currentStep = 1;
-var totalSteps = 2;
+async function setClientAddress(event) {
+  event.preventDefault();
 
-function nextStep() {
-    if(dataForm.reportValidity()){
-        if (currentStep < totalSteps) {
-            var currentSection = document.getElementById("step" + currentStep);
-            currentSection.style.display = "none";
-    
-            currentStep++;
-    
-            var nextSection = document.getElementById("step" + currentStep);
-            nextSection.style.display = "flex";
-        }
-    }
+  const targetInput = event.target;
+  const cep = targetInput.value;
+
+  if (cep.length !== 8) {
+    return;
+  }
+
+  const stateInput = document.getElementById('client-city');
+  const cityInput = document.getElementById('client-state');
+
+  try {
+    const response = await getAddressByCep(cep);
+    stateInput.value = response.uf;
+    cityInput.value = response.localidade;
+  } catch (err) {
+    console.error(err);
+    stateInput.value = '';
+    cityInput.value = '';
+  }
 }
 
-function previousStep() {
-    if (currentStep > 1) {
-        var currentSection = document.getElementById("step" + currentStep);
-        currentSection.style.display = "none";
+async function setBarberAddress(event) {
+  event.preventDefault();
 
-        currentStep--;
+  const targetInput = event.target;
+  const cep = targetInput.value;
 
-        var previousSection = document.getElementById("step" + currentStep);
-        previousSection.style.display = "flex";
-    }
+  if (cep.length !== 8) {
+    return;
+  }
+
+  const stateInput = document.getElementById('barber-city');
+  const cityInput = document.getElementById('barber-state');
+  const addressInput = document.getElementById('barber-address');
+
+  try {
+    const response = await getAddressByCep(cep);
+    stateInput.value = response.uf;
+    cityInput.value = response.localidade;
+    addressInput.value = response.logradouro;
+  } catch (err) {
+    console.error(err);
+    stateInput.value = '';
+    cityInput.value = '';
+    addressInput.value = '';
+  }
 }
 
-function toggleForm(form, button){
+function resetSteps(formId) {
+  const form = document.getElementById(formId);
+  form.querySelectorAll('.step').forEach((step) => {
+    step.classList.remove('active');
+  });
+  form.querySelector('.step').classList.add('active');
+}
 
-    document.getElementById("client-form").style.display = "none";
-    document.getElementById("barber-form").style.display = "none";
-    document.getElementById(form).style.display = "block";
-    document.getElementById(button).style.background = "var(--background-color-03)";
-    document.getElementById(button).style.color = "var(--text-color-02)";
+function nextStep(formId) {
+  const form = document.getElementById(formId);
+  const currentStep = form.querySelector('.step.active');
+  const nextStep = currentStep.nextElementSibling;
+  if (nextStep && validateForm(formId)) {
+    currentStep.classList.remove('active');
+    nextStep.classList.add('active');
+  }
+}
 
-    if(form == "barber-form"){
-        document.getElementById("first").style.background = "#232129";
-        document.getElementById("first").style.color = "#666660";
-    }else{
-        document.getElementById("second").style.background = "#232129";
-        document.getElementById("second").style.color = "#666660";
+function prevStep(formId) {
+  const form = document.getElementById(formId);
+  const currentStep = form.querySelector('.step.active');
+  const prevStep = currentStep.previousElementSibling;
+  if (prevStep) {
+    currentStep.classList.remove('active');
+    prevStep.classList.add('active');
+  }
+}
+
+function validateForm(formId) {
+  const form = document.getElementById(formId);
+  let isValid = true;
+  const inputs = form.querySelectorAll('.step.active input[required]');
+  for (const input of inputs) {
+    if (!input.checkValidity()) {
+      isValid = false;
+      input.reportValidity();
+      break;
     }
+  }
+  return isValid;
 }

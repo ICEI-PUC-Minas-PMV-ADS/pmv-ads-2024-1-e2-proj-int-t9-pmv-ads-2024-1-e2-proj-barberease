@@ -84,13 +84,19 @@ async function getAddressByCep(cep) {
   try {
     const response = await fetch(url);
 
-    if (!response.ok) {
+    if (!response.ok || response.erro) {
       throw new Error(response.statusText);
     }
 
-    return await response.json();
+    const json = await response.json();
+
+    if (json.erro) {
+      throw new Error('Not Found');
+    }
+
+    return json;
   } catch (err) {
-    console.error(`Request failed: ${JSON.stringify(err)}`);
+    console.error(`Request failed: ${err.message}`);
     throw err;
   }
 }

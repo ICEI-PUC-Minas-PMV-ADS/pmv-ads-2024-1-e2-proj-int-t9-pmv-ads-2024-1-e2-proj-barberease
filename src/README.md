@@ -9,6 +9,13 @@ A api é feita em C#, em .NET 8, necessário ambos instalados no computador para
 
 ## Histórico de versões
 
+### [1.4.0] - 19/06/2024
+
+#### Finaliza página de cadastro
+
+- Finaliza página cadastro do cliente e do estabelecimento
+
+
 ### [1.3.0] - 18/06/2024
 
 #### Deploy back-end + dashboard do estabelecimento
