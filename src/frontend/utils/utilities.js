@@ -11,7 +11,7 @@ function formatCompanyName(companyName) {
     .join(' ');
 }
 
-function formatAddress(city, state) {
+function formatAddress(city, state, address) {
   const formattedCity = city
     .split(' ')
     .map((word) => word.at(0).toUpperCase() + word.slice(1))
@@ -20,7 +20,16 @@ function formatAddress(city, state) {
     .split(' ')
     .map((word) => word.at(0).toUpperCase() + word.slice(1))
     .join(' ');
-  return `${formattedCity}, ${formattedState}`;
+
+  let formattedAddress;
+  if (address) {
+    formattedAddress = address
+      .split(' ')
+      .map((word) => word.at(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  return `${formattedAddress ? formattedAddress + ', ' : ''}${formattedCity}, ${formattedState}`;
 }
 
 function formatDateString(dateString) {
@@ -44,6 +53,11 @@ function formatPhoneNumber(phoneNumber) {
   }
 
   return null;
+}
+
+function encodeUrl(url) {
+  const encoded = encodeURIComponent(url);
+  return encoded.toString();
 }
 
 function getAppointmentStatus(status) {
@@ -76,6 +90,43 @@ function getDayOfWeeek(day) {
   };
 
   return periodWeekDayMap[day];
+}
+
+function getEstablishmentStatus(periods) {
+  const daysOfWeek = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+  const cssClassStatusMap = {
+    Aberto: 'open',
+    Fechado: 'closed',
+  }
+
+  const today = new Date();
+  const dayOfWeek = daysOfWeek[today.getDay()];
+  let status;
+
+  const todayPeriod = periods.find((p) => p.dayOfWeek === dayOfWeek);
+
+  if (todayPeriod.isClosed) {
+    status = 'Fechado';
+  }
+
+  const openingTime = parseTimeString(todayPeriod.openingTime);
+  const closingTime = parseTimeString(todayPeriod.closingTime);
+
+  status = today >= openingTime && today <= closingTime ? 'Aberto' : 'Fechado';
+
+  return {
+    status,
+    openingTime: todayPeriod.openingTime,
+    closingTime: todayPeriod.closingTime,
+    cssClassStatus: cssClassStatusMap[status],
+  }
+}
+
+function parseTimeString(timeString) {
+  const [hours, minutes] = timeString.split(':');
+  const now = new Date();
+  now.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+  return now;
 }
 
 async function getAddressByCep(cep) {

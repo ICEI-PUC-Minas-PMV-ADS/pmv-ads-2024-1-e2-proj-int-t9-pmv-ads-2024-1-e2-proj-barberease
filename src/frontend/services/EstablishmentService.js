@@ -25,6 +25,23 @@ class EstablishmentService {
     }
   }
 
+  static async getAllDetails() {
+    const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/details`;
+
+    try {
+      const response = await fetch(endpoint);
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (err) {
+      console.error(`Request failed: ${err.message}`);
+      throw err;
+    }
+  }
+
   static async getById(establishmentId) {
     const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}`;
 

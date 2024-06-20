@@ -57,7 +57,6 @@ function submitSearchForm(event) {
   const formData = new FormData(targetForm);
 
   const searchTerm = formData.get('search-term');
-  const encodedSearchTerm = encodeURIComponent(searchTerm);
 
-  location.href = `../barbearias/barbearias.html?search=${encodedSearchTerm}`
+  location.href = `../barbearias/barbearias.html?search=${searchTerm}`
 }

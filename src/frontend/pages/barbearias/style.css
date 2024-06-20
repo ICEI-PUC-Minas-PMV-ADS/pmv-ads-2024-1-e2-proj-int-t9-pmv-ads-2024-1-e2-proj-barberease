@@ -75,12 +75,14 @@
   color: var(--background-color-01);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
   width: 100%;
   max-width: 300px;
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .card .card-img {
@@ -105,11 +107,11 @@
   margin: 10px 0;
 }
 
-.status.aberto {
+.status.open {
   color: var(--background-color-success);
 }
 
-.status.fechado {
+.status.closed {
   color: var(--background-color-error);
 }
 
