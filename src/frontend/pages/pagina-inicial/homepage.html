@@ -12,7 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./homepage.css">
+
+  <link rel="stylesheet" href="../../css/index.css" />
+  <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -40,17 +43,19 @@
   <section class="home">
     <h1 class="mainText">Corte seu cabelo conosco</h1>
     <h2 class="secondaryText">Os melhores barbeiros perto da sua região</h2>
-    <form action="" class="formItems">
-      <input type="text" class="inputItem" placeholder="Pesquisar por barbearias">
+
+    <form class="formItems" id="search-form">
+      <input type="text" class="inputItem" name="search-term" placeholder="Pesquisar por barbearias" required>
       <button class="buttonForm" title="Pesquisar">
         <i class="bi bi-search"></i>
       </button>
     </form>
+
     <div>
-      <a class="items">Corte</a>
-      <a class="items">Barba</a>
-      <a class="items">Sobrancelha</a>
-      <a class="items">Hidratação</a>
+      <a href="../barbearias/barbearias.html?search=Corte" class="items">Corte</a>
+      <a href="../barbearias/barbearias.html?search=Barba" class="items">Barba</a>
+      <a href="../barbearias/barbearias.html?search=Sobrancelha" class="items">Sobrancelha</a>
+      <a href="../barbearias/barbearias.html?search=Hidratação" class="items">Hidratação</a>
     </div>
   </section>
 

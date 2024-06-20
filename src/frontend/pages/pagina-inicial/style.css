@@ -14,22 +14,12 @@ a {
   text-decoration: none;
 }
 
-a:focus {
-  color: aqua;
-}
-
-.formItems {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .header {
   display: grid;
   grid-template-columns: 1fr 4fr 2fr;
   justify-content: space-between;
   font-size: 16px;
-  background: white;
+  background: var(--text-color-01);
   height: 75px;
   align-items: center;
   padding-left: 20px;
@@ -60,6 +50,12 @@ a:focus {
   align-items: center;
   justify-content: end;
   grid-column: 3/3;
+}
+
+.formItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home {
@@ -101,7 +97,7 @@ a:focus {
   content: '';
   height: 12px;
   width: 12px;
-  background-color: red;
+  background-color: var(--background-color-error);
 }
 
 .items {

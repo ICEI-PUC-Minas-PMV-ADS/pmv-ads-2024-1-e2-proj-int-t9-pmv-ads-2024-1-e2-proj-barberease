@@ -8,6 +8,23 @@ class EstablishmentService {
       : EstablishmentService.PROD_BASE_URL;
   static ESTABLISHMENT_PATH = `${EstablishmentService.BASE_URL}/api/Establishments`;
 
+  static async getAll() {
+    const endpoint = EstablishmentService.ESTABLISHMENT_PATH;
+
+    try {
+      const response = await fetch(endpoint);
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (err) {
+      console.error(`Request failed: ${err.message}`);
+      throw err;
+    }
+  }
+
   static async getById(establishmentId) {
     const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}`;
 

@@ -1,0 +1,154 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  justify-content: space-between;
+  font-size: 16px;
+  background: var(--text-color-01);
+  height: 75px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header img {
+  max-width: 75px;
+  max-height: 100%;
+}
+
+.header a {
+  color: var(--text-color-02);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttonHome {
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: var(--background-color-02);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.centerItems {
+  display: flex;
+  gap: 15px;
+}
+
+.rightItems {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: end;
+  grid-column: 3/3;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-title {
+  text-align: center;
+  color: var(--background-color-02);
+}
+
+.search-input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid var(--background-color-03);
+  border-radius: 5px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  padding: 0 4rem;
+}
+
+.card {
+  background-color: var(--text-color-01);
+  color: var(--background-color-01);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card .card-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.card .card-title {
+  text-decoration: underline;
+}
+
+.card .card-title a {
+  color: var(--background-color-01);
+  text-decoration: none;
+}
+
+.card p {
+  text-align: start;
+  margin: 10px 0;
+}
+
+.status.aberto {
+  color: var(--background-color-success);
+}
+
+.status.fechado {
+  color: var(--background-color-error);
+}
+
+.go-page-btn {
+  display: block;
+  background-color: var(--background-color-02);
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color-01);
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.go-page-btn:hover {
+  background-color: var(--background-color-03);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.5em;
+  }
+
+  .search-input[type="text"] {
+    font-size: 1em;
+  }
+
+  .card {
+    font-size: 0.9em;
+  }
+}

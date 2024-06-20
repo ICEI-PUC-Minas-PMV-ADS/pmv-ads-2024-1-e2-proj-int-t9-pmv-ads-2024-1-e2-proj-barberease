@@ -1,7 +1,9 @@
 const rightItemsHeader = document.getElementById('auth');
+const searchForm = document.getElementById('search-form');
 
 // Events
 document.addEventListener('DOMContentLoaded', domContentLoaded);
+document.addEventListener('submit', submitSearchForm);
 
 async function domContentLoaded() {
   const isClientAuthenticated =
@@ -39,4 +41,23 @@ async function domContentLoaded() {
     `;
     return;
   }
+}
+
+function submitSearchForm(event) {
+  event.preventDefault();
+
+  // Pegar id do usuário logado, buscar o usuário pelo id
+  // Guardar a cidade e o estado do mesmo e usar como search
+  // term para a página de barbearias para filtrar por esses
+  // filtros.
+  // Caso o usuário não esteja logado ou a api dê erro ao buscar
+  // simplesmente buscar todas as barbearias com o term procurado.
+
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
+
+  const searchTerm = formData.get('search-term');
+  const encodedSearchTerm = encodeURIComponent(searchTerm);
+
+  location.href = `../barbearias/barbearias.html?search=${encodedSearchTerm}`
 }
