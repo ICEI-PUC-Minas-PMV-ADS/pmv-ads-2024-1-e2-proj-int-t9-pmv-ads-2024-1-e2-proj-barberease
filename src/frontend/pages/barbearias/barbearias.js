@@ -53,7 +53,7 @@ async function domContentLoaded() {
 
       return acc + `
         <div class="card">
-          <img class="card-img" src="../../assets/logo.jpeg" alt="Imagem defaukt da Barbearia">
+          <img class="card-img" src="../../assets/logo.jpeg" alt="Imagem default da Barbearia">
           <h2 class="card-title" title="${formatCompanyName(establishment.companyName)}">
             <a href="../barbearia/barbearia.html?id=${encodeUrl(establishment.id)}">
               ${formatCompanyName(establishment.companyName)}
@@ -91,7 +91,7 @@ async function domContentLoaded() {
       const queryString = new URLSearchParams(location.search);
       const params = new URLSearchParams(queryString);
       const searchTerm = params.get('search');
-      console.log(searchTerm);
+
       if (searchTerm) {
         searchInput.value = searchTerm;
         filterEstablishments();
@@ -104,12 +104,12 @@ async function domContentLoaded() {
 }
 
 function filterEstablishments() {
-  const searchTerm = searchInput.value.toLowerCase();
+  const searchTerm = searchInput.value.trim().toLowerCase();
   const cards = document.querySelectorAll('.card');
 
   cards.forEach((card) => {
-    const barberName = card.querySelector('.card-title a').textContent.toLowerCase();
-    const barberAddress = card.querySelector('#address').textContent.toLowerCase();
+    const barberName = card.querySelector('.card-title a').textContent.trim().toLowerCase();
+    const barberAddress = card.querySelector('#address').textContent.trim().toLowerCase();
 
     if (barberName.includes(searchTerm) || barberAddress.includes(searchTerm)) {
       card.style.display = 'block';

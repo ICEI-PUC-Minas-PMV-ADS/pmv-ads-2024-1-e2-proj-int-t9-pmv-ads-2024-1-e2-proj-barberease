@@ -141,6 +141,13 @@
   }
 }
 
+@media (max-width: 550px) {
+  .centerItems {
+    display: none;
+  }
+}
+
+
 @media (max-width: 480px) {
   .main-title {
     font-size: 1.5em;

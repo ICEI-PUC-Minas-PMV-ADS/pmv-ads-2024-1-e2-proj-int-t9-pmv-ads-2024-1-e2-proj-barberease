@@ -1,0 +1,372 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 4fr 2fr;
+  justify-content: space-between;
+  font-size: 16px;
+  background: var(--text-color-01);
+  height: 75px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header img {
+  max-width: 75px;
+  max-height: 100%;
+}
+
+.header a {
+  color: var(--text-color-02);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.buttonHome {
+  padding: 10px 20px;
+  border-radius: 7px;
+  background-color: var(--background-color-02);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.centerItems {
+  display: flex;
+  gap: 15px;
+}
+
+.rightItems {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: end;
+  grid-column: 3/3;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--background-color-02);
+  padding: 20px;
+  text-align: center;
+}
+
+.establishment-profile {
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.establishment-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.establishment-profile .company-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.sidebar h2 {
+  margin: 0;
+  color: var(--text-color-02);
+  margin-bottom: 1rem;
+}
+
+.sidebar p {
+  margin: .3rem 0;
+}
+
+.sidebar button {
+  display: none;
+  background-color: var(--background-color-03);
+  border: none;
+  padding: 10px 20px;
+  color: var(--text-color-01);
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 7px;
+  transition: all 250ms;
+}
+
+.status {
+  display: inline-block;
+  padding: 2px 5px;
+  border-radius: 7px;
+}
+
+.status.open {
+  color: var(--text-color-02);
+  background-color: var(--background-color-success);
+}
+
+.status.closed {
+  color: var(--text-color-01);
+  background-color: var(--background-color-error);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.services-info-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.services-info-section h2 {
+  color: var(--background-color-02);
+}
+
+.search-input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid var(--background-color-03);
+  border-radius: 5px;
+}
+
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: var(--text-color-01);
+  border: 1px solid var(--background-color-03);
+  border-radius: 8px;
+  padding: 16px;
+  width: calc(33.333% - 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.card-body {
+  background-color: var(--text-color-01);
+  color: var(--background-color-01);
+  text-align: center;
+}
+
+.card-title {
+  color: var(--background-color-01);
+}
+
+.card-description {
+  line-break: normal;
+}
+
+.card p {
+  text-align: start;
+  margin: 5px 0;
+}
+
+.open-modal-btn {
+  background-color: var(--background-color-02);
+  border: none;
+  color: var(--text-color-01);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 250ms;
+}
+
+.open-modal-btn:hover {
+  background-color: var(--background-color-03);
+}
+
+.open-modal-btn:disabled:hover {
+  cursor: not-allowed;
+  background-color: var(--background-color-02);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.modal-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal {
+  background-color: var(--text-color-01);
+  color: var(--text-color-02);
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.modal-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  align-self: center;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.modal-body p {
+  text-align: right;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--background-color-03);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-schedule {
+  background-color: var(--background-color-02);
+  color: var(--text-color-01);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 250ms;
+}
+
+.btn-schedule:hover {
+  background-color: var(--background-color-03);
+}
+
+.btn-open-modal,
+.btn-close-modal {
+  background-color: var(--background-color-02);
+  color: var(--text-color-01);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 250ms;
+}
+
+.btn-open-modal:hover,
+.btn-close-modal:hover {
+  background-color: var(--background-color-03);
+}
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 32px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .centerItems {
+    display: none;
+  }
+
+  .search-input[type="text"] {
+    font-size: 1em;
+  }
+
+  .modal {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .modal-header {
+    font-size: 20px;
+  }
+
+  .btn-agendar {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px;
+    text-align: left;
+  }
+
+  .sidebar button {
+    width: 100%;
+  }
+
+  .content {
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .services-info-section {
+    display: block;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}

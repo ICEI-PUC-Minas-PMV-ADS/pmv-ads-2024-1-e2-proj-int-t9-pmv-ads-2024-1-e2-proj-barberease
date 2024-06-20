@@ -54,18 +54,9 @@ async function domContentLoaded() {
   profileSection.textContent = 'Carregando informações...';
   appointmentsInfoSection.textContent = 'Carregando informações...';
   servicesInfoSection.textContent = 'Carregando informações...'
-  periodsInfoSection.textContent = 'Carregando informações...'
+  periodsInfoSection.tsextContent = 'Carregando informações...'
 
   const establishmentIdentifier = localStorage.getItem('userIdentifier');
-
-  if (!establishmentIdentifier) {
-    console.error('User is not autenticated');
-    profileSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
-    appointmentsInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
-    servicesInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
-    periodsInfoSection.textContent = 'Usuário não identificado, erro ao carregar informações...';
-    return;
-  }
 
   try {
     const response = await EstablishmentService.getById(establishmentIdentifier);
@@ -174,7 +165,7 @@ async function domContentLoaded() {
     const servicesCards = response.reduce((acc, service) => {
       return acc + `
         <div class="section-card">
-          <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
+          <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BarberEase">
           <div class="card-body">
             <input type="text" value="${service.name}" placeholder="Nome" disabled>
             <input type="text" value="${service.category}" placeholder="Categoria" disabled>
@@ -501,7 +492,7 @@ async function submitAddServiceForm(event) {
 
     servicesInfoSection.innerHTML += `
       <div class="section-card">
-        <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BaberEase">
+        <img src="../../assets/logo.jpeg" alt="Imagem default com a logo da BarberEase">
         <div class="card-body">
           <input type="text" value="${response.name}" placeholder="Nome" disabled>
           <input type="text" value="${response.category}" placeholder="Categoria" disabled>
@@ -537,6 +528,7 @@ async function submitAddServiceForm(event) {
         `Erro ao criar serviço, já existe um serviço com o nome "${name}", por favor tente novamente`,
         'var(--background-color-error)'
       );
+      return;
     }
     ToastifyLib.toast(
       'Erro ao criar serviço, por favor tente novamente',
