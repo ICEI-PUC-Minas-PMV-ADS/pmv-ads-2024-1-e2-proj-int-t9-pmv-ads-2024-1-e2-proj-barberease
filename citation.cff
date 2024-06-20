@@ -1,0 +1,26 @@
+message: Please cite this software using these metadata.
+title: Barber Ease
+authors:
+  - family-names: Takemi Kimura
+    given-names: Douglas
+  - family-names: Ferreira Machado
+    given-names: Felipe
+  - family-names: Henrique Chaves Dias
+    given-names: Pedro
+  - family-names: Gonçalves da Silva Junior
+    given-names: Sergio
+  - family-names: da Silva Rodrigues
+    given-names: William
+  - family-names: Santos
+    given-names: Moisés
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Paiva Tizzo
+    given-names: Neil 
+keywords:
+  - Barbearia
+  - Gestão
+  - Serviços
+repository-code: https://icei-puc-minas-pmv-ads.github.io/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease
+version: 1.0.0
+date-released: 2024-06-20
