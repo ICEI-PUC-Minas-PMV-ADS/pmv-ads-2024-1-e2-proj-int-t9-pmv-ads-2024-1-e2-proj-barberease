@@ -111,6 +111,25 @@ namespace BarberEaseApi.Controllers
             }
         }
 
+        [HttpGet("details")]
+        public async Task<ActionResult> GetAllDetails()
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                return Ok(await _service.GetAllDetails());
+            }
+            catch (ArgumentException exc)
+            {
+
+                return StatusCode((int)HttpStatusCode.InternalServerError, exc.Message);
+            }
+        }
+
         [HttpPut("{id:guid}")]
         public async Task<ActionResult> Put([FromBody] EstablishmentUpdateDto establishment, Guid id)
         {

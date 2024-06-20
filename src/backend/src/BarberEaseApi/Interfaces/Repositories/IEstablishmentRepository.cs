@@ -7,5 +7,6 @@ namespace BarberEaseApi.Interfaces.Repositories
         Task<EstablishmentEntity?> FindByEmail(string email);
         Task<EstablishmentEntity?> FindByCnpj(string cnpj);
         Task<EstablishmentEntity?> FindByIdDetails(Guid id);
+        Task<IEnumerable<EstablishmentEntity>> FindAllDetails();
     }
 }

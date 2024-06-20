@@ -55,5 +55,21 @@ namespace BarberEaseApi.Repositories
                 throw;
             }
         }
+
+        public async Task<IEnumerable<EstablishmentEntity>> FindAllDetails()
+        {
+            try
+            {
+                return await _dataset
+                    .Include((establishmentServices) => establishmentServices.EstablishmentServices)
+                    .Include((establishmentPeriods) => establishmentPeriods.EstablishmentPeriods)
+                    .ToListAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
