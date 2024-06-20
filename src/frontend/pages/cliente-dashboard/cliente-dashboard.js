@@ -23,7 +23,7 @@ async function domContentLoaded() {
 
   // Guard condition.
   if (!isUserAuthenticated) {
-    window.location.href = '../login/login.html';
+    location.href = '../pagina-inicial/homepage.html';
     return;
   }
 

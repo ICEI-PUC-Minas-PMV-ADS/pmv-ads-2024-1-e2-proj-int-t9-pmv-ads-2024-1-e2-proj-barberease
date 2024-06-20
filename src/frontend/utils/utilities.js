@@ -107,5 +107,5 @@ function logoutUser() {
   localStorage.removeItem('userIdentifier');
   localStorage.removeItem('userType');
 
-  window.location.href = '../login/login.html';
+  location.href = '../login/login.html';
 }

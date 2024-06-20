@@ -7,10 +7,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet" />
-    <link rel="stylesheet" href="../../css/index.css" />
-    <link rel="stylesheet" href="../../css/variables.css" />
+  <link rel="stylesheet" href="../../css/index.css" />
+  <link rel="stylesheet" href="../../css/variables.css" />
   <link rel="stylesheet" href="barbearias.css" />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <title>barbearias</title>
 </head>
 
@@ -18,7 +18,7 @@
   <header class="header">
     <img src="../../assets/logo.jpeg" alt="">
     <div class="centerItems">
-      <a href="../pagina-inicial/homePage.html">Página inicial</a>
+      <a href="../pagina-inicial/homepage.html">Página inicial</a>
       <a href="../assinatura/assinatura.html">Assinatura</a>
       <a href="../anuncie-conosco/anuncie-conosco.html">Anuncie Conosco</a>
     </div>
@@ -33,32 +33,32 @@
   </header>
   <main>
     <h3>Nossas barbearias</h3>
-        <div class="listaBarber">
-           <ul id="myList">
-              <div id="card">
-               <div id="dfg" onclick="barberpage(this.id)" class="card" style="cursor:pointer;" >
-                 <img src="../../assets/logo.jpeg" alt="Avatar">
-                 <div class="container">
-                  <h1>Nome da barbearia:</h1>
-                   <h4><b id="123"></b></h4>
-                  <h1>Telefone</h1> 
-                   <p id="345"></p>
-                   <h1>Endereço</h1>
-                   <p id="901"></p>
-                  
-                 
-                 </div>
-               </div>
-             </div>
-           </ul>
-         </div>
-    </div>
-    
+    <div class="listaBarber">
+      <ul id="myList">
+        <div id="card">
+          <div id="dfg" onclick="barberpage(this.id)" class="card" style="cursor:pointer;">
+            <img src="../../assets/logo.jpeg" alt="Avatar">
+            <div class="container">
+              <h1>Nome da barbearia:</h1>
+              <h4><b id="123"></b></h4>
+              <h1>Telefone</h1>
+              <p id="345"></p>
+              <h1>Endereço</h1>
+              <p id="901"></p>
 
-    
+
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+    </div>
+
+
+
   </main>
 
-  <script src= "../../services/GetAllBarberService.js"></script>
+  <script src="../../services/GetAllBarberService.js"></script>
   <script src="barbearias.js"></script>
 
 </body>
