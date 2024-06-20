@@ -62,4 +62,27 @@ class AppointmentsService {
       throw err;
     }
   }
+
+  static async create(createData) {
+    const endpoint = AppointmentsService.APPOINTMENTS_PATH;
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(createData),
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (err) {
+      console.error(`Request failed: ${err.message}`);
+      throw err;
+    }
+  }
 }

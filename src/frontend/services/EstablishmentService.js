@@ -59,6 +59,23 @@ class EstablishmentService {
     }
   }
 
+  static async getByIdDetails(establishmentId) {
+    const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}/details`;
+
+    try {
+      const response = await fetch(endpoint);
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      return await response.json();
+    } catch (err) {
+      console.error(`Request failed: ${err.message}`);
+      throw err;
+    }
+  }
+
   static async updateById(establishmentId, updateData) {
     const endpoint = `${EstablishmentService.ESTABLISHMENT_PATH}/${establishmentId}`;
 

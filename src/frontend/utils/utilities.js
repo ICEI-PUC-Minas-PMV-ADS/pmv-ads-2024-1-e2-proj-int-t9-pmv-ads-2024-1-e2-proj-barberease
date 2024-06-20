@@ -11,6 +11,32 @@ function formatCompanyName(companyName) {
     .join(' ');
 }
 
+function formatServiceName(serviceName) {
+  return serviceName
+    .split(' ')
+    .map((word) => word.at(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function formatServiceDescription(serviceDescription) {
+  if (!serviceDescription) {
+    return 'Não fornecido';
+  }
+
+  if (serviceDescription.length > 50) {
+    return serviceDescription.slice(0, 50) + '...'
+  }
+
+  return serviceDescription
+}
+
+function formatServicePrice(servicePrice) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(servicePrice);
+}
+
 function formatAddress(city, state, address) {
   const formattedCity = city
     .split(' ')
@@ -159,4 +185,33 @@ function logoutUser() {
   localStorage.removeItem('userType');
 
   location.href = '../login/login.html';
+}
+
+function getTodayDate() {
+  const today = new Date();
+  return today.toISOString().split('T')[0];
+}
+
+function getAvailableTimes(openingTime, closingTime, timeBetweenServices) {
+  function timeStringToMinutes(time) {
+    const [hours, minutes] = time.split(':').map(Number);
+    return hours * 60 + minutes;
+  }
+
+  function minutesToTimeString(minutes) {
+    const hours = Math.floor(minutes / 60).toString().padStart(2, '0');
+    const mins = (minutes % 60).toString().padStart(2, '0');
+    return `${hours}:${mins}`;
+  }
+
+  const openingMinutes = timeStringToMinutes(openingTime);
+  const closingMinutes = timeStringToMinutes(closingTime);
+  const serviceInterval = timeStringToMinutes(timeBetweenServices);
+  const availableTimes = [];
+
+  for (let currentTime = openingMinutes; currentTime + serviceInterval <= closingMinutes; currentTime += serviceInterval) {
+    availableTimes.push(minutesToTimeString(currentTime));
+  }
+
+  return availableTimes;
 }
