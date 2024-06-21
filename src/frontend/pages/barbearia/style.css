@@ -218,7 +218,7 @@
   align-items: center;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s, opacity 0.3s;
+  transition: .3s;
 }
 
 .modal-overlay.show {
@@ -233,7 +233,6 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -270,7 +269,6 @@
   padding: 8px;
   border: 1px solid var(--background-color-03);
   border-radius: 5px;
-  box-sizing: border-box;
 }
 
 .btn-schedule {
