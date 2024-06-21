@@ -149,7 +149,7 @@
   background-color: var(--text-color-01);
   border: 1px solid var(--background-color-03);
   border-radius: 8px;
-  padding: 16px;
+  padding: 1rem;
   width: calc(33.333% - 32px);
   display: flex;
   flex-direction: column;
@@ -168,9 +168,14 @@
 }
 
 .card-body {
+  max-width: 100%;
   background-color: var(--text-color-01);
   color: var(--background-color-01);
   text-align: center;
+  padding: .5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card-title {
