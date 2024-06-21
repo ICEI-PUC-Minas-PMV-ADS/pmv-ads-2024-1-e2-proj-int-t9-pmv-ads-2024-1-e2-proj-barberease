@@ -9,9 +9,9 @@
 | Objetivo do Teste | Verificar se um cliente consegue se cadastrar na aplicação. |
 | Passos | 1. Acessar a página de registro.<br> 2. Preencher os campos obrigatórios.<br> 3. Clicar em "Registrar". |
 | Critério de Êxito | O cliente é registrado com sucesso. |
-|Resultados obtidos | Em progresso   |
-| Conclusão | Em progresso | 
-|Melhorias e recomendações| Em progresso |
+|Resultados obtidos | Cliente registrado com sucesso  |
+| Conclusão | Resultado satisfatório | 
+|Melhorias e recomendações| N/A |
 
 | **Caso de Teste** | **CT-02 – Login do Cliente** |
 | --- | --- |
@@ -19,9 +19,9 @@
 | Objetivo do Teste | Verificar se um cliente consegue fazer login na aplicação. |
 | Passos | 1. Acessar a página de login.<br> 2. Preencher os campos de email e senha.<br> 3. Clicar em "Entrar".<br> |
 | Critério de Êxito | O cliente é logado com sucesso. |
-|Resultados obtidos | Em progresso|
-| Conclusão | Em progresso|
-|Melhorias e recomendações| Em progresso |
+|Resultados obtidos | Cliente logado com sucesso|
+| Conclusão | Resultado satisfatório|
+|Melhorias e recomendações| N/A |
 
 | **Caso de Teste** | **CT-03 – Visualização de Estabelecimentos e Serviços** |
 | --- | --- |
@@ -29,5 +29,6 @@
 | Objetivo do Teste | Verificar se um cliente consegue visualizar os estabelecimentos e os serviços oferecidos. |
 | Passos | 1. Acessar a página de busca de estabelecimentos.<br> 2. Navegar pela lista de estabelecimentos.<br> 3. Visualizar os serviços oferecidos por cada estabelecimento.<br> |
 | Critério de Êxito | O cliente consegue visualizar os estabelecimentos e os serviços oferecidos corretamente. |
-|Resultados obtidos | Em progresso |
-|Melhorias e recomendações | Em progresso |
+|Resultados obtidos |  O cliente visualiza os estabelecimentos e os serviços oferecidos. |
+| Conclusão | Resultado satisfatório|
+|Melhorias e recomendações | N/A|
