@@ -9,7 +9,7 @@ const modal = document.getElementById('modal');
 const closeModalBtn = document.getElementById('close-modal');
 const modalOverlay = document.getElementById('modal-overlay');
 const modalForm = document.getElementById('modal-form');
-const createAppointmentBtn = document.querySelector('.btn-schedule');
+const dateInput = document.getElementById('modal-date');
 
 const DAYS_OF_WEEK = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
 
@@ -17,9 +17,7 @@ const DAYS_OF_WEEK = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'F
 document.addEventListener('DOMContentLoaded', domContentLoaded);
 searchInput.addEventListener('input', filterServices);
 closeModalBtn.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', clickOutCloseModal);
-createAppointmentBtn.addEventListener('click', submitScheduleForm);
-// modalForm.addEventListener('submit', submitScheduleForm);
+modalForm.addEventListener('submit', submitScheduleForm);
 
 async function domContentLoaded() {
   const isClientAuthenticated =
@@ -74,6 +72,8 @@ async function domContentLoaded() {
 
   establishmentInfoSection.textContent = 'Carregando informações...';
   servicesInfoSection.textContent = 'Carregando informações...';
+  dateInput.value = getTodayDate();
+  dateInput.min = getTodayDate();
 
   try {
     const response = await EstablishmentService.getByIdDetails(establishmentId);
@@ -192,7 +192,7 @@ function openModal(targetBtn) {
     return acc + `<option value="${time}" ${index === 0 ? 'selected' : ''}>${time}</option>`;
   }, '');
 
-  createAppointmentBtn.dataset.serviceId = dataService.id;
+  modalForm.dataset.serviceId = dataService.id;
   document.getElementById('modal-header').textContent = dataService.name;
   document.getElementById('modal-price').textContent = formatServicePrice(dataService.price);
   document.getElementById('modal-time').innerHTML = availableTimesOptions;
@@ -207,25 +207,19 @@ function closeModal(event) {
   modalForm.reset();
 }
 
-function clickOutCloseModal(event) {
+async function submitScheduleForm(event) {
   event.preventDefault();
 
-  if (event.target === modalOverlay) {
-    modalOverlay.classList.remove('show');
-    modalForm.reset();
-  }
-}
+  const targetForm = event.target;
+  const formData = new FormData(targetForm);
 
-async function submitScheduleForm(event) {
-  const targetElement = event.target;
-
-  const date = document.getElementById('modal-date').value;
-  const time = document.getElementById('modal-time').value;
+  const date = formData.get('date');
+  const time = formData.get('time');;
   const appointmentDate = `${date}T${time}:00Z`;
 
   try {
     const clientId = localStorage.getItem('userIdentifier');
-    const establishmentServiceId = targetElement.dataset.serviceId;
+    const establishmentServiceId = targetForm.dataset.serviceId;
     const createData = { date: appointmentDate, status: 'RECEIVED', clientId, establishmentServiceId };
 
     await AppointmentsService.create(createData);
@@ -238,6 +232,7 @@ async function submitScheduleForm(event) {
 
     targetForm.reset();
   } catch (err) {
+    console.error(err);
     if (err.message === 'Conflict') {
       ToastifyLib.toast(
         `Erro ao criar agendamento, já existe um agendamento para esse horário, por favor tente outro horário`,

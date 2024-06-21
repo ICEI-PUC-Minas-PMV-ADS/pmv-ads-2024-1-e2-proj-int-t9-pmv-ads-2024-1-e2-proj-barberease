@@ -136,7 +136,7 @@ function getEstablishmentStatus(periods) {
   }
 
   const openingTime = parseTimeString(todayPeriod.openingTime);
-  const closingTime = parseTimeString(todayPeriod.closingTime);
+  const closingTime = parseTimeString(todayPeriod.closingTime === '00:00' ? '23:59' : todayPeriod.closingTime);
 
   status = today >= openingTime && today <= closingTime ? 'Aberto' : 'Fechado';
 
@@ -149,14 +149,14 @@ function getEstablishmentStatus(periods) {
 }
 
 function parseTimeString(timeString) {
-  const [hours, minutes] = timeString.split(':');
+  let [hours, minutes] = timeString.split(':');
   const now = new Date();
   now.setHours(parseInt(hours), parseInt(minutes), 0, 0);
   return now;
 }
 
 async function getAddressByCep(cep) {
-  const url = `http://viacep.com.br/ws/${cep}/json/`
+  const url = `https://viacep.com.br/ws/${cep}/json/`
 
   try {
     const response = await fetch(url);
