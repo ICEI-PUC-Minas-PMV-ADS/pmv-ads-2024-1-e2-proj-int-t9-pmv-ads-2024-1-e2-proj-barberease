@@ -95,6 +95,19 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
 
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/e5f68b50-f2ae-4d30-9091-4401ff1c3ddf
+
+<figure>
+    <img src="./img/Registro CT 07.png">
+    <figcaption>Figura 2 - Barbearia cadastrada consta no banco de dados </figure>
+</figure>
+<br></br>
+<br></br>
+
+
+
+
 | **Caso de Teste** | **CT-08 – Login do Estabelecimento** |
 | --- | --- |
 | Requisito Associado | RF-008 - A aplicação deve permitir ao estabelecimento fazer login na sua conta. |
@@ -104,6 +117,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 |Resultados obtidos |  O estabelecimento é logado com sucesso. |
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
+
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/7c79a102-35cc-4ac0-a96c-72d6fc976d9c
+
+<br></br>
+<br></br>
+
 
 | **Caso de Teste** | **CT-09 – Visualização de Informações de Agendamentos dos Clientes** |
 | --- | --- |
