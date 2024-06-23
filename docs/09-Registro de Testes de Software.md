@@ -202,5 +202,25 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/982c5bb4-be91-4691-a793-278498d3b783
 
 
+<figure>
+    <img src="./img/Agendamento do CT 06.png">
+    <figcaption>Figura 4 - Status dos agendamentos alterado no banco de dados no banco de dados </figure>
+</figure>
+        <br></br>
+<figure>
+   <img src="./img/Agendamentos do CT 06 2.png">
+    <figcaption>Figura 5 - Status dos agendamentos alterados no banco de dados </figure>
+</figure>
+<figure>
+    <img src="./img/Status dos agendamentos atualizados no dashboard do cliente CT 10.png">
+    <figcaption>Figura 6 - Status dos agendamentos atualizados no dashboard do cliente </figure>
+</figure>
+        <br></br>
+
+
+<br></br>
+<br></br>
+
+
 <br></br>
 <br></br>
