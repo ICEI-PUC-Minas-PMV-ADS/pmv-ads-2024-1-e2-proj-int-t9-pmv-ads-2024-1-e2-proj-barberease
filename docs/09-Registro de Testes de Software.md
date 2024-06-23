@@ -36,6 +36,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações| N/A |
 
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/42c477e6-e130-43d1-a395-87236424fecb
+
+<br></br>
+<br></br>
+
+
 | **Caso de Teste** | **CT-03 – Visualização de Estabelecimentos e Serviços** |
 | --- | --- |
 | Requisito Associado | RF-003 - A aplicação deve permitir ao cliente visualizar os estabelecimentos e seus serviços oferecidos. |
