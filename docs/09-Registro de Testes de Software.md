@@ -204,13 +204,15 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 
 <figure>
     <img src="./img/Agendamento do CT 06.png">
-    <figcaption>Figura 4 - Status dos agendamentos alterado no banco de dados no banco de dados </figure>
+    <figcaption>Figura 4 - Status dos agendamentos alterados no banco de dados no banco de dados </figure>
 </figure>
         <br></br>
 <figure>
    <img src="./img/Agendamentos do CT 06 2.png">
     <figcaption>Figura 5 - Status dos agendamentos alterados no banco de dados </figure>
 </figure>
+        <br></br>
+
 <figure>
     <img src="./img/Status dos agendamentos atualizados no dashboard do cliente CT 10.png">
     <figcaption>Figura 6 - Status dos agendamentos atualizados no dashboard do cliente </figure>
@@ -219,8 +221,7 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 
 
 <br></br>
-<br></br>
 
 
-<br></br>
-<br></br>
+
+
