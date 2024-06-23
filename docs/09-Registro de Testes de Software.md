@@ -54,6 +54,15 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
 
+
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/01bc1934-082e-4e44-8f50-2cc2d396aada
+
+
+<br></br>
+<br></br>
+
 | **Caso de Teste** | **CT-04 – Escolha de Serviços do Estabelecimento** |
 | --- | --- |
 | Requisito Associado | RF-004 - A aplicação deve permitir ao cliente escolher os serviços do estabelecimento. |
@@ -63,6 +72,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 |Resultados obtidos |  O cliente tema acesso aos serviços de cada barbearia e consegue escolher os serviços desejados |
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
+
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/51227483-4aa1-4983-b34d-3d783eabbaec
+
+
+<br></br>
+<br></br>
 
 | **Caso de Teste** | **CT-05 – Visualização de Dias e Horários Disponíveis** |
 | --- | --- |
@@ -75,6 +92,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 |Melhorias e recomendações | N/A|
 
 
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/d3204fb1-8c87-4755-99cc-267ca63aac04
+
+
+<br></br>
+<br></br>
+
+
 | **Caso de Teste** | **CT-06 – Agendamento de Atendimento** |
 | --- | --- |
 | Requisito Associado | RF-006 - A aplicação deve permitir ao cliente agendar seu atendimento com o estabelecimento. |
@@ -84,6 +109,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 |Resultados obtidos |  O cliente consegue agendar seu atendimento com sucesso |
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
+
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/e285eb48-755f-421a-9858-a411adf49dbf
+
+
+<br></br>
+<br></br>
 
 | **Caso de Teste** | **CT-07 – Cadastro de Conta do Estabelecimento** |
 | --- | --- |
@@ -136,6 +169,14 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
 
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/86472e82-4500-499e-8e22-d3a3ca430e48
+
+
+<br></br>
+<br></br>
+
 | **Caso de Teste** | **CT-10 – Cancelamento de Agendamento** |
 | --- | --- |
 | Requisito Associado | RF-010 - A aplicação deve permitir ao estabelecimento cancelar agendamentos dos clientes. |
@@ -145,3 +186,11 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 |Resultados obtidos | O agendamento é cancelado com sucesso e removido da lista de agendamentos do estabelecimento. |
 | Conclusão | Resultado satisfatório|
 |Melhorias e recomendações | N/A|
+
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/982c5bb4-be91-4691-a793-278498d3b783
+
+
+<br></br>
+<br></br>
