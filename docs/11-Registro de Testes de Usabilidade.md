@@ -24,6 +24,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
     <img src="./img/card-sorting-af-est.png">
     <figcaption>Figura 2 - Término do teste </figure>
 </figure>
+   <br></br>
 
 
 | **Caso de Teste de Usabilidade** | **CTU-02 – Cadastro de Cliente** |
@@ -38,11 +39,22 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
     <img src="./img/card-sorting-eb-est.png">
-    <figcaption>Figura 1 - Início do teste </figure>
+    <figcaption>Figura 3 - Início do teste </figure>
 </figure>
 
 <h3><b>Disposição final do teste com os cards e classificações</b></h3>
 <figure>
     <img src="./img/card-sorting-eb-est2.png">
-    <figcaption>Figura 2 - Término do teste </figure>
+    <figcaption>Figura 4 - Término do teste </figure>
 </figure>
+<br></br>
+
+| **Caso de Teste de Usabilidade** | **CTU-03 – Visualização de Estabelecimentos e Serviços** |
+| --- | --- |
+| Requisito Associado | RF-006 - A aplicação deve permitir ao cliente agendar seu atendimento com o estabelecimento. |
+| Participante| Hugo Taiyo Kimura (23 anos)|
+| Modalidade do teste | Card sorting |
+| Duração do teste | 5min |
+| Descrição do teste|Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, específicamente das telas de estabelecimentos e serviços, foram disponibilizados para o participante para avaliar e classificá-las de acordo com seu entendimento. |
+| Conclusão | 1. O teste será realizado utilizando o método Card Sorting <br> 2. Realização do teste na modalidade presencial ou online.<br> 3. Cumprimento da LGPD|
+
