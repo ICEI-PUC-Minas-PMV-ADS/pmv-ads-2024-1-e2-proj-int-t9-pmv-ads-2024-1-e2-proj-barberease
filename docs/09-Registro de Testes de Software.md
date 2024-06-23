@@ -18,6 +18,13 @@
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/fc11cce5-38c5-4de3-b688-f02c27bf04c4
 
 
+<figure>
+    <img src="./img/Registro CT 01.png">
+    <figcaption>Figura 1 - Usuário cadastrado consta no banco de dados </figure>
+</figure>
+<br></br>
+<br></br>
+
 
 | **Caso de Teste** | **CT-02 – Login do Cliente** |
 | --- | --- |
