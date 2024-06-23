@@ -13,6 +13,12 @@
 | Conclusão | Resultado satisfatório | 
 |Melhorias e recomendações| N/A |
 
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/fc11cce5-38c5-4de3-b688-f02c27bf04c4
+
+
+
 | **Caso de Teste** | **CT-02 – Login do Cliente** |
 | --- | --- |
 | Requisito Associado | RF-002 - A aplicação deve permitir ao cliente fazer login na sua conta fornecendo email e senha. |
