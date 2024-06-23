@@ -114,6 +114,16 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/assets/145299234/e285eb48-755f-421a-9858-a411adf49dbf
 
+<figure>
+    <img src="./img/Agendamento do CT 06.png">
+    <figcaption>Figura 3 - Agendamentos constam no banco de dados </figure>
+</figure>
+        <br></br>
+<figure>
+   <img src="./img/Agendamentos do CT 06 2.png">
+    <figcaption>Figura 4 - Agendamentos constam no banco de dados </figure>
+</figure>
+
 
 <br></br>
 <br></br>
