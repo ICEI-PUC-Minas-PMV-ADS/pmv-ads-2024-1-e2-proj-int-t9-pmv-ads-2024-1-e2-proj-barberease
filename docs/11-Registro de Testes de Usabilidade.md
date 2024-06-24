@@ -59,7 +59,7 @@
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
     <img src="./img/CTU 3 HTK 2.png">
-    <figcaption>Figura 5 - Início do teste (Obs.: Imagem com erro, na categoria "Ilustração" na verdade é categoria "texto simples") </figure>
+    <figcaption>Figura 5 - Início do teste </figure>
 </figure>
 <h3><b>Disposição final do teste com os cards e classificações</b></h3>
 <figure>
