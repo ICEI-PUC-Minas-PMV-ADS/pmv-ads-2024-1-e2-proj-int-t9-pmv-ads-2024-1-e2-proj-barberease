@@ -5,12 +5,12 @@
 
 
 ## Título do Projeto
-**BARBER EASE - Barbearia Moderna**
+**pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease**
 
-**Nome e marca do projeto**
+**Barber Ease - Barbearia Moderna**
 
 
-## Identidade Visual (Marca, Design)
+
 
 
 > **Links Úteis**:
