@@ -86,6 +86,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso foi feito utilizando o [**Diagrams**](https://app.diagrams.net/) e pode ser visualizado logo abaixo, juntamente com o link para visualização em tempo real do diagrama com suas futuras modificações:
 
-![Diagrama do Caso de Uso para o projeto BarberEase](./img/barberease-usecase-diagram.png)
+![Diagrama do Caso de Uso para o projeto BarberEase](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/docs/img/barberease-usecase-diagram%201.png)
 
 > [`Link para o diagrama do caso de uso do projeto`](https://drive.google.com/file/d/1OFFpumQvdSRksNF-r7dSySezViTzgaEa/view?usp=sharing)
