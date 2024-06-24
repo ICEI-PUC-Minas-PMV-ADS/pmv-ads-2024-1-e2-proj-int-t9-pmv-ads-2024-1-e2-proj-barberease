@@ -56,5 +56,19 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 | Modalidade do teste | Card sorting |
 | Duração do teste | 5min |
 | Descrição do teste|Cards contendo ícones, signos e conteúdos importantes da arquitetura de informação da aplicação, específicamente das telas de estabelecimentos e serviços, foram disponibilizados para o participante para avaliar e classificá-las de acordo com seu entendimento. |
-| Conclusão | 1. O teste será realizado utilizando o método Card Sorting <br> 2. Realização do teste na modalidade presencial ou online.<br> 3. Cumprimento da LGPD|
+| Conclusão | Resultado satisfatório. Não houve dúvidas com relação aos cards, todos foram  categorizados corretamente pelo participante|
+
+<h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
+<figure>
+    <img src="./img/CTU 3 HTK 1.png">
+    <figcaption>Figura 5 - Início do teste (Obs.: Imagem com erro, na categoria "Ilustração" na verdade é categoria "texto simples") </figure>
+</figure>
+<h3><b>Disposição final do teste com os cards e classificações</b></h3>
+<figure>
+    <img src="./img/CTU 3 HTK.png">
+    <figcaption>Figura 6 - Término do teste </figure>
+</figure>
+<br></br>
+
+
 
