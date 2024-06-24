@@ -12,6 +12,8 @@ https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-
 
 [Apresentação da solução em Vídeo (2 minutos) - BarberEase](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t9-pmv-ads-2024-1-e2-proj-barberease/blob/main/presentation/assets/BarberEase%20-apresenta%C3%A7%C3%A3o%20da%20solu%C3%A7%C3%A3o.mp4))
 
+(Obs.: Foi necessário reduzir a qualidade do vídeo de apresentação da solução)
+
 
 
 
