@@ -60,7 +60,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Registro de
 
 <h3><b>Disposição inicial do teste com os cards e classificações</b></h3>
 <figure>
-    <img src="./img/CTU 3 HTK 1.png">
+    <img src="./img/CTU 3 HTK 2.png">
     <figcaption>Figura 5 - Início do teste (Obs.: Imagem com erro, na categoria "Ilustração" na verdade é categoria "texto simples") </figure>
 </figure>
 <h3><b>Disposição final do teste com os cards e classificações</b></h3>
