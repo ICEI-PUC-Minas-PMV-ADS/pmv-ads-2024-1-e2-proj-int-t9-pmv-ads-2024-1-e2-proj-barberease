@@ -1,16 +1,17 @@
 # Apresentação
 
-<span style="color:red">Pré-requisitos: Todos os demais artefatos</span>
 
-Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do projeto contemplando todos os itens trabalhados nos demais artefatos.
+[Apresentação do projeto (slides)](https://github.com/user-attachments/files/15949029/barber.Ease.14.03.2024.pdf)
+
 
 ## Título do Projeto
+**BARBER EASE - Barbearia Moderna**
 
-Nome e marca do projeto
+**Nome e marca do projeto**
+
 
 ## Identidade Visual (Marca, Design)
 
-O grupo deve ter o cuidado em utilizar figuras, imagens, e cores dentro do contexto da solução proposta, de forma a manter a temática do problema.
 
 > **Links Úteis**:
 > - [10 dicas de design para slides](https://rockcontent.com/blog/design-para-slides/)
