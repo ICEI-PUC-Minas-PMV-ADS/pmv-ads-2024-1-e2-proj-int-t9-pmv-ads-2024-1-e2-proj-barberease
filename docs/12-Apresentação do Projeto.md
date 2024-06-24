@@ -10,6 +10,12 @@
 **Barber Ease - Barbearia Moderna**
 
 
+<figure>
+    <img src="./img/logo.jpeg">
+    <figcaption>Figura 1 - Logo </figure>
+</figure>
+
+
 
 
 
