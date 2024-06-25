@@ -9,15 +9,18 @@ const modal = document.getElementById('modal');
 const closeModalBtn = document.getElementById('close-modal');
 const modalOverlay = document.getElementById('modal-overlay');
 const modalForm = document.getElementById('modal-form');
+const scheduleBtn = document.querySelector('.btn-schedule');
 const dateInput = document.getElementById('modal-date');
 
 const DAYS_OF_WEEK = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+
 
 // Events
 document.addEventListener('DOMContentLoaded', domContentLoaded);
 searchInput.addEventListener('input', filterServices);
 closeModalBtn.addEventListener('click', closeModal);
 modalForm.addEventListener('submit', submitScheduleForm);
+dateInput.addEventListener('change', setDayAvailableTimesOptions);
 
 async function domContentLoaded() {
   const isClientAuthenticated =
@@ -105,22 +108,15 @@ async function domContentLoaded() {
       </p>
     `;
 
-    const disabled = status === 'Fechado' || isEstablishmentAuthenticated;
-    let todayAvailableTimes = JSON.stringify([]);
-
-    if (!disabled) {
-      const today = new Date();
-      const dayOfWeek = DAYS_OF_WEEK[today.getDay()];
-      const period = response.establishmentPeriods.find((p) => p.dayOfWeek === dayOfWeek);
-      todayAvailableTimes = getAvailableTimes(period.openingTime, period.closingTime, period.timeBetweenService);
-    }
+    const disabled = isEstablishmentAuthenticated;
+    const weeklyAvailableTimes = getWeeklyAvailableTimes(response.establishmentPeriods);
 
     const servicesCards = response.establishmentServices.reduce((acc, service) => {
       const dataService = JSON.stringify({
         id: service.id,
         price: service.price,
         name: service.name,
-        todayAvailableTimes: todayAvailableTimes,
+        weeklyAvailableTimes,
       });
 
       return acc + `
@@ -143,7 +139,7 @@ async function domContentLoaded() {
             </p>
             <button
               class="open-modal-btn"
-              title="${disabled ? 'Você não pode agendar agora' : 'Clique para ver horários'}"
+              title="${disabled ? 'Apenas clientes podem agendar' : 'Clique para ver horários'}"
               data-service='${dataService}'
               onclick="openModal(this)"
               ${disabled ? 'disabled' : ''}
@@ -188,14 +184,24 @@ function filterServices() {
 function openModal(targetBtn) {
   const dataService = JSON.parse(targetBtn.dataset.service);
 
-  const availableTimesOptions = dataService.todayAvailableTimes.reduce((acc, time, index) => {
-    return acc + `<option value="${time}" ${index === 0 ? 'selected' : ''}>${time}</option>`;
-  }, '');
+  const today = new Date();
+  const dayOfWeek = DAYS_OF_WEEK[today.getDay()];
+  const todayAvailableTimes = dataService.weeklyAvailableTimes[dayOfWeek];
+
+  if (todayAvailableTimes.length) {
+    document.getElementById('modal-time').innerHTML = todayAvailableTimes.reduce((acc, time, index) => {
+      return acc + `<option value="${time}" ${index === 0 ? 'selected' : ''}>${time}</option>`;
+    }, '');
+  } else {
+    document.getElementById('modal-time').innerHTML = '<option value="Fechado" selected>Fechado</option>';
+    document.getElementById('modal-time').disabled = true;
+    scheduleBtn.disabled = true;
+    scheduleBtn.title = 'Não há como agendar, barbearia fechada nesse dia';
+  }
 
   modalForm.dataset.serviceId = dataService.id;
   document.getElementById('modal-header').textContent = dataService.name;
   document.getElementById('modal-price').textContent = formatServicePrice(dataService.price);
-  document.getElementById('modal-time').innerHTML = availableTimesOptions;
 
   modalOverlay.classList.add('show');
 }
@@ -245,5 +251,30 @@ async function submitScheduleForm(event) {
       'Erro ao criar agendamento, por favor tente novamente',
       'var(--background-color-error)'
     );
+  }
+}
+
+async function setDayAvailableTimesOptions(event) {
+  event.preventDefault();
+
+  const openModalBtn = document.querySelector('.open-modal-btn');
+  const dataService = JSON.parse(openModalBtn.dataset.service);
+
+  const targetDate = new Date(event.target.value);
+  const targetDayOfWeek = DAYS_OF_WEEK[targetDate.getUTCDay()];
+  const availableTimes = dataService.weeklyAvailableTimes[targetDayOfWeek];
+
+  if (availableTimes.length) {
+    document.getElementById('modal-time').innerHTML = availableTimes.reduce((acc, time, index) => {
+      return acc + `<option value="${time}" ${index === 0 ? 'selected' : ''}>${time}</option>`;
+    }, '');
+    document.getElementById('modal-time').disabled = false;
+    scheduleBtn.disabled = false;
+    scheduleBtn.title = 'Clique para agendar';
+  } else {
+    document.getElementById('modal-time').innerHTML = '<option value="Fechado" selected>Fechado</option>';
+    document.getElementById('modal-time').disabled = true;
+    scheduleBtn.disabled = true;
+    scheduleBtn.title = 'Não há como agendar, barbearia fechada nesse dia';
   }
 }

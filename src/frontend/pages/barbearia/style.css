@@ -292,6 +292,14 @@
   background-color: var(--background-color-03);
 }
 
+.btn-schedule:disabled {
+  cursor: not-allowed;
+}
+
+.btn-schedule:disabled:hover {
+  background-color: var(--background-color-02);
+}
+
 .btn-open-modal,
 .btn-close-modal {
   background-color: var(--background-color-02);

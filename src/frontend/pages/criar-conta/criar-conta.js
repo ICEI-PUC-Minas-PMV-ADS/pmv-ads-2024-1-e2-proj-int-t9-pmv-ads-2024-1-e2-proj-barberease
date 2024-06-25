@@ -82,7 +82,7 @@ async function submitClientForm(event) {
   const lastName = name.split(' ').at(-1) ?? '';
   const email = formData.get('email');
   const password = formData.get('password');
-  const phone = formData.get('phone');
+  const phone = formData.get('telephone');
   const city = document.getElementById('client-city').value;
   const state = document.getElementById('client-state').value;
 
@@ -135,7 +135,7 @@ async function submitBarberForm(event) {
   const ownerLastName = name.split(' ').at(-1) ?? '';
   const email = formData.get('email');
   const password = formData.get('password');
-  const phone = formData.get('phone');
+  const phone = formData.get('telephone');
   const companyName = formData.get('company-name');
   const cnpj = formData.get('cnpj');
   const cep = formData.get('cep');

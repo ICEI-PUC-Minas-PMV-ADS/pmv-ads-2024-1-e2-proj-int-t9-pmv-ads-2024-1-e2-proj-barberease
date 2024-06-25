@@ -131,14 +131,14 @@ function getEstablishmentStatus(periods) {
 
   const todayPeriod = periods.find((p) => p.dayOfWeek === dayOfWeek);
 
-  if (todayPeriod.isClosed) {
+  if (!todayPeriod.isClosed) {
+    const openingTime = parseTimeString(todayPeriod.openingTime);
+    const closingTime = parseTimeString(todayPeriod.closingTime === '00:00' ? '23:59' : todayPeriod.closingTime);
+
+    status = today >= openingTime && today <= closingTime ? 'Aberto' : 'Fechado';
+  } else {
     status = 'Fechado';
   }
-
-  const openingTime = parseTimeString(todayPeriod.openingTime);
-  const closingTime = parseTimeString(todayPeriod.closingTime === '00:00' ? '23:59' : todayPeriod.closingTime);
-
-  status = today >= openingTime && today <= closingTime ? 'Aberto' : 'Fechado';
 
   return {
     status,
@@ -192,7 +192,7 @@ function getTodayDate() {
   return today.toISOString().split('T')[0];
 }
 
-function getAvailableTimes(openingTime, closingTime, timeBetweenServices) {
+function getWeeklyAvailableTimes(establishmentPeriods) {
   function timeStringToMinutes(time) {
     const [hours, minutes] = time.split(':').map(Number);
     return hours * 60 + minutes;
@@ -204,14 +204,25 @@ function getAvailableTimes(openingTime, closingTime, timeBetweenServices) {
     return `${hours}:${mins}`;
   }
 
-  const openingMinutes = timeStringToMinutes(openingTime);
-  const closingMinutes = timeStringToMinutes(closingTime);
-  const serviceInterval = timeStringToMinutes(timeBetweenServices);
-  const availableTimes = [];
+  const weeklyAvailableTimes = {};
 
-  for (let currentTime = openingMinutes; currentTime + serviceInterval <= closingMinutes; currentTime += serviceInterval) {
-    availableTimes.push(minutesToTimeString(currentTime));
-  }
+  establishmentPeriods.forEach((period) => {
+    if (!period.isClosed) {
+      const availableTimes = [];
 
-  return availableTimes;
+      const openingMinutes = timeStringToMinutes(period.openingTime);
+      const closingMinutes = timeStringToMinutes(period.closingTime);
+      const serviceInterval = timeStringToMinutes(period.timeBetweenService);
+
+      for (let currentTime = openingMinutes; currentTime + serviceInterval <= closingMinutes; currentTime += serviceInterval) {
+        availableTimes.push(minutesToTimeString(currentTime));
+      }
+
+      weeklyAvailableTimes[period.dayOfWeek] = availableTimes;
+    } else {
+      weeklyAvailableTimes[period.dayOfWeek] = []
+    }
+  });
+
+  return weeklyAvailableTimes;
 }
